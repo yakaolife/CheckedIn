@@ -14,6 +14,9 @@
 		828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5519EA8076002FE979 /* LaunchScreen.xib */; };
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
 		8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110319F4D6470038A36E /* ListEventsViewController.swift */; };
+		8F5C110A19F4D7630038A36E /* iBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110919F4D7630038A36E /* iBeacon.swift */; };
+		8F5C110C19F4D7720038A36E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110B19F4D7720038A36E /* User.swift */; };
+		8F5C110E19F4D77F0038A36E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110D19F4D77F0038A36E /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		828C6F6119EA8076002FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
 		8F5C110319F4D6470038A36E /* ListEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEventsViewController.swift; sourceTree = "<group>"; };
+		8F5C110919F4D7630038A36E /* iBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iBeacon.swift; sourceTree = "<group>"; };
+		8F5C110B19F4D7720038A36E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F5C110D19F4D77F0038A36E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,9 @@
 		8F5C110619F4D6CD0038A36E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8F5C110919F4D7630038A36E /* iBeacon.swift */,
+				8F5C110B19F4D7720038A36E /* User.swift */,
+				8F5C110D19F4D77F0038A36E /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,7 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
+				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
 				8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */,
+				8F5C110A19F4D7630038A36E /* iBeacon.swift in Sources */,
+				8F5C110E19F4D77F0038A36E /* Event.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
