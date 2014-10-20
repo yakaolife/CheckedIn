@@ -13,8 +13,6 @@
 		828C6F5419EA8076002FE979 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5319EA8076002FE979 /* Images.xcassets */; };
 		828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5519EA8076002FE979 /* LaunchScreen.xib */; };
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
-		8F5C10EA19F4B02F0038A36E /* testbyCindyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */; };
-		8F5C10EB19F4B02F0038A36E /* testbyCindyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */; };
 		8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110319F4D6470038A36E /* ListEventsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +37,6 @@
 		828C6F5C19EA8076002FE979 /* CheckedInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckedInTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828C6F6119EA8076002FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
-		8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testbyCindyViewController.swift; sourceTree = "<group>"; };
-		8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testbyCindyViewController.xib; sourceTree = "<group>"; };
 		8F5C110319F4D6470038A36E /* ListEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,8 +88,6 @@
 				828C6F5319EA8076002FE979 /* Images.xcassets */,
 				828C6F5519EA8076002FE979 /* LaunchScreen.xib */,
 				828C6F4A19EA8076002FE979 /* Supporting Files */,
-				8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */,
-				8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */,
 			);
 			path = CheckedIn;
 			sourceTree = "<group>";
@@ -228,7 +222,6 @@
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
-				8F5C10EB19F4B02F0038A36E /* testbyCindyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +242,6 @@
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
 				8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
-				8F5C10EA19F4B02F0038A36E /* testbyCindyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
