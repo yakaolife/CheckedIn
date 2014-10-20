@@ -15,10 +15,6 @@
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
 		8F5C10EA19F4B02F0038A36E /* testbyCindyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */; };
 		8F5C10EB19F4B02F0038A36E /* testbyCindyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */; };
-		8F5C10ED19F4CC710038A36E /* API in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10EC19F4CC710038A36E /* API */; };
-		8F5C10EF19F4CC8D0038A36E /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10EE19F4CC8D0038A36E /* View Controllers */; };
-		8F5C10F119F4CCA80038A36E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10F019F4CCA80038A36E /* Models */; };
-		8F5C10F319F4CCBC0038A36E /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10F219F4CCBC0038A36E /* UI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +40,6 @@
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
 		8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testbyCindyViewController.swift; sourceTree = "<group>"; };
 		8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testbyCindyViewController.xib; sourceTree = "<group>"; };
-		8F5C10EC19F4CC710038A36E /* API */ = {isa = PBXFileReference; lastKnownFileType = folder; path = API; sourceTree = "<group>"; };
-		8F5C10EE19F4CC8D0038A36E /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
-		8F5C10F019F4CCA80038A36E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		8F5C10F219F4CCBC0038A36E /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +81,6 @@
 		828C6F4919EA8076002FE979 /* CheckedIn */ = {
 			isa = PBXGroup;
 			children = (
-				8F5C10F219F4CCBC0038A36E /* UI */,
-				8F5C10F019F4CCA80038A36E /* Models */,
-				8F5C10EE19F4CC8D0038A36E /* View Controllers */,
-				8F5C10EC19F4CC710038A36E /* API */,
 				828C6F4C19EA8076002FE979 /* AppDelegate.swift */,
 				828C6F4E19EA8076002FE979 /* ViewController.swift */,
 				828C6F5019EA8076002FE979 /* Main.storyboard */,
@@ -210,13 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F5C10F319F4CCBC0038A36E /* UI in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
-				8F5C10ED19F4CC710038A36E /* API in Resources */,
-				8F5C10EF19F4CC8D0038A36E /* View Controllers in Resources */,
-				8F5C10F119F4CCA80038A36E /* Models in Resources */,
 				8F5C10EB19F4B02F0038A36E /* testbyCindyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
