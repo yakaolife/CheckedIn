@@ -15,6 +15,7 @@
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
 		8F5C10EA19F4B02F0038A36E /* testbyCindyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */; };
 		8F5C10EB19F4B02F0038A36E /* testbyCindyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */; };
+		8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110319F4D6470038A36E /* ListEventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
 		8F5C10E819F4B02F0038A36E /* testbyCindyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testbyCindyViewController.swift; sourceTree = "<group>"; };
 		8F5C10E919F4B02F0038A36E /* testbyCindyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testbyCindyViewController.xib; sourceTree = "<group>"; };
+		8F5C110319F4D6470038A36E /* ListEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		828C6F4919EA8076002FE979 /* CheckedIn */ = {
 			isa = PBXGroup;
 			children = (
+				8F5C110219F4D6370038A36E /* View Controllers */,
 				828C6F4C19EA8076002FE979 /* AppDelegate.swift */,
 				828C6F4E19EA8076002FE979 /* ViewController.swift */,
 				828C6F5019EA8076002FE979 /* Main.storyboard */,
@@ -116,6 +119,14 @@
 				828C6F6119EA8076002FE979 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F5C110219F4D6370038A36E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F5C110319F4D6470038A36E /* ListEventsViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
+				8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				8F5C10EA19F4B02F0038A36E /* testbyCindyViewController.swift in Sources */,
 			);
