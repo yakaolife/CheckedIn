@@ -18,6 +18,7 @@
 		8F5C110C19F4D7720038A36E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110B19F4D7720038A36E /* User.swift */; };
 		8F5C110E19F4D77F0038A36E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110D19F4D77F0038A36E /* Event.swift */; };
 		8F5C111019F4D7C80038A36E /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110F19F4D7C80038A36E /* Parse.swift */; };
+		D0729C4D19F62BCD0088FE49 /* AllEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		8F5C110B19F4D7720038A36E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F5C110D19F4D77F0038A36E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8F5C110F19F4D7C80038A36E /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
+		D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllEventViewController.swift; path = ../AllEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		8F5C110219F4D6370038A36E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */,
 				8F5C110319F4D6470038A36E /* ListEventsViewController.swift */,
 			);
 			path = "View Controllers";
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
+				D0729C4D19F62BCD0088FE49 /* AllEventViewController.swift in Sources */,
 				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
 				8F5C110419F4D6470038A36E /* ListEventsViewController.swift in Sources */,
 				8F5C110A19F4D7630038A36E /* iBeacon.swift in Sources */,
