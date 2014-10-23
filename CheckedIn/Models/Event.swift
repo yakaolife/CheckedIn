@@ -6,4 +6,9 @@
 //  Copyright (c) 2014 Group6. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class Event: NSObject {
+    
+    
+}
