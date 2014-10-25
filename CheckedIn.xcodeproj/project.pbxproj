@@ -18,6 +18,7 @@
 		8F5C110C19F4D7720038A36E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110B19F4D7720038A36E /* User.swift */; };
 		8F5C110E19F4D77F0038A36E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110D19F4D77F0038A36E /* Event.swift */; };
 		8F5C111019F4D7C80038A36E /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110F19F4D7C80038A36E /* Parse.swift */; };
+		D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006CCC819FB264400C067BB /* UserProfileViewController.swift */; };
 		D041EDF219F82141005AF45C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041EDF119F82141005AF45C /* EventTableViewCell.swift */; };
 		D0729C4D19F62BCD0088FE49 /* AllEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		8F5C110B19F4D7720038A36E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F5C110D19F4D77F0038A36E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8F5C110F19F4D7C80038A36E /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
+		D006CCC819FB264400C067BB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		D041EDF119F82141005AF45C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllEventViewController.swift; path = ../AllEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 				D0729C4C19F62BCD0088FE49 /* AllEventViewController.swift */,
 				8F5C110319F4D6470038A36E /* ListEventsViewController.swift */,
 				D041EDF119F82141005AF45C /* EventTableViewCell.swift */,
+				D006CCC819FB264400C067BB /* UserProfileViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D041EDF219F82141005AF45C /* EventTableViewCell.swift in Sources */,
+				D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */,
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
 				D0729C4D19F62BCD0088FE49 /* AllEventViewController.swift in Sources */,
 				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
