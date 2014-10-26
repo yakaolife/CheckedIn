@@ -32,6 +32,9 @@
 		D0F5237919FD906400771856 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237819FD906400771856 /* HeaderTableViewCell.swift */; };
 		D0F5237C19FD936100771856 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237A19FD936100771856 /* EventTableViewCell.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
+		D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237E19FDA91200771856 /* CreateEventViewController.swift */; };
+		D0F5238119FDA9FB00771856 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */; };
+		D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		D0F5237819FD906400771856 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D0F5237A19FD936100771856 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		D0F5237B19FD936100771856 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		D0F5237E19FDA91200771856 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCheckedInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,9 @@
 				D0F5237819FD906400771856 /* HeaderTableViewCell.swift */,
 				D0F5237A19FD936100771856 /* EventTableViewCell.swift */,
 				D0F5237B19FD936100771856 /* EventTableViewCell.xib */,
+				D0F5237E19FDA91200771856 /* CreateEventViewController.swift */,
+				D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */,
+				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -374,13 +383,16 @@
 				D037FA3219FCB918002788EE /* SignUpViewController.swift in Sources */,
 				D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */,
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
+				D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */,
 				D0F5237119FD7FCF00771856 /* parseEvent.swift in Sources */,
 				D0F5237C19FD936100771856 /* EventTableViewCell.swift in Sources */,
+				D0F5238119FDA9FB00771856 /* EventDetailViewController.swift in Sources */,
 				D0F5237419FD7FF800771856 /* iBeacon.swift in Sources */,
 				D0F5237219FD7FCF00771856 /* parseUser.swift in Sources */,
 				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
 				8F5C110E19F4D77F0038A36E /* Event.swift in Sources */,
 				D0F5237919FD906400771856 /* HeaderTableViewCell.swift in Sources */,
+				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
 				8F5C111019F4D7C80038A36E /* Parse.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
