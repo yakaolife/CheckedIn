@@ -9,6 +9,6 @@
 import UIKit
 
 class iBeacon: NSObject {
-    
+    //Just implement the iBeacon example
     
 }
