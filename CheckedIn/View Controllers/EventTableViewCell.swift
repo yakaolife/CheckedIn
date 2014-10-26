@@ -2,7 +2,7 @@
 //  EventTableViewCell.swift
 //  CheckedIn
 //
-//  Created by Ya Kao on 10/22/14.
+//  Created by Ya Kao on 10/26/14.
 //  Copyright (c) 2014 Group6. All rights reserved.
 //
 
@@ -10,12 +10,10 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
 
-    //The triangle mark for RSVPed events
-    @IBOutlet weak var statusMarkImage: UIImageView!
-    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventLocationLabel: UILabel!
-    @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +24,5 @@ class EventTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

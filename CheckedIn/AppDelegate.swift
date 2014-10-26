@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var locationManager: CLLocationManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+         Parse.setApplicationId("flC9eMzZehG2eu0TBYUn6JqiIvw0maaJn7FEWOsH", clientKey: "ioAQpL7FN7aNagtmxhWCc0xdqJOuofhMdHF0Ftvb")
         
+        //Set up UI
         customizeUI()
-
+        
         return true
     }
     
@@ -61,5 +65,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate: CLLocationManagerDelegate{
+        func sendLocalNotificationWithMessage(message: String!) {
+            let notification:UILocalNotification = UILocalNotification()
+            notification.alertBody = message
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+        
+        func locationManager(manager: CLLocationManager!,
+            didRangeBeacons beacons: [AnyObject]!,
+            inRegion region: CLBeaconRegion!) {
+                NSLog("didRangeBeacons");
+                var message:String = ""
+                
+                if(beacons.count > 0) {
+                    let nearestBeacon:CLBeacon = beacons[0] as CLBeacon
+                    
+                    switch nearestBeacon.proximity {
+                    case CLProximity.Far:
+                        message = "You are far away from the beacon"
+                    case CLProximity.Near:
+                        message = "You are near the beacon"
+                    case CLProximity.Immediate:
+                        message = "You are in the immediate proximity of the beacon"
+                    case CLProximity.Unknown:
+                        return
+                    }
+                } else {
+                    message = "No beacons are nearby"
+                }
+                
+                println("\(message)")
+                sendLocalNotificationWithMessage(message)
+        }
+    
 }
 
