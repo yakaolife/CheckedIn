@@ -42,6 +42,7 @@
             <constraints>
                 <constraint firstItem="hJb-JP-9w5" firstAttribute="leading" secondItem="6Hq-T6-Ojd" secondAttribute="trailing" constant="8" symbolic="YES" id="1Wv-rc-YBW"/>
                 <constraint firstItem="Xhg-fq-w54" firstAttribute="leading" secondItem="6Hq-T6-Ojd" secondAttribute="trailing" constant="8" symbolic="YES" id="gBS-Fc-CBx"/>
+                <constraint firstAttribute="bottom" secondItem="6Hq-T6-Ojd" secondAttribute="bottom" constant="28" id="jPL-p6-OsG"/>
                 <constraint firstItem="6Hq-T6-Ojd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="kJg-nL-tYz"/>
                 <constraint firstItem="hJb-JP-9w5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="sEE-dQ-PzZ"/>
                 <constraint firstItem="Zzf-A8-wDt" firstAttribute="leading" secondItem="6Hq-T6-Ojd" secondAttribute="trailing" constant="8" symbolic="YES" id="tRB-nh-Pqa"/>

@@ -22,6 +22,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
+        tableView.registerNib(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "Section")
 
         self.title = "Home"
         
@@ -35,26 +36,46 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //temp
-        return 10
+        if(section == 0){
+            return 1 //Header
+        }else{
+            return 10
+        }
     }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        var header = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
+        var header = tableView.dequeueReusableCellWithIdentifier("Section") as SectionTableViewCell
         var headerView = UIView(frame: CGRect(x: 0, y: 0, width: header.contentView.frame.width, height: header.contentView.frame.height))
         
         
         headerView.addSubview(header)
-
+        
         return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 170
+        if(section == 0){
+                return 0
+        }else{
+            return 44
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
+        var cell = UITableViewCell()
+        if(indexPath.row == 0 && indexPath.section == 0){
+            //load the profile view instead
+            println("Loading header")
+            cell = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
+        }else{
+            cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
+        }
         
         return cell
     }

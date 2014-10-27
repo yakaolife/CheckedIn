@@ -28,6 +28,8 @@
 		D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */; };
 		D074DB5219FDF8160038A3F2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5119FDF8160038A3F2 /* header.png */; };
 		D074DB5419FDF9B60038A3F2 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */; };
+		D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */; };
+		D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
 		D0F5237119FD7FCF00771856 /* parseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236F19FD7FCF00771856 /* parseEvent.swift */; };
 		D0F5237219FD7FCF00771856 /* parseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237019FD7FCF00771856 /* parseUser.swift */; };
@@ -77,6 +79,8 @@
 		D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeader.xib; sourceTree = "<group>"; };
 		D074DB5119FDF8160038A3F2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Images.xcassets/header.png; sourceTree = "<group>"; };
 		D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
+		D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F5236F19FD7FCF00771856 /* parseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parseEvent.swift; path = ../../../CindyCheck/parseOperation/parseEvent.swift; sourceTree = "<group>"; };
 		D0F5237019FD7FCF00771856 /* parseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parseUser.swift; path = ../../../CindyCheck/parseOperation/parseUser.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
 				D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */,
 				D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */,
+				D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */,
+				D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D037FA4019FCCCA4002788EE /* Icon-120.png in Resources */,
+				D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */,
 				D037FA3E19FCCC86002788EE /* Icon-80.png in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
@@ -398,6 +405,7 @@
 				D0F5237419FD7FF800771856 /* iBeacon.swift in Sources */,
 				D0F5237219FD7FCF00771856 /* parseUser.swift in Sources */,
 				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
+				D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */,
 				8F5C110E19F4D77F0038A36E /* Event.swift in Sources */,
 				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
 				8F5C111019F4D7C80038A36E /* Parse.swift in Sources */,

@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Regular buttons background R:63 G:195 B:168
         UIButton.appearance().tintColor = UIColor.whiteColor()
         UIButton.appearance().backgroundColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
+        
+        UISegmentedControl.appearance().tintColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
 
         
     }
