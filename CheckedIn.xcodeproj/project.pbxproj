@@ -25,14 +25,14 @@
 		D037FA3C19FCCC43002788EE /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = D037FA3B19FCCC43002788EE /* Icon-58.png */; };
 		D037FA3E19FCCC86002788EE /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = D037FA3D19FCCC86002788EE /* Icon-80.png */; };
 		D037FA4019FCCCA4002788EE /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = D037FA3F19FCCCA4002788EE /* Icon-120.png */; };
+		D038079019FE0BF00066575E /* parseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D038078E19FE0BF00066575E /* parseEvent.swift */; };
+		D038079119FE0BF00066575E /* parseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D038078F19FE0BF00066575E /* parseUser.swift */; };
 		D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */; };
 		D074DB5219FDF8160038A3F2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5119FDF8160038A3F2 /* header.png */; };
 		D074DB5419FDF9B60038A3F2 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */; };
 		D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */; };
 		D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
-		D0F5237119FD7FCF00771856 /* parseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236F19FD7FCF00771856 /* parseEvent.swift */; };
-		D0F5237219FD7FCF00771856 /* parseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237019FD7FCF00771856 /* parseUser.swift */; };
 		D0F5237419FD7FF800771856 /* iBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237319FD7FF800771856 /* iBeacon.swift */; };
 		D0F5237C19FD936100771856 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237A19FD936100771856 /* EventTableViewCell.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
@@ -76,14 +76,14 @@
 		D037FA3B19FCCC43002788EE /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-58.png"; path = "../../CheckedIn-me/icon/ios/Icon-58.png"; sourceTree = "<group>"; };
 		D037FA3D19FCCC86002788EE /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-80.png"; path = "../../CheckedIn-me/icon/ios/Icon-80.png"; sourceTree = "<group>"; };
 		D037FA3F19FCCCA4002788EE /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "../../CheckedIn-me/icon/ios/Icon-120.png"; sourceTree = "<group>"; };
+		D038078E19FE0BF00066575E /* parseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseEvent.swift; sourceTree = "<group>"; };
+		D038078F19FE0BF00066575E /* parseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseUser.swift; sourceTree = "<group>"; };
 		D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeader.xib; sourceTree = "<group>"; };
 		D074DB5119FDF8160038A3F2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Images.xcassets/header.png; sourceTree = "<group>"; };
 		D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D0F5236F19FD7FCF00771856 /* parseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parseEvent.swift; path = ../../../CindyCheck/parseOperation/parseEvent.swift; sourceTree = "<group>"; };
-		D0F5237019FD7FCF00771856 /* parseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parseUser.swift; path = ../../../CindyCheck/parseOperation/parseUser.swift; sourceTree = "<group>"; };
 		D0F5237319FD7FF800771856 /* iBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iBeacon.swift; path = ../../../CindyCheck/parseOperation/iBeacon.swift; sourceTree = "<group>"; };
 		D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckedIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0F5237A19FD936100771856 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -207,9 +207,9 @@
 		8F5C110619F4D6CD0038A36E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D038078E19FE0BF00066575E /* parseEvent.swift */,
+				D038078F19FE0BF00066575E /* parseUser.swift */,
 				D0F5237319FD7FF800771856 /* iBeacon.swift */,
-				D0F5236F19FD7FCF00771856 /* parseEvent.swift */,
-				D0F5237019FD7FCF00771856 /* parseUser.swift */,
 				8F5C110B19F4D7720038A36E /* User.swift */,
 				8F5C110D19F4D77F0038A36E /* Event.swift */,
 			);
@@ -399,12 +399,12 @@
 				D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */,
 				828C6F4F19EA8076002FE979 /* ViewController.swift in Sources */,
 				D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */,
-				D0F5237119FD7FCF00771856 /* parseEvent.swift in Sources */,
 				D0F5237C19FD936100771856 /* EventTableViewCell.swift in Sources */,
 				D0F5238119FDA9FB00771856 /* EventDetailViewController.swift in Sources */,
 				D0F5237419FD7FF800771856 /* iBeacon.swift in Sources */,
-				D0F5237219FD7FCF00771856 /* parseUser.swift in Sources */,
+				D038079119FE0BF00066575E /* parseUser.swift in Sources */,
 				8F5C110C19F4D7720038A36E /* User.swift in Sources */,
+				D038079019FE0BF00066575E /* parseEvent.swift in Sources */,
 				D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */,
 				8F5C110E19F4D77F0038A36E /* Event.swift in Sources */,
 				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
