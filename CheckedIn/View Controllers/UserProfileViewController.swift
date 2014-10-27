@@ -21,6 +21,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         
         
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
+        tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
+
+        self.title = "Home"
         
 
     }
@@ -36,14 +39,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
-        var cellView = UIView()
 
-        cellView.addSubview(header)
-        cellView.frame.size.width = tableView.frame.size.width
-        //set all the stuff for header display
-        println("Getting Header!")
-        return cellView
+        var header = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
+        var headerView = UIView(frame: CGRect(x: 0, y: 0, width: header.contentView.frame.width, height: header.contentView.frame.height))
+        
+        
+        headerView.addSubview(header)
+
+        return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
