@@ -5,12 +5,11 @@
 //  Created by Ya Kao on 10/24/14.
 //  Copyright (c) 2014 Group6. All rights reserved.
 //
-
-
 import UIKit
 
 class UserProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
     var events:NSArray?
+    var allMyEvents:NSArray?
     var selectedIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,7 +26,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
        // tableView.registerNib(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "Section")
         self.title = "Home"
     }
-
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.allMyEvents = nil
+        self.events = nil
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,15 +50,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-//        var header = tableView.dequeueReusableCellWithIdentifier("Section") as SectionTableViewCell
-//        var headerView = UIView(frame: CGRect(x: 0, y: 0, width: header.contentView.frame.width, height: header.contentView.frame.height))
- 
-//        headerView.addSubview(header)
-//        
-//        return headerView
-        
-        var itemArray = ["Rsvped events", "All events" , "CheckedIn events"]
+      var itemArray = ["Rsvped events", "All events" , "CheckedIn events"]
         
         var headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 35))
         
@@ -79,7 +74,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     func showCheckedInEvents() {
         fetchCheckedInEvents()
-        
     }
     
     func fetchCheckedInEvents(){
@@ -102,11 +96,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 println("error retrieving rsvped events")
             } else {
                 self.events = objects
-                 self.tableView.reloadData()
+                self.allMyEvents = objects
+                self.tableView.reloadData()
             }
         }
     }
-    
+
+ 
+
     func fetchAllEvents(){
         var query = ParseEvent.query() as PFQuery
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -120,9 +117,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             }
         }
     }
+
+    
     func selectedEvents (sender:UISegmentedControl) {
         self.events = nil
-        println("\n[ ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
         switch sender.selectedSegmentIndex {
         case 0 :
             println("0")
@@ -142,7 +140,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         default:
             println ("default")
         }
-        
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(section == 0){
@@ -159,6 +156,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             println("Loading header ..  ")
     
             var cell = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
+            cell.usernameLabel.text = ParseUser.currentUser().username
+            cell.displaynameLabel.text = ParseUser.currentUser().screenName
+            cell.locationLabel.text = ParseUser.currentUser().zipcode
             return cell
         }else{
             var cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
@@ -166,16 +166,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             cell.eventTitleLabel.text = event.EventName!
             cell.locationLabel.text = "\(event.cityName!), \(event.state!)"
             cell.timeLabel.text = "\(event.eventDate!)"
+            
+            if isAlreadyRSVPed(event.EventName!) {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
+            
+            
             return cell
          }
-        
-        
-//        var cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as UITableViewCell
-//        var event = events?[indexPath.row] as parseEvent
-//        cell.textLabel.text = event.EventName
-//        cell.detailTextLabel?.text = event.tagLine
-//        return cell
-    
     }
     
     //Swipe cell functions
@@ -197,11 +197,19 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
         
         return [RSVPAction, cancelAction]
-        
     }
-    
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         
+    }
+
+    func isAlreadyRSVPed(eventName:String) -> Bool {
+        var temp = false
+        for each in self.allMyEvents! {
+            if each["EventName"]! as String == eventName {
+                temp = true
+            }
+        }
+        return temp
     }
 
 
