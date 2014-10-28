@@ -26,6 +26,10 @@ class ParseEvent: PFObject,PFSubclassing {
         get {return objectForKey("EventName") as String? }
         set {setObject(newValue, forKey: "EventName") }
     }
+    var streetAddress:String? {
+        get {return objectForKey("streetAddress") as String?}
+        set {setObject(newValue, forKey: "streetAddress")}
+    }
     var cityName:String? {
         get {return objectForKey("cityName") as String?}
         set {setObject(newValue, forKey: "cityName")}
@@ -42,11 +46,18 @@ class ParseEvent: PFObject,PFSubclassing {
         get {return objectForKey("rsvpMax") as NSNumber?}
         set {setObject(newValue, forKey: "rsvpMax")}
     }
+    var rsvpCount:NSNumber? {
+        get {return objectForKey("rsvpCount") as NSNumber?}
+        set {setObject(newValue, forKey: "rsvpCount")}
+    }
     var eventDate:NSDate? {
         get {return objectForKey("EventDate") as NSDate?}
         set {setObject(newValue, forKey: "EventDate")}
     }
-    
+    var eventProfileImage:PFFile?  {
+        get {return objectForKey("eventProfileImage") as? PFFile}
+        set {setObject(newValue, forKey: "eventProfileImage")}
+    }
     
     
     
