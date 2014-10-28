@@ -12,27 +12,22 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     var allMyEvents:NSArray?
     var selectedIndex = 0
     var selectedEventObjectId:String!
-    
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: UI related
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
         fetchRsvpedEvents(nil)
-        
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
        // tableView.registerNib(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "Section")
         self.title = "Home"
-        
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
-        
     }
     func refresh( refreshControl : UIRefreshControl)
     {
@@ -66,22 +61,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         case 0 :
             self.selectedIndex = 0
             showMyEvents()
-            
         case 1:
             self.selectedIndex = 1
             showAllEvents()
-            
         case 2 :
             self.selectedIndex = 2
             showCheckedInEvents()
-            
         default:
             println ("default")
         }
     }
-    
-   
-    
     
     //MARK: tableview Data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,27 +82,21 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             return events?.count ?? 0
         }
     }
-
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
     //MARK: tableview delegate
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-      var itemArray = ["RSVP events", "All events" , "CheckedIn events"]
-        
-        var headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 35))
-        
-        var control = UISegmentedControl(items: itemArray)
-        control.frame = headerView.frame
-        control.selectedSegmentIndex = self.selectedIndex
-        control.enabled = true
-        control.addTarget(self, action: "selectedEvents:", forControlEvents: UIControlEvents.ValueChanged)
-        
-        headerView.addSubview(control)
-        return headerView
-        
+        func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            var itemArray = ["RSVP events", "All events" , "CheckedIn events"]
+            var headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 35))
+            var control = UISegmentedControl(items: itemArray)
+            control.frame = headerView.frame
+            control.selectedSegmentIndex = self.selectedIndex
+            control.enabled = true
+            control.addTarget(self, action: "selectedEvents:", forControlEvents: UIControlEvents.ValueChanged)
+            headerView.addSubview(control)
+            return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -122,14 +105,12 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }else{
             return 44
         }
-    }
-    
+    }    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // var cell = UITableViewCell()
         if(indexPath.row == 0 && indexPath.section == 0){
             //load the profile view instead
             //println("Loading header ..  ")
-            
             var cell = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
             cell.usernameLabel.text = ParseUser.currentUser().username
             cell.displaynameLabel.text = ParseUser.currentUser().screenName
@@ -141,13 +122,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             cell.eventTitleLabel.text = event.EventName!
             cell.locationLabel.text = "\(event.cityName!), \(event.state!)"
             cell.timeLabel.text = "\(event.eventDate!)"
-            
             if isAlreadyRSVPed(event.objectId!) {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             } else {
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
-            
             cell.profileImage.image = nil
             let eventImage = event.eventProfileImage
             eventImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error: NSError!) -> Void in
@@ -169,7 +148,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             return nil
         }
         let event =  events?[indexPath.row] as ParseEvent
-        
         if isAlreadyRSVPed(event.objectId) {
             var RSVPAction = UITableViewRowAction(style: .Normal, title: "Remove RSVP") { (action, indexPath) -> Void in
                 self.tableView.editing = false
@@ -178,16 +156,13 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 self.events = nil
                 self.allMyEvents = nil
                 self.unRsvpEvent(event.objectId)
-                
             }
             RSVPAction.backgroundColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
-            
             var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
                 self.tableView.editing = false
                 println("Cacnel")
             }
             cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
-            
             return [RSVPAction, cancelAction]
         } else {
             var RSVPAction = UITableViewRowAction(style: .Normal, title: "RSVP") { (action, indexPath) -> Void in
@@ -197,20 +172,15 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 self.events = nil
                 self.allMyEvents = nil
                 self.rsvpEvent(event.objectId)
-                
             }
             RSVPAction.backgroundColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
-            
             var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
                 self.tableView.editing = false
                 println("Cacnel")
             }
             cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
-            
             return [RSVPAction, cancelAction]
         }
-        
-        
     }
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         
@@ -258,9 +228,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                     //fetch after rsvp action
                     self.allMyEvents = objects
                     self.fetchAllEvents()
-                    
                 }
-                
             }
         }
     }
@@ -320,8 +288,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
     }
     
-    
-    
     func isAlreadyRSVPed(objectId :String) -> Bool {
         var state = false
         var each : ParseEvent?
@@ -334,5 +300,4 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         return state
     }
-
 }

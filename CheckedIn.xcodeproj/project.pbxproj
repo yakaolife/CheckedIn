@@ -13,6 +13,7 @@
 		828C6F5419EA8076002FE979 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5319EA8076002FE979 /* Images.xcassets */; };
 		828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5519EA8076002FE979 /* LaunchScreen.xib */; };
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
+		8F252EC219FF7577007EB416 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */; };
 		8F5C111019F4D7C80038A36E /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110F19F4D7C80038A36E /* Parse.swift */; };
 		8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */; };
 		8F79767419FF6B0200AB4CB8 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767319FF6B0200AB4CB8 /* ParseUser.swift */; };
@@ -30,7 +31,6 @@
 		D038079919FE0CD80066575E /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = D038079619FE0CD80066575E /* Icon-120.png */; };
 		D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */; };
 		D074DB5219FDF8160038A3F2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5119FDF8160038A3F2 /* header.png */; };
-		D074DB5419FDF9B60038A3F2 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */; };
 		D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */; };
 		D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
@@ -63,6 +63,7 @@
 		828C6F5C19EA8076002FE979 /* CheckedInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckedInTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828C6F6119EA8076002FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
+		8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		8F5C110F19F4D7C80038A36E /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseEvent.swift; sourceTree = "<group>"; };
 		8F79767319FF6B0200AB4CB8 /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		D038079619FE0CD80066575E /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "Images.xcassets/Icon-120.png"; sourceTree = "<group>"; };
 		D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeader.xib; sourceTree = "<group>"; };
 		D074DB5119FDF8160038A3F2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Images.xcassets/header.png; sourceTree = "<group>"; };
-		D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 				D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */,
 				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
 				D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */,
-				D074DB5319FDF9B60038A3F2 /* HeaderTableViewCell.swift */,
+				8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */,
 				D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */,
 				D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */,
 				8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */,
@@ -392,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F252EC219FF7577007EB416 /* HeaderTableViewCell.swift in Sources */,
 				D037FA3219FCB918002788EE /* SignUpViewController.swift in Sources */,
 				8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */,
 				D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */,
@@ -405,7 +406,6 @@
 				8F5C111019F4D7C80038A36E /* Parse.swift in Sources */,
 				D038079319FE0CA20066575E /* iBeacon.swift in Sources */,
 				8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */,
-				D074DB5419FDF9B60038A3F2 /* HeaderTableViewCell.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
 			);
