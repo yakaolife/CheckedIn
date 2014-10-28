@@ -55,7 +55,7 @@ class ParseEvent: PFObject,PFSubclassing {
         set {setObject(newValue, forKey: "EventDate")}
     }
     var eventProfileImage:PFFile?  {
-        get {return objectForKey("eventProfileImage") as? PFFile}
+        get {return objectForKey("eventProfileImg") as? PFFile}
         set {setObject(newValue, forKey: "eventProfileImage")}
     }
     
