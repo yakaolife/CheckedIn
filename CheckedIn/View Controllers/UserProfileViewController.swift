@@ -217,6 +217,15 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
             
+            let eventImage = event.eventProfileImage
+            eventImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error: NSError!) -> Void in
+                
+                if error == nil {
+                 
+                    
+                }
+            })
+//
             
             return cell
          }

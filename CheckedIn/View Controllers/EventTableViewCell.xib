@@ -61,7 +61,7 @@
                 <outlet property="profileImage" destination="VFz-vo-i19" id="PZb-75-RnM"/>
                 <outlet property="timeLabel" destination="qcz-gx-oTV" id="53s-a5-69u"/>
             </connections>
-            <point key="canvasLocation" x="308" y="229.5"/>
+            <point key="canvasLocation" x="636" y="252.5"/>
         </tableViewCell>
     </objects>
 </document>
