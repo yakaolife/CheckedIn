@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>79A29634-0559-4534-A198-FF6F5190F845</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CheckedIn</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>78E7A5AAF1A53B638129D29AC24524D9213BBAAB</key>
+		<string>https://github.com/ishmeets/CheckedIn.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CheckedIn.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>78E7A5AAF1A53B638129D29AC24524D9213BBAAB</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ishmeets/CheckedIn.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78E7A5AAF1A53B638129D29AC24524D9213BBAAB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78E7A5AAF1A53B638129D29AC24524D9213BBAAB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CheckedIn</string>
+		</dict>
+	</array>
+</dict>
+</plist>

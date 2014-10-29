@@ -138,6 +138,19 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("ShowDetailSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "ShowDetailSegue"){
+            println("Going to Event Detail Page")
+            //TODO: need to somehow get the event from didSelectRowAtIndexPath, then pass into the next viewcontroller
+            //var detail = segue.destinationViewController as EventDetailViewController
+            
+        }
+    }
+    
     //Swipe cell functions
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
