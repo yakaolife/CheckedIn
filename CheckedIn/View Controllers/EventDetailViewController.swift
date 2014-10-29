@@ -45,6 +45,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
+            println("First header section height is set to 0")
             return 0 //Header
         }else{
             return 20
