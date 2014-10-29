@@ -21,6 +21,7 @@
 		8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */; };
 		9356A202CB027A3953679D15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB3FB137615D915D37781E3 /* libPods.a */; };
 		D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006CCC819FB264400C067BB /* UserProfileViewController.swift */; };
+		D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */ = {isa = PBXBuildFile; fileRef = D030FB311A00B02C003F0384 /* rsvpedMark.png */; };
 		D037FA2E19FCAF6D002788EE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037FA2D19FCAF6D002788EE /* CoreLocation.framework */; };
 		D037FA3219FCB918002788EE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037FA3119FCB918002788EE /* SignUpViewController.swift */; };
 		D037FA3919FCC37E002788EE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D037FA3719FCC37E002788EE /* Default.png */; };
@@ -37,8 +38,6 @@
 		D0661DEB1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */; };
 		D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */; };
 		D074DB5219FDF8160038A3F2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5119FDF8160038A3F2 /* header.png */; };
-		D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */; };
-		D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
 		D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237E19FDA91200771856 /* CreateEventViewController.swift */; };
@@ -77,6 +76,7 @@
 		8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionCell.swift; path = "View Controllers/SectionCell.swift"; sourceTree = "<group>"; };
 		9DCEE7B702F45ED20D3EDB25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D006CCC819FB264400C067BB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		D030FB311A00B02C003F0384 /* rsvpedMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpedMark.png; path = Images.xcassets/rsvpedMark.png; sourceTree = "<group>"; };
 		D037FA2D19FCAF6D002788EE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D037FA3119FCB918002788EE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D037FA3719FCC37E002788EE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images.xcassets/Default.png; sourceTree = "<group>"; };
@@ -93,8 +93,6 @@
 		D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventWelcomeHeaderTableViewCell.swift; path = "View Controllers/EventWelcomeHeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeader.xib; path = "View Controllers/TableHeader.xib"; sourceTree = "<group>"; };
 		D074DB5119FDF8160038A3F2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Images.xcassets/header.png; sourceTree = "<group>"; };
-		D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionTableViewCell.swift; path = "View Controllers/SectionTableViewCell.swift"; sourceTree = "<group>"; };
-		D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionTableViewCell.xib; path = "View Controllers/SectionTableViewCell.xib"; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckedIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0F5237B19FD936100771856 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewCell.xib; path = "View Controllers/EventTableViewCell.xib"; sourceTree = "<group>"; };
@@ -230,6 +228,7 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D030FB311A00B02C003F0384 /* rsvpedMark.png */,
 				D0661DE81A00A7450060B8D0 /* roundedDialog.png */,
 				D0661DE61A00A6060060B8D0 /* welcomeMessage.png */,
 				D0661DE21A009B450060B8D0 /* testProfileIcon.png */,
@@ -252,8 +251,6 @@
 				8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */,
 				D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */,
 				8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */,
-				D074DB5519FE05C40038A3F2 /* SectionTableViewCell.swift */,
-				D074DB5619FE05C40038A3F2 /* SectionTableViewCell.xib */,
 				8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */,
 				D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */,
 			);
@@ -356,7 +353,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D074DB5819FE05C40038A3F2 /* SectionTableViewCell.xib in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
@@ -369,6 +365,7 @@
 				D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */,
 				D037FA3919FCC37E002788EE /* Default.png in Resources */,
 				D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */,
+				D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */,
 				D038079719FE0CD80066575E /* Icon-58.png in Resources */,
 				D0661DE71A00A6060060B8D0 /* welcomeMessage.png in Resources */,
 				D038079819FE0CD80066575E /* Icon-80.png in Resources */,
@@ -431,7 +428,6 @@
 				8F79767419FF6B0200AB4CB8 /* ParseUser.swift in Sources */,
 				D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */,
 				D0F5238119FDA9FB00771856 /* EventDetailViewController.swift in Sources */,
-				D074DB5719FE05C40038A3F2 /* SectionTableViewCell.swift in Sources */,
 				8F79767619FF6D1200AB4CB8 /* EventTableViewCell.swift in Sources */,
 				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
 				8F5C111019F4D7C80038A36E /* Parse.swift in Sources */,

@@ -23,7 +23,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         fetchRsvpedEvents(nil)
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
-       // tableView.registerNib(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "Section")
+
         self.title = "Home"
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -123,8 +123,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             cell.locationLabel.text = "\(event.cityName!), \(event.state!)"
             cell.timeLabel.text = "\(event.eventDate!)"
             if isAlreadyRSVPed(event.objectId!) {
-                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                cell.rsvpMarkImage.hidden = false
+                //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             } else {
+                cell.rsvpMarkImage.hidden = true
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
             cell.profileImage.image = nil
