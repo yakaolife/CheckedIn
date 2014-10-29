@@ -18,6 +18,8 @@ class HeaderTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.profileImage.layer.cornerRadius = 5.0
+        self.profileImage.clipsToBounds = true
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

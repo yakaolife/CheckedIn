@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -13,7 +13,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ey6-yW-n3J">
                     <rect key="frame" x="-4" y="0.0" width="527" height="157"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-T6-Ojd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testProfileIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-T6-Ojd">
                     <rect key="frame" x="32" y="29" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="ji2-Ez-mVk"/>
@@ -62,5 +62,6 @@
     </objects>
     <resources>
         <image name="header.png" width="700" height="150"/>
+        <image name="testProfileIcon.png" width="100" height="100"/>
     </resources>
 </document>

@@ -8,10 +8,20 @@
 
 import UIKit
 
-class EventCheckedInViewController: UIViewController {
+class EventCheckedInViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var sectionInfo = ["Welcome", "Schedule","Map"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 96
+
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +31,29 @@ class EventCheckedInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sectionInfo.count
     }
-    */
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.row{
+        case 0:
+            var cell = tableView.dequeueReusableCellWithIdentifier("WelcomeCell") as EventWelcomeHeaderTableViewCell
+            return cell
+        case 1:
+            var cell = tableView.dequeueReusableCellWithIdentifier("Schedule") as UITableViewCell
+            return cell
+        case 2:
+            var cell = tableView.dequeueReusableCellWithIdentifier("Map") as UITableViewCell
+            return cell
+        default:
+            var cell = UITableViewCell()
+            return cell
+        }
+
+    }
 
 }
