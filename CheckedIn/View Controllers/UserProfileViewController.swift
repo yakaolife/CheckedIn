@@ -20,7 +20,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        fetchRsvpedEvents(nil)
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
 
@@ -28,6 +27,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchRsvpedEvents(nil)
+
     }
     func refresh( refreshControl : UIRefreshControl)
     {
@@ -115,6 +119,18 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             cell.usernameLabel.text = ParseUser.currentUser().username
             cell.displaynameLabel.text = ParseUser.currentUser().screenName
             cell.locationLabel.text = ParseUser.currentUser().zipcode
+            
+            cell.profileImage.image = nil
+            let user  = PFUser.currentUser() as ParseUser
+            let img = user.userImage
+            
+            img?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
+                if imageData != nil {
+                    cell.profileImage.image = UIImage(data: imageData)
+                }
+            })
+            
+            
             return cell
         } else {
             var cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
