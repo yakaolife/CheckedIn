@@ -376,6 +376,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="CGq-9K-i7H" id="ik4-17-Yp7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngl-vv-LGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

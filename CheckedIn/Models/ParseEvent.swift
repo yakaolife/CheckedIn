@@ -38,6 +38,10 @@ class ParseEvent: PFObject,PFSubclassing {
         get {return objectForKey("State") as String?}
         set {setObject(newValue, forKey: "State")}
     }
+    var zipCode:String? {
+        get {return objectForKey("zipCode") as String?}
+        set {setObject(newValue, forKey: "zipCode")}
+    }
     var tagLine:String? {
         get {return objectForKey("tagLine") as String?}
         set {setObject(newValue, forKey: "tagLine")}
@@ -63,6 +67,10 @@ class ParseEvent: PFObject,PFSubclassing {
         set {setObject(newValue, forKey: "eventProfileImage")}
     }
     
-    
+    var fullAddress: String? {
+        get {
+            return self.streetAddress! + "," + self.cityName! + "," + self.state! + " " + self.zipCode!
+        }
+    }
     
 }

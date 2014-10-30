@@ -9,31 +9,79 @@
 import UIKit
 import MapKit
 
-class MapViewViewController: UIViewController {
-
+class MapViewViewController: UIViewController , MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    var events:[ParseEvent]?
+    var geoLocations: [CLLocation]?
+    var annotations: Array<MKPointAnnotation>!
+    var center: CLLocationCoordinate2D!
+    
     @IBAction func onCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true , completion: nil	)
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.mapView.delegate = self
+        fetechAllEvents()
+        let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
+        //self.mapView.centerCoordinate = myLocation.coordinate
+        //self.mapView.selectAnnotation(pointAnnotation, animated: true)
+        let center = myLocation.coordinate
+        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let region = MKCoordinateRegion(center: center, span: self.mapView.region.span)
+        self.mapView.setRegion(region, animated: true )
+        self.mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: false)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fetechAllEvents(){
+        var events = ParseEvent.query() as PFQuery
+        events.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            self.events = objects as? Array
+            for obj in objects {
+                var event = obj as ParseEvent
+                self.addAnotation(event)
+            }
+        }
     }
-    */
 
+    
+
+    func addAnotation(event:ParseEvent) {
+        var geoLocation:CLLocation?
+        var geocoder:CLGeocoder = CLGeocoder()
+        geocoder.geocodeAddressString(event.fullAddress, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+            if error != nil {
+                println("geolocation Error", error)
+            }
+            else {
+                if let placemark = placemarks?[0] as? CLPlacemark {
+                    var placemark:CLPlacemark = placemarks[0] as CLPlacemark
+                    let lat = placemark.location.coordinate.latitude
+                    let long = placemark.location.coordinate.longitude
+                    let pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                    pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    pointAnnotation.title = event.EventName
+                    self.mapView.addAnnotation(pointAnnotation)
+                }
+            }
+        })
+    }
+
+
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            view!.canShowCallout = true
+            view!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+        }
+        return view
+    }
 }
