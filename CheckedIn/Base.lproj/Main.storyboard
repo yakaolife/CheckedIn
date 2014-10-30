@@ -207,7 +207,13 @@
                             <constraint firstAttribute="trailing" secondItem="Lf0-lE-TK6" secondAttribute="trailing" id="val-no-iJ2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fy6-gf-W55"/>
+                    <navigationItem key="navigationItem" id="fy6-gf-W55">
+                        <barButtonItem key="rightBarButtonItem" title="map view" id="BWL-ny-bMe">
+                            <connections>
+                                <segue destination="snc-8o-M3s" kind="presentation" identifier="toMapView" modalTransitionStyle="flipHorizontal" id="e3F-Xz-Ozm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Lf0-lE-TK6" id="7w0-Zb-gNR"/>
                         <segue destination="IRR-gE-UQj" kind="show" identifier="ShowDetailSegue" id="fI4-7S-BY4"/>
@@ -345,6 +351,36 @@
             </objects>
             <point key="canvasLocation" x="1528" y="2092"/>
         </scene>
+        <!--Map View View Controller-->
+        <scene sceneID="D5O-Wu-9pa">
+            <objects>
+                <viewController id="snc-8o-M3s" customClass="MapViewViewController" customModule="CheckedIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5HS-gm-X7j"/>
+                        <viewControllerLayoutGuide type="bottom" id="io3-yC-sQS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OIz-8D-3LF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="map view later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxD-5w-xeQ">
+                                <rect key="frame" x="244" y="290" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="SxD-5w-xeQ" secondAttribute="centerX" id="Jkt-qP-XPh"/>
+                            <constraint firstAttribute="centerY" secondItem="SxD-5w-xeQ" secondAttribute="centerY" id="obt-tK-fJI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngl-vv-LGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3740" y="680"/>
+        </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="2B6-kj-kJG">
             <objects>
@@ -481,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3744" y="742"/>
+            <point key="canvasLocation" x="3680" y="1286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4a-Di-LIO">

@@ -167,13 +167,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "ShowDetailSegue"){
             println("Going to Event Detail Page")
-            //TODO: need to somehow get the event from didSelectRowAtIndexPath, then pass into the next viewcontroller
-            //var detail = segue.destinationViewController as EventDetailViewController
+           
             if segue.destinationViewController.isKindOfClass(EventDetailViewController){
                 let vc = segue.destinationViewController as EventDetailViewController
                 vc.eventNameAndRsvped = sender as NSDictionary?
                 
             }
+        } else if segue.identifier == "toMapView" {
+            
         }
     }
     
