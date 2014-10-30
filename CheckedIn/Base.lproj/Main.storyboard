@@ -210,7 +210,7 @@
                     <navigationItem key="navigationItem" id="fy6-gf-W55">
                         <barButtonItem key="rightBarButtonItem" title="map view" id="BWL-ny-bMe">
                             <connections>
-                                <segue destination="snc-8o-M3s" kind="presentation" identifier="toMapView" modalTransitionStyle="flipHorizontal" id="e3F-Xz-Ozm"/>
+                                <segue destination="Tq1-8t-uOk" kind="presentation" identifier="toMapView" modalTransitionStyle="flipHorizontal" id="e3F-Xz-Ozm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvO-5Z-G2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="736"/>
+            <point key="canvasLocation" x="2880" y="644"/>
         </scene>
         <!--Event Checked In View Controller-->
         <scene sceneID="jQP-Mo-iwt">
@@ -376,10 +376,17 @@
                             <constraint firstAttribute="centerY" secondItem="SxD-5w-xeQ" secondAttribute="centerY" id="obt-tK-fJI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RCR-VQ-x2S">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3a3-rg-Kkd">
+                            <connections>
+                                <action selector="onCancel:" destination="snc-8o-M3s" id="lPy-EV-n0Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngl-vv-LGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3740" y="680"/>
+            <point key="canvasLocation" x="4492" y="541"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="2B6-kj-kJG">
@@ -517,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3680" y="1286"/>
+            <point key="canvasLocation" x="3622" y="1301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4a-Di-LIO">
@@ -536,6 +543,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vf-Wl-hTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2232" y="736"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="699-QU-mi6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tq1-8t-uOk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vga-31-Vws">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="snc-8o-M3s" kind="relationship" relationship="rootViewController" id="IPk-wq-CH5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Is-Eo-RNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3680" y="541"/>
         </scene>
     </scenes>
     <resources>

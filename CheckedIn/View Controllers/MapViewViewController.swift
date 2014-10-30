@@ -10,6 +10,9 @@ import UIKit
 
 class MapViewViewController: UIViewController {
 
+    @IBAction func onCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true , completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
