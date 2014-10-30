@@ -128,7 +128,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 if imageData != nil {
                     cell.profileImage.image = UIImage(data: imageData)
                 }
-            })
+            })	
             
             
             return cell
@@ -157,7 +157,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("ShowDetailSegue", sender: self)
+        
+        let event = events?[indexPath.row] as ParseEvent
+        var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" :true ]
+        
+        self.performSegueWithIdentifier("ShowDetailSegue", sender: eventNameAndRsvped)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -165,7 +169,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             println("Going to Event Detail Page")
             //TODO: need to somehow get the event from didSelectRowAtIndexPath, then pass into the next viewcontroller
             //var detail = segue.destinationViewController as EventDetailViewController
-            
+            if segue.destinationViewController.isKindOfClass(EventDetailViewController){
+                let vc = segue.destinationViewController as EventDetailViewController
+                vc.eventNameAndRsvped = sender as NSDictionary?
+                
+            }
         }
     }
     

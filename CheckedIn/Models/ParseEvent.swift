@@ -42,6 +42,10 @@ class ParseEvent: PFObject,PFSubclassing {
         get {return objectForKey("tagLine") as String?}
         set {setObject(newValue, forKey: "tagLine")}
     }
+    var eventDetail:String? {
+        get {return objectForKey("eventDetail") as String?}
+        set {setObject(newValue, forKey: "eventDetail")}
+    }
     var rsvpMax:NSNumber? {
         get {return objectForKey("rsvpMax") as NSNumber?}
         set {setObject(newValue, forKey: "rsvpMax")}
