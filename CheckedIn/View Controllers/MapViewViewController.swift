@@ -20,16 +20,17 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     @IBAction func onCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true , completion: nil	)
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Events Location"
 
         self.mapView.delegate = self
+        //TODO: will filter events by segment control  
         fetechAllEvents()
+        //TODO: will open location request , now using apple headquarter
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
-        //self.mapView.centerCoordinate = myLocation.coordinate
-        //self.mapView.selectAnnotation(pointAnnotation, animated: true)
+        
         let center = myLocation.coordinate
         let span = MKCoordinateSpanMake(0.5, 0.5)
         let region = MKCoordinateRegion(center: center, span: self.mapView.region.span)
@@ -47,9 +48,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             }
         }
     }
-
-    
-
     func addAnotation(event:ParseEvent) {
         var geoLocation:CLLocation?
         var geocoder:CLGeocoder = CLGeocoder()
@@ -70,7 +68,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             }
         })
     }
-
 
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is MKPointAnnotation) {
