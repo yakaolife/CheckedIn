@@ -23,16 +23,18 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Event Detail"
-        println("segue to \(self.eventNameAndRsvped!)")
+        self.title = "Map"
+       // println("segue to \(self.eventNameAndRsvped!)")
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 96
         // Do any additional setup after loading the view.
-        
-        self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
+        if self.eventObjectId == nil {
+            self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
+
+        }
         fetchTheEvent()
     }
 

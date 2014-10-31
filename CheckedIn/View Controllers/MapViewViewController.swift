@@ -14,7 +14,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var events:[ParseEvent]?
     var geoLocations: [CLLocation]?
-    var annotations: Array<MKPointAnnotation>!
+    var annotations: Array<myAnnotation>!
     var center: CLLocationCoordinate2D!
     
     @IBAction func onCancel(sender: AnyObject) {
@@ -26,7 +26,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         self.title = "Events Location"
 
         self.mapView.delegate = self
-        //TODO: will filter events by segment control  
+        //TODO: will filter events by segment control
         fetechAllEvents()
         //TODO: will open location request , now using apple headquarter
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
@@ -60,9 +60,10 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
                     var placemark:CLPlacemark = placemarks[0] as CLPlacemark
                     let lat = placemark.location.coordinate.latitude
                     let long = placemark.location.coordinate.longitude
-                    let pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                    let pointAnnotation:myAnnotation = myAnnotation()
                     pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                     pointAnnotation.title = event.EventName
+                    pointAnnotation.objectID = event.objectId
                     self.mapView.addAnnotation(pointAnnotation)
                 }
             }
@@ -70,7 +71,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     }
 
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if !(annotation is MKPointAnnotation) {
+        if !(annotation is myAnnotation) {
             return nil
         }
         var view = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView
@@ -80,5 +81,24 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             view!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
         }
         return view
+    }
+    
+     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        
+        if control == view.rightCalloutAccessoryView {
+            println("Disclosure Pressed! \(view.annotation.title)")
+            
+            if let eventAnnotation = view.annotation  as? myAnnotation {
+                performSegueWithIdentifier("fromMapToDetail", sender:eventAnnotation.objectID )
+            }
+        }
+         
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue , sender: AnyObject!) {
+        
+        if segue.identifier == "fromMapToDetail" {
+            let vc = segue.destinationViewController as EventDetailViewController
+            vc.eventObjectId = sender as? String
+        }
     }
 }

@@ -18,6 +18,7 @@
 		8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */; };
 		8F79767419FF6B0200AB4CB8 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767319FF6B0200AB4CB8 /* ParseUser.swift */; };
 		8F79767619FF6D1200AB4CB8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */; };
+		8FA427D31A030E32007EE14C /* myAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA427D21A030E32007EE14C /* myAnnotation.swift */; };
 		8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */; };
 		8FCBCA441A01EAF700F4D640 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */; };
 		8FCBCA461A01F26600F4D640 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCBCA451A01F26600F4D640 /* MapKit.framework */; };
@@ -75,6 +76,7 @@
 		8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseEvent.swift; sourceTree = "<group>"; };
 		8F79767319FF6B0200AB4CB8 /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
 		8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = "View Controllers/EventTableViewCell.swift"; sourceTree = "<group>"; };
+		8FA427D21A030E32007EE14C /* myAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAnnotation.swift; sourceTree = "<group>"; };
 		8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionCell.swift; path = "View Controllers/SectionCell.swift"; sourceTree = "<group>"; };
 		8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		8FCBCA451A01F26600F4D640 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -193,14 +195,15 @@
 		8F5C110219F4D6370038A36E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */,
 				D006CCC819FB264400C067BB /* UserProfileViewController.swift */,
 				D037FA3119FCB918002788EE /* SignUpViewController.swift */,
 				D0F5236D19FD7E5700771856 /* LoginViewController.swift */,
-				8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */,
 				D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */,
 				D0F5237E19FDA91200771856 /* CreateEventViewController.swift */,
 				D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */,
 				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
+				8FA427D21A030E32007EE14C /* myAnnotation.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				8FCBCA441A01EAF700F4D640 /* MapViewViewController.swift in Sources */,
 				D0661DEB1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift in Sources */,
+				8FA427D31A030E32007EE14C /* myAnnotation.swift in Sources */,
 				8F252EC219FF7577007EB416 /* HeaderTableViewCell.swift in Sources */,
 				D037FA3219FCB918002788EE /* SignUpViewController.swift in Sources */,
 				8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */,

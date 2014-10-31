@@ -378,6 +378,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="CGq-9K-i7H" id="ik4-17-Yp7"/>
+                        <segue destination="IRR-gE-UQj" kind="show" identifier="fromMapToDetail" id="C8n-r2-v9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngl-vv-LGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -520,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3622" y="1301"/>
+            <point key="canvasLocation" x="3820" y="1250"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4a-Di-LIO">
@@ -565,4 +566,7 @@
         <image name="timeIcon.png" width="40" height="40"/>
         <image name="welcomeMessage.png" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C8n-r2-v9Z"/>
+    </inferredMetricsTieBreakers>
 </document>
