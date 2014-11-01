@@ -22,7 +22,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
-
         self.title = "Home"
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -30,22 +29,17 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-       // fetchRsvpedEvents(nil)
-        switch self.selectedIndex {
-        case 0:
-            showMyEvents()
-        case 1:
-            showAllEvents()
-        case 2:
-            showCheckedInEvents()
-        default:
-            println("default")
-        }
+        refreshTableView()
 
     }
     func refresh( refreshControl : UIRefreshControl)
     {
         refreshControl.beginRefreshing()
+        refreshTableView()
+        refreshControl.endRefreshing()
+    }
+    
+    func refreshTableView(){
         switch self.selectedIndex {
         case 0:
             showMyEvents()
@@ -56,9 +50,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         default:
             println("default")
         }
-        refreshControl.endRefreshing()
     }
-    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.allMyEvents = nil
