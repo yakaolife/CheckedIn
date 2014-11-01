@@ -30,7 +30,17 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        fetchRsvpedEvents(nil)
+       // fetchRsvpedEvents(nil)
+        switch self.selectedIndex {
+        case 0:
+            showMyEvents()
+        case 1:
+            showAllEvents()
+        case 2:
+            showCheckedInEvents()
+        default:
+            println("default")
+        }
 
     }
     func refresh( refreshControl : UIRefreshControl)
