@@ -329,15 +329,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func isAlreadyRSVPed(objectId :String) -> Bool {
-        var state = false
         var each : ParseEvent?
         if self.allMyEvents != nil {
             for each   in self.allMyEvents! {
                 if each.objectId == objectId {
-                    state = true
+                   return true
                 }
             }
         }
-        return state
+        return false
     }
 }
