@@ -14,7 +14,6 @@
 		828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5519EA8076002FE979 /* LaunchScreen.xib */; };
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
 		8F252EC219FF7577007EB416 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */; };
-		8F5C111019F4D7C80038A36E /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C110F19F4D7C80038A36E /* Parse.swift */; };
 		8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */; };
 		8F79767419FF6B0200AB4CB8 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767319FF6B0200AB4CB8 /* ParseUser.swift */; };
 		8F79767619FF6D1200AB4CB8 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */; };
@@ -72,7 +71,6 @@
 		828C6F6119EA8076002FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
 		8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = "View Controllers/HeaderTableViewCell.swift"; sourceTree = "<group>"; };
-		8F5C110F19F4D7C80038A36E /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseEvent.swift; sourceTree = "<group>"; };
 		8F79767319FF6B0200AB4CB8 /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
 		8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = "View Controllers/EventTableViewCell.swift"; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 			children = (
 				D041EDF319F82323005AF45C /* Image */,
 				8F5C110619F4D6CD0038A36E /* Models */,
-				8F5C110519F4D6B60038A36E /* API */,
 				8F5C110219F4D6370038A36E /* View Controllers */,
 				D0661DEC1A00A96C0060B8D0 /* TableCell */,
 				828C6F4E19EA8076002FE979 /* ViewController.swift */,
@@ -206,14 +203,6 @@
 				8FA427D21A030E32007EE14C /* myAnnotation.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		8F5C110519F4D6B60038A36E /* API */ = {
-			isa = PBXGroup;
-			children = (
-				8F5C110F19F4D7C80038A36E /* Parse.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		8F5C110619F4D6CD0038A36E /* Models */ = {
@@ -442,7 +431,6 @@
 				D0F5238119FDA9FB00771856 /* EventDetailViewController.swift in Sources */,
 				8F79767619FF6D1200AB4CB8 /* EventTableViewCell.swift in Sources */,
 				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
-				8F5C111019F4D7C80038A36E /* Parse.swift in Sources */,
 				D038079319FE0CA20066575E /* iBeacon.swift in Sources */,
 				8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
