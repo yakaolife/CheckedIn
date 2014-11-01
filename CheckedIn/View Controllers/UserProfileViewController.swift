@@ -191,21 +191,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         let event =  events?[indexPath.row] as ParseEvent
         if isAlreadyRSVPed(event.objectId) {
-            var RSVPAction = UITableViewRowAction(style: .Normal, title: "Remove RSVP") { (action, indexPath) -> Void in
+            var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
                 self.tableView.editing = false
-                println("unRSVP")
+                println("unRSVP-Cancel")
                 let event = self.events?[indexPath.row] as  ParseEvent
                 self.events = nil
                 self.allMyEvents = nil
                 self.unRsvpEvent(event.objectId)
             }
-            RSVPAction.backgroundColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
-            var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
-                self.tableView.editing = false
-                println("Cacnel")
-            }
             cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
-            return [RSVPAction, cancelAction]
+            return [cancelAction]
         } else {
             var RSVPAction = UITableViewRowAction(style: .Normal, title: "RSVP") { (action, indexPath) -> Void in
                 self.tableView.editing = false
@@ -216,12 +211,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 self.rsvpEvent(event.objectId)
             }
             RSVPAction.backgroundColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
-            var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
-                self.tableView.editing = false
-                println("Cacnel")
-            }
-            cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
-            return [RSVPAction, cancelAction]
+
+            return [RSVPAction]
         }
     }
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
