@@ -66,10 +66,14 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
         //only "TimeInfo" section contains 2 rows, 1 is Time, 1 is Event info
-        if(sectionKey[section] == "TimeInfo"){
-            return 2
+        if thisEvent == nil {
+                return 0
         }else{
-            return 1
+            if(sectionKey[section] == "TimeInfo"){
+                return 2
+            }else{
+                return 1
+            }
         }
     }
     
@@ -123,7 +127,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             //Map
             var cell = tableView.dequeueReusableCellWithIdentifier("Map") as UITableViewCell
             return cell
-        }
+        }  
         
     }
  
