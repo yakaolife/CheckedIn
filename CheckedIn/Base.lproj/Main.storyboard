@@ -208,7 +208,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fy6-gf-W55">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="R8I-Lw-bZd"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="R8I-Lw-bZd">
+                            <connections>
+                                <action selector="onLogout:" destination="F9k-1o-b38" id="ZEP-qa-jVI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map View" id="BWL-ny-bMe">
                             <connections>
                                 <segue destination="Tq1-8t-uOk" kind="presentation" identifier="toMapView" modalTransitionStyle="flipHorizontal" id="e3F-Xz-Ozm"/>
@@ -218,11 +222,12 @@
                     <connections>
                         <outlet property="tableView" destination="Lf0-lE-TK6" id="7w0-Zb-gNR"/>
                         <segue destination="IRR-gE-UQj" kind="show" identifier="ShowDetailSegue" id="fI4-7S-BY4"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLoginSegue" id="fyC-ap-CLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvO-5Z-G2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880" y="644"/>
+            <point key="canvasLocation" x="2922" y="706"/>
         </scene>
         <!--Event Checked In View Controller-->
         <scene sceneID="jQP-Mo-iwt">
