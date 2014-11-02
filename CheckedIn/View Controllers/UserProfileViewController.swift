@@ -192,6 +192,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
 
             var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel RSVP") { (action, indexPath) -> Void in
                 self.tableView.editing = false
+                let event = self.events?[indexPath.row] as  ParseEvent
+                self.events = nil
+                self.allMyEvents = nil
+                self.unRsvpEvent(event.objectId)
                 println("Cacnel")
             }
             cancelAction.backgroundColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
