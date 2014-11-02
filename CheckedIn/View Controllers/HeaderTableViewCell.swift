@@ -11,6 +11,7 @@ import UIKit
 
 class HeaderTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var bgImage:UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var displaynameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
