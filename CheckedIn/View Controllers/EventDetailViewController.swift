@@ -12,10 +12,9 @@ import UIKit
 
 class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var isRsvped:Bool?
-    var thisEvent:ParseEvent!
+    var eventNameAndRsvped:NSDictionary?
     var eventObjectId:String?
-    
+    var isRsvped:Bool?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,35 +23,41 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Map"
+        self.title = "Event Detail"
+    //    println("segue to \(self.eventNameAndRsvped!)")
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 96
         // Do any additional setup after loading the view.
+        if self.eventNameAndRsvped != nil {
+            self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
 
-        println("Loading Event detail: \(thisEvent)")
-
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        }
+        
+        fetchTheEvent()
     }
     
     func fetchTheEvent (){
         var query = ParseEvent.query()
+        
         query.getObjectInBackgroundWithId(self.eventObjectId!) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 let event = object as ParseEvent
+                
                 //fetch view control outlet here!!!
                 println("EVENT : \(event.EventName!)  detail: \(event.eventDetail? ) ")
-               
+                
+                
             } else {
                 println("getting detail event error \(error) ")
             }
         }
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,8 +72,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
-            //RSVP button here...
-            return 0
+            println("First header section height is set to 0")
+            return 0 //Header
         }else{
             return 20
         }
@@ -83,32 +88,17 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         //Header
         if(indexPath.section == 0){
             var cell = tableView.dequeueReusableCellWithIdentifier("EventHeader") as EventHeaderTableViewCell
-            //Pass in cell info
-            cell.eventTitleLabel.text = thisEvent.EventName
             
-            thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
-                if imageData != nil {
-                    cell.eventLogoImage.image = UIImage(data: imageData)
-                    cell.bgImage.image = cell.eventLogoImage.image
-                    var blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
-                    blur.frame = cell.bgImage.frame
-                    cell.bgImage.addSubview(blur)
-                    cell.backgroundView = cell.bgImage
-                    println("Getting new image!")
-                }
-            })
+            //Pass in cell info
             return cell
             
         }else if (indexPath.section == 1){
             //Time
             if(indexPath.row == 0){
-                var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
-                cell.timeLabel.text = "\(self.thisEvent.eventDate!)"
-
+                var cell = tableView.dequeueReusableCellWithIdentifier("Time") as UITableViewCell
                 return cell
             }else{ //Event description
-                var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
-                cell.descriptionLabel.text = self.thisEvent.eventDetail
+                var cell = tableView.dequeueReusableCellWithIdentifier("Description") as UITableViewCell
                 return cell
             }
         }else{
@@ -121,8 +111,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-
     
- 
-
+    
+    
+    
 }

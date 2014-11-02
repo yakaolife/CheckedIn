@@ -90,6 +90,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             
             if let eventAnnotation = view.annotation  as? myAnnotation {
                 performSegueWithIdentifier("fromMapToDetail", sender:eventAnnotation.objectID )
+                
             }
         }
          
@@ -98,6 +99,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         
         if segue.identifier == "fromMapToDetail" {
             let vc = segue.destinationViewController as EventDetailViewController
+            
             vc.eventObjectId = sender as? String
         }
     }
