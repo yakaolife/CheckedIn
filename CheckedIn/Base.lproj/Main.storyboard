@@ -438,7 +438,7 @@
                                             <outlet property="eventTitleLabel" destination="ofG-3T-taI" id="ffI-Lq-YKN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Time" rowHeight="63" id="LQn-9O-FQP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Time" rowHeight="63" id="LQn-9O-FQP" customClass="EventTimeTableViewCell" customModule="CheckedIn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LQn-9O-FQP" id="Vnl-Wj-LNO">
@@ -467,8 +467,11 @@
                                                 <constraint firstItem="0h2-8g-YTf" firstAttribute="leading" secondItem="Vnl-Wj-LNO" secondAttribute="leadingMargin" constant="12" id="wKO-TO-KmV"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeLabel" destination="eo2-14-WVc" id="18J-ln-Fqc"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Description" rowHeight="125" id="Y1h-12-ldp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Description" rowHeight="125" id="Y1h-12-ldp" customClass="EventDescriptionTableViewCell" customModule="CheckedIn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y1h-12-ldp" id="Ac2-5j-ImK">
@@ -489,6 +492,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="0oJ-l1-ElY" secondAttribute="bottom" constant="8.5" id="yko-Op-BYx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="0oJ-l1-ElY" id="HYT-UP-YmG"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Map" rowHeight="99" id="wyk-zJ-9Jc">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>

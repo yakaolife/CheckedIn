@@ -161,24 +161,38 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let event = events?[indexPath.row] as ParseEvent
-        var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" :true ]
+        println("Event id:\(event.objectId)")
         
-        self.performSegueWithIdentifier("ShowDetailSegue", sender: eventNameAndRsvped)
+        var query = ParseEvent.query()
+        query.getObjectInBackgroundWithId(event.objectId) { (object: PFObject!, error: NSError!) -> Void in
+            if object != nil {
+                //fetch view control outlet here!!!
+                println("Got event detail, going to Event page");
+                self.performSegueWithIdentifier("ShowDetailSegue", sender: event)
+                
+            } else {
+                println("Could not load Event detial \(error), not going anywhere ")
+            }
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "ShowDetailSegue"){
-            println("Going to Event Detail Page")
-           
+
             if segue.destinationViewController.isKindOfClass(EventDetailViewController){
                 let vc = segue.destinationViewController as EventDetailViewController
-                vc.eventNameAndRsvped = sender as NSDictionary?
+                vc.thisEvent = sender as ParseEvent
                 
             }
         } else if segue.identifier == "toMapView" {
             
         }
     }
+ 
+    func fetchTheEvent (){
+    }
+    
     
     //Swipe cell functions
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
