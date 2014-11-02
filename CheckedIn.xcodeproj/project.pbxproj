@@ -23,6 +23,7 @@
 		8FCBCA461A01F26600F4D640 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCBCA451A01F26600F4D640 /* MapKit.framework */; };
 		9356A202CB027A3953679D15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB3FB137615D915D37781E3 /* libPods.a */; };
 		D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006CCC819FB264400C067BB /* UserProfileViewController.swift */; };
+		D025AAE51A06E4B2009F08A8 /* EventRSVPButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025AAE41A06E4B2009F08A8 /* EventRSVPButtonView.swift */; };
 		D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */ = {isa = PBXBuildFile; fileRef = D030FB311A00B02C003F0384 /* rsvpedMark.png */; };
 		D037FA2E19FCAF6D002788EE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D037FA2D19FCAF6D002788EE /* CoreLocation.framework */; };
 		D037FA3219FCB918002788EE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037FA3119FCB918002788EE /* SignUpViewController.swift */; };
@@ -86,6 +87,7 @@
 		8FCBCA451A01F26600F4D640 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9DCEE7B702F45ED20D3EDB25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D006CCC819FB264400C067BB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		D025AAE41A06E4B2009F08A8 /* EventRSVPButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventRSVPButtonView.swift; path = "View Controllers/EventRSVPButtonView.swift"; sourceTree = "<group>"; };
 		D030FB311A00B02C003F0384 /* rsvpedMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpedMark.png; path = Images.xcassets/rsvpedMark.png; sourceTree = "<group>"; };
 		D037FA2D19FCAF6D002788EE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D037FA3119FCB918002788EE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				D0661DEC1A00A96C0060B8D0 /* TableCell */,
 				828C6F4E19EA8076002FE979 /* ViewController.swift */,
 				828C6F4C19EA8076002FE979 /* AppDelegate.swift */,
+				D025AAE41A06E4B2009F08A8 /* EventRSVPButtonView.swift */,
 				828C6F5019EA8076002FE979 /* Main.storyboard */,
 				828C6F5319EA8076002FE979 /* Images.xcassets */,
 				828C6F5519EA8076002FE979 /* LaunchScreen.xib */,
@@ -456,6 +459,7 @@
 				D0F5238319FDAA0600771856 /* EventCheckedInViewController.swift in Sources */,
 				D038079319FE0CA20066575E /* iBeacon.swift in Sources */,
 				8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */,
+				D025AAE51A06E4B2009F08A8 /* EventRSVPButtonView.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
 				D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */,
