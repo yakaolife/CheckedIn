@@ -34,6 +34,10 @@
 		D038079919FE0CD80066575E /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = D038079619FE0CD80066575E /* Icon-120.png */; };
 		D03DDB4B1A05A05C00252CEF /* EventTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DDB4A1A05A05C00252CEF /* EventTimeTableViewCell.swift */; };
 		D03DDB4D1A05A06900252CEF /* EventDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DDB4C1A05A06900252CEF /* EventDescriptionTableViewCell.swift */; };
+		D03DDB531A05D8B900252CEF /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB521A05D8B900252CEF /* arrow.png */; };
+		D03DDB571A05EA0900252CEF /* RSVP.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB541A05EA0900252CEF /* RSVP.png */; };
+		D03DDB581A05EA0900252CEF /* rsvpCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB551A05EA0900252CEF /* rsvpCancel.png */; };
+		D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB561A05EA0900252CEF /* rsvpHover.png */; };
 		D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */; };
 		D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE21A009B450060B8D0 /* testProfileIcon.png */; };
 		D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE31A009B450060B8D0 /* timeIcon.png */; };
@@ -93,6 +97,10 @@
 		D038079619FE0CD80066575E /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "Images.xcassets/Icon-120.png"; sourceTree = "<group>"; };
 		D03DDB4A1A05A05C00252CEF /* EventTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTimeTableViewCell.swift; sourceTree = "<group>"; };
 		D03DDB4C1A05A06900252CEF /* EventDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		D03DDB521A05D8B900252CEF /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Images.xcassets/arrow.png; sourceTree = "<group>"; };
+		D03DDB541A05EA0900252CEF /* RSVP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RSVP.png; path = Images.xcassets/RSVP.png; sourceTree = "<group>"; };
+		D03DDB551A05EA0900252CEF /* rsvpCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpCancel.png; path = Images.xcassets/rsvpCancel.png; sourceTree = "<group>"; };
+		D03DDB561A05EA0900252CEF /* rsvpHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpHover.png; path = Images.xcassets/rsvpHover.png; sourceTree = "<group>"; };
 		D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeaderTableViewCell.swift; path = "View Controllers/EventHeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		D0661DE21A009B450060B8D0 /* testProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testProfileIcon.png; path = Images.xcassets/testProfileIcon.png; sourceTree = "<group>"; };
 		D0661DE31A009B450060B8D0 /* timeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeIcon.png; path = Images.xcassets/timeIcon.png; sourceTree = "<group>"; };
@@ -231,6 +239,10 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D03DDB541A05EA0900252CEF /* RSVP.png */,
+				D03DDB551A05EA0900252CEF /* rsvpCancel.png */,
+				D03DDB561A05EA0900252CEF /* rsvpHover.png */,
+				D03DDB521A05D8B900252CEF /* arrow.png */,
 				D030FB311A00B02C003F0384 /* rsvpedMark.png */,
 				D0661DE81A00A7450060B8D0 /* roundedDialog.png */,
 				D0661DE61A00A6060060B8D0 /* welcomeMessage.png */,
@@ -358,6 +370,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03DDB581A05EA0900252CEF /* rsvpCancel.png in Resources */,
+				D03DDB571A05EA0900252CEF /* RSVP.png in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
@@ -367,9 +381,11 @@
 				D074DB5219FDF8160038A3F2 /* header.png in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
+				D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */,
 				D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */,
 				D037FA3919FCC37E002788EE /* Default.png in Resources */,
 				D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */,
+				D03DDB531A05D8B900252CEF /* arrow.png in Resources */,
 				D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */,
 				D038079719FE0CD80066575E /* Icon-58.png in Resources */,
 				D0661DE71A00A6060060B8D0 /* welcomeMessage.png in Resources */,

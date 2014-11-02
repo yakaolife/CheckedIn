@@ -205,7 +205,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         let event =  events?[indexPath.row] as ParseEvent
         if isAlreadyRSVPed(event.objectId) {
-            var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel") { (action, indexPath) -> Void in
+            var cancelAction = UITableViewRowAction(style: .Normal, title: "Cancel RSVP") { (action, indexPath) -> Void in
                 self.tableView.editing = false
                 println("unRSVP-Cancel")
                 let event = self.events?[indexPath.row] as  ParseEvent

@@ -53,8 +53,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
-            println("First header section height is set to 0")
-            return 0 //Header
+            //RSVP button here...
+            return 0
         }else{
             return 20
         }
@@ -75,6 +75,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
                 if imageData != nil {
                     cell.eventLogoImage.image = UIImage(data: imageData)
+                    cell.bgImage.image = cell.eventLogoImage.image
+                    var blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
+                    blur.frame = cell.bgImage.frame
+                    cell.bgImage.addSubview(blur)
+                    cell.backgroundView = cell.bgImage
+                    println("Getting new image!")
                 }
             })
             return cell
@@ -88,6 +94,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 return cell
             }else{ //Event description
                 var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
+                cell.descriptionLabel.text = self.thisEvent.eventDetail
                 return cell
             }
         }else{
