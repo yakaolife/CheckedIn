@@ -137,9 +137,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                     cell.backgroundView = cell.bgImage
                 }
             })	
-            
-            
+     
             return cell
+            
         } else {
             var cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
             var event = events?[indexPath.row] as ParseEvent

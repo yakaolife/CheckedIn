@@ -41,6 +41,20 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    func fetchTheEvent (){
+        var query = ParseEvent.query()
+        query.getObjectInBackgroundWithId(self.eventObjectId!) { (object: PFObject!, error: NSError!) -> Void in
+            if object != nil {
+                let event = object as ParseEvent
+                //fetch view control outlet here!!!
+                println("EVENT : \(event.EventName!)  detail: \(event.eventDetail? ) ")
+               
+            } else {
+                println("getting detail event error \(error) ")
+            }
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
         //only "TimeInfo" section contains 2 rows, 1 is Time, 1 is Event info
