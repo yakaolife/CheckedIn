@@ -101,6 +101,8 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             let vc = segue.destinationViewController as EventDetailViewController
             
             vc.eventObjectId = sender as? String
+            
         }
     }
+    
 }

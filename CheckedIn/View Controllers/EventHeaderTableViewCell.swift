@@ -16,7 +16,8 @@ class EventHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var eventLogoImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
     
-    var RSVPstate = true
+    var RSVPstate = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +27,6 @@ class EventHeaderTableViewCell: UITableViewCell {
         self.eventLogoImage.layer.cornerRadius = 5.0
         self.eventLogoImage.clipsToBounds = true
         self.rsvpButton.backgroundColor = UIColor.clearColor()
-        self.changeRSVP()
 
         rsvpButton.addTarget(self, action: "changeRSVP", forControlEvents: UIControlEvents.TouchUpInside)
     }

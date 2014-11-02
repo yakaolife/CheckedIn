@@ -159,7 +159,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let event = events?[indexPath.row] as ParseEvent
-        var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" :true ]
+        var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
         
         self.performSegueWithIdentifier("ShowDetailSegue", sender: eventNameAndRsvped)
     }

@@ -96,8 +96,10 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if(indexPath.section == 0){
             var cell = tableView.dequeueReusableCellWithIdentifier("EventHeader") as EventHeaderTableViewCell
             //Pass in cell info
+
             cell.eventTitleLabel.text = thisEvent.EventName
-            
+            cell.RSVPstate = self.eventNameAndRsvped?.objectForKey("isRsvped") as Bool
+            println("RSVPstate:\(cell.RSVPstate)")
             thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
                 if imageData != nil {
                     cell.eventLogoImage.image = UIImage(data: imageData)
