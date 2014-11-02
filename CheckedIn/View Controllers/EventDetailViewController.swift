@@ -15,6 +15,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var eventNameAndRsvped:NSDictionary?
     var eventObjectId:String?
     var isRsvped:Bool?
+    var thisEvent: ParseEvent!
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,7 +50,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 //fetch view control outlet here!!!
                 println("EVENT : \(event.EventName!)  detail: \(event.eventDetail? ) ")
-                
+                self.thisEvent = event
+                self.tableView.reloadData()
                 
             } else {
                 println("getting detail event error \(error) ")
@@ -88,17 +91,32 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         //Header
         if(indexPath.section == 0){
             var cell = tableView.dequeueReusableCellWithIdentifier("EventHeader") as EventHeaderTableViewCell
-            
             //Pass in cell info
+            cell.eventTitleLabel.text = thisEvent.EventName
+            
+            thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
+                if imageData != nil {
+                    cell.eventLogoImage.image = UIImage(data: imageData)
+                    cell.bgImage.image = cell.eventLogoImage.image
+                    var blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark))
+                    blur.frame = cell.bgImage.frame
+                    cell.bgImage.addSubview(blur)
+                    cell.backgroundView = cell.bgImage
+                    println("Getting new image!")
+                }
+            })
             return cell
             
         }else if (indexPath.section == 1){
             //Time
             if(indexPath.row == 0){
-                var cell = tableView.dequeueReusableCellWithIdentifier("Time") as UITableViewCell
+                var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
+                cell.timeLabel.text = "\(self.thisEvent.eventDate!)"
+                
                 return cell
             }else{ //Event description
-                var cell = tableView.dequeueReusableCellWithIdentifier("Description") as UITableViewCell
+                var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
+                cell.descriptionLabel.text = self.thisEvent.eventDetail
                 return cell
             }
         }else{
@@ -107,12 +125,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             return cell
         }
         
-        
-        
     }
-    
-    
-    
-    
+ 
     
 }
