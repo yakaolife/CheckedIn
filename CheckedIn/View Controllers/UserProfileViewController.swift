@@ -12,6 +12,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     var allMyEvents:NSArray?
     var selectedIndex = 0
     var selectedEventObjectId:String!
+    weak var segmentControl:UISegmentedControl?
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: UI related
@@ -24,14 +25,18 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
         
         self.title = "Home"
+        
+        
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        selectedIndex = 0
         fetchRsvpedEvents(nil)
-        
+
+ 
     }
     func refresh( refreshControl : UIRefreshControl)
     {
@@ -129,8 +134,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                     cell.profileImage.image = UIImage(data: imageData)
                 }
             })
-            
-            
             return cell
         } else {
             var cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as EventTableViewCell
@@ -325,15 +328,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func isAlreadyRSVPed(objectId :String) -> Bool {
-        var state = false
-        var each : ParseEvent?
+            var each : ParseEvent?
         if self.allMyEvents != nil {
             for each   in self.allMyEvents! {
                 if each.objectId == objectId {
-                    state = true
+                     return true
                 }
             }
         }
-        return state
+        return false
     }
 }
