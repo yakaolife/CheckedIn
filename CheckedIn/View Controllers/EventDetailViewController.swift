@@ -26,25 +26,25 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Detail"
-    //    println("segue to \(self.eventNameAndRsvped!)")
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
+         tableView.delegate = self
+         tableView.dataSource = self
+         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 96
         // Do any additional setup after loading the view.
-        if self.eventNameAndRsvped != nil {
-            self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
-
-        }
         
-        fetchTheEvent()
+        //if segue from profile view controller , otherwise, objectId should be set
+         if self.eventNameAndRsvped != nil {
+            self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
+        }
+         fetchTheEvent()
     }
     
     func fetchTheEvent (){
+        
         var query = ParseEvent.query()
         
-        query.getObjectInBackgroundWithId(self.eventObjectId!) { (object: PFObject!, error: NSError!) -> Void in
+        
+        query.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 let event = object as ParseEvent
                 

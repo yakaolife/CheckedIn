@@ -16,17 +16,31 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     var geoLocations: [CLLocation]?
     var annotations: Array<myAnnotation>!
     var center: CLLocationCoordinate2D!
+    var allMyEvents:NSArray?
+
     
     @IBAction func onCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true , completion: nil	)
     }
 
+    func isAlreadyRSVPed(objectId :String) -> Bool {
+        var state = false
+        var each : ParseEvent?
+        if self.allMyEvents != nil {
+            for each   in self.allMyEvents! {
+                if each.objectId == objectId {
+                    state = true
+                }
+            }
+        }
+        return state
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Events Location"
+        self.title = "Map"
 
         self.mapView.delegate = self
-        //TODO: will filter events by segment control
+         //TODO: will filter events by segment control
         fetechAllEvents()
         //TODO: will open location request , now using apple headquarter
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
@@ -86,21 +100,20 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
      func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         
         if control == view.rightCalloutAccessoryView {
-            println("Disclosure Pressed! \(view.annotation.title)")
+          //  println("Disclosure Pressed! \(view.annotation.title)")
             
             if let eventAnnotation = view.annotation  as? myAnnotation {
-                performSegueWithIdentifier("fromMapToDetail", sender:eventAnnotation.objectID )
-                
+                let objectID = eventAnnotation.objectID as String!
+                let isRsvped = isAlreadyRSVPed(objectID)
+                var eventNameAndRsvped = [ "objectId": objectID, "isRsvped" : isRsvped ]
+                performSegueWithIdentifier("fromMapToDetail", sender:  eventNameAndRsvped )
             }
         }
-         
     }
     override func prepareForSegue(segue: UIStoryboardSegue , sender: AnyObject!) {
-        
         if segue.identifier == "fromMapToDetail" {
             let vc = segue.destinationViewController as EventDetailViewController
-            
-            vc.eventObjectId = sender as? String
+            vc.eventNameAndRsvped = sender as NSDictionary?
             
         }
     }

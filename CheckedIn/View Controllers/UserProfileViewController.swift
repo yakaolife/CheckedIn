@@ -160,7 +160,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         
         let event = events?[indexPath.row] as ParseEvent
         var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
-        
         self.performSegueWithIdentifier("ShowDetailSegue", sender: eventNameAndRsvped)
     }
     
@@ -174,6 +173,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 
             }
         } else if segue.identifier == "toMapView" {
+             if segue.destinationViewController.isKindOfClass(UINavigationController) {
+               let nvc = segue.destinationViewController as UINavigationController
+               let vc = nvc.childViewControllers[0] as MapViewViewController
+                vc.allMyEvents = self.allMyEvents
+            }
             
         }
     }
