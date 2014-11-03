@@ -13,6 +13,7 @@
 		828C6F5419EA8076002FE979 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5319EA8076002FE979 /* Images.xcassets */; };
 		828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828C6F5519EA8076002FE979 /* LaunchScreen.xib */; };
 		828C6F6319EA8076002FE979 /* CheckedInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828C6F6219EA8076002FE979 /* CheckedInTests.swift */; };
+		8F00CE971A0713AD0095B4B9 /* EventMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00CE961A0713AD0095B4B9 /* EventMapTableViewCell.swift */; };
 		8F252EC219FF7577007EB416 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */; };
 		8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */; };
 		8F79767419FF6B0200AB4CB8 /* ParseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79767319FF6B0200AB4CB8 /* ParseUser.swift */; };
@@ -77,6 +78,7 @@
 		828C6F5C19EA8076002FE979 /* CheckedInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckedInTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828C6F6119EA8076002FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828C6F6219EA8076002FE979 /* CheckedInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInTests.swift; sourceTree = "<group>"; };
+		8F00CE961A0713AD0095B4B9 /* EventMapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapTableViewCell.swift; sourceTree = "<group>"; };
 		8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = "View Controllers/HeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		8F79767119FF6AC900AB4CB8 /* ParseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseEvent.swift; sourceTree = "<group>"; };
 		8F79767319FF6B0200AB4CB8 /* ParseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUser.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */,
 				8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */,
 				D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */,
+				8F00CE961A0713AD0095B4B9 /* EventMapTableViewCell.swift */,
 				D03DDB4A1A05A05C00252CEF /* EventTimeTableViewCell.swift */,
 				D03DDB4C1A05A06900252CEF /* EventDescriptionTableViewCell.swift */,
 			);
@@ -460,6 +463,7 @@
 				D038079319FE0CA20066575E /* iBeacon.swift in Sources */,
 				8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */,
 				D025AAE51A06E4B2009F08A8 /* EventRSVPButtonView.swift in Sources */,
+				8F00CE971A0713AD0095B4B9 /* EventMapTableViewCell.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
 				D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */,

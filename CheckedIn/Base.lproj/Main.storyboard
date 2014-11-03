@@ -473,7 +473,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czp-Pj-FVF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dan-TT-3Yg">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dan-TT-3Yg">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -594,20 +594,27 @@
                                                     <outlet property="descriptionLabel" destination="0oJ-l1-ElY" id="HYT-UP-YmG"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Map" rowHeight="99" id="wyk-zJ-9Jc">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Map" rowHeight="99" id="wyk-zJ-9Jc" customClass="EventMapTableViewCell" customModule="CheckedIn" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wyk-zJ-9Jc" id="Xmq-k1-bje">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maps here, now empty" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcD-8G-3hW">
-                                                            <rect key="frame" x="29" y="8" width="176" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-ZU-Yhp">
+                                                            <rect key="frame" x="8" y="8" width="584" height="2"/>
+                                                        </mapView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="eF9-ZU-Yhp" firstAttribute="leading" secondItem="Xmq-k1-bje" secondAttribute="leadingMargin" id="2nV-IP-XuJ"/>
+                                                        <constraint firstItem="eF9-ZU-Yhp" firstAttribute="top" secondItem="Xmq-k1-bje" secondAttribute="topMargin" id="8tH-eW-Sdv"/>
+                                                        <constraint firstItem="eF9-ZU-Yhp" firstAttribute="trailing" secondItem="Xmq-k1-bje" secondAttribute="trailingMargin" id="OjR-Yh-I3z"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="eF9-ZU-Yhp" secondAttribute="bottom" constant="80" id="RCF-cI-GW7"/>
+                                                        <constraint firstAttribute="centerX" secondItem="eF9-ZU-Yhp" secondAttribute="centerX" id="bOY-XN-WvK"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="mapView" destination="eF9-ZU-Yhp" id="vej-p8-Bji"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -661,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820" y="1250"/>
+            <point key="canvasLocation" x="3820" y="1247"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4a-Di-LIO">

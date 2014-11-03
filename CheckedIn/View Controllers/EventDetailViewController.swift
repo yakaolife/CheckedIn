@@ -20,7 +20,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var sectionKey = ["Header", "TimeInfo", "Map"] //We can add more here
+    var sectionKey = ["Header", "TimeInfo" ] //We can add more here
     
     
     override func viewDidLoad() {
@@ -43,13 +43,9 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         var query = ParseEvent.query()
         
-        
         query.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
-                let event = object as ParseEvent
-                
-                //fetch view control outlet here!!!
-                println("EVENT : \(event.EventName!)  detail: \(event.eventDetail? ) ")
+                let event = object as ParseEvent 
                 self.thisEvent = event
                 self.tableView.reloadData()
                 
@@ -58,19 +54,16 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
         //only "TimeInfo" section contains 2 rows, 1 is Time, 1 is Event info
         if thisEvent == nil {
                 return 0
         }else{
+            
             if(sectionKey[section] == "TimeInfo"){
-                return 2
+                return 3
             }else{
                 return 1
             }
@@ -108,30 +101,34 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     blur.frame = cell.bgImage.frame
                     cell.bgImage.addSubview(blur)
                     cell.backgroundView = cell.bgImage
-                    println("Getting new image!")
+//                    println("Getting new image!")
                 }
             })
             return cell
             
-        }else if (indexPath.section == 1){
+        }else {
             //Time
-            if(indexPath.row == 0){
-                var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
-                cell.timeLabel.text = "\(self.thisEvent.eventDate!)"
+             switch indexPath.row {
                 
+            case 0:
+                 var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
+                cell.timeLabel.text = "\(self.thisEvent.eventDate!)"
                 return cell
-            }else{ //Event description
-                var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
-                cell.descriptionLabel.text = self.thisEvent.eventDetail
+                
+            case 1:
+                 var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
+                 cell.descriptionLabel.text = self.thisEvent.eventDetail
+                return cell
+                
+              default:
+                tableView.rowHeight = 380
+                var cell = tableView.dequeueReusableCellWithIdentifier("Map") as EventMapTableViewCell
+                cell.addAnotation(self.thisEvent!)
                 return cell
             }
-        }else{
-            //Map
-            var cell = tableView.dequeueReusableCellWithIdentifier("Map") as UITableViewCell
-            return cell
-        }  
-        
-    }
+        }
  
-    
+    }
 }
+
+ 
