@@ -344,4 +344,13 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         return false
     }
+    
+    @IBAction func onLogout(sender: AnyObject) {
+        println("Logout")
+        PFUser.logOut()
+        var currentUser = PFUser.currentUser()
+        self.performSegueWithIdentifier("toLoginSegue", sender: self)
+        
+    }
+
 }
