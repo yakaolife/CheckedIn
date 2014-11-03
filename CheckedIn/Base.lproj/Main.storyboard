@@ -218,12 +218,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fy6-gf-W55">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="R8I-Lw-bZd">
+                        <barButtonItem key="leftBarButtonItem" image="logoutButton.png" id="R8I-Lw-bZd">
                             <connections>
                                 <action selector="onLogout:" destination="F9k-1o-b38" id="ZEP-qa-jVI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Map View" id="BWL-ny-bMe">
+                        <barButtonItem key="rightBarButtonItem" image="mapButton.png" id="BWL-ny-bMe">
                             <connections>
                                 <segue destination="Tq1-8t-uOk" kind="presentation" identifier="toMapView" modalTransitionStyle="flipHorizontal" id="e3F-Xz-Ozm"/>
                             </connections>
@@ -379,14 +379,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CGq-9K-i7H">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CGq-9K-i7H">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="CGq-9K-i7H" secondAttribute="bottom" id="BhH-bW-xO4"/>
+                            <constraint firstItem="CGq-9K-i7H" firstAttribute="leading" secondItem="OIz-8D-3LF" secondAttribute="leading" id="OqK-qT-ou3"/>
+                            <constraint firstAttribute="trailing" secondItem="CGq-9K-i7H" secondAttribute="trailing" id="cDs-DU-9Gq"/>
+                            <constraint firstItem="CGq-9K-i7H" firstAttribute="top" secondItem="OIz-8D-3LF" secondAttribute="top" id="fZh-5v-TC9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RCR-VQ-x2S">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3a3-rg-Kkd">
+                        <barButtonItem key="rightBarButtonItem" image="cancelButton.png" id="3a3-rg-Kkd">
                             <connections>
                                 <action selector="onCancel:" destination="snc-8o-M3s" id="lPy-EV-n0Y"/>
                             </connections>
@@ -723,12 +729,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cancelButton.png" width="40" height="40"/>
+        <image name="logoutButton.png" width="40" height="40"/>
+        <image name="mapButton.png" width="40" height="40"/>
         <image name="roundedDialog.png" width="494" height="208"/>
         <image name="testProfileIcon.png" width="100" height="100"/>
         <image name="timeIcon.png" width="40" height="40"/>
         <image name="welcomeMessage.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fI4-7S-BY4"/>
+        <segue reference="C8n-r2-v9Z"/>
     </inferredMetricsTieBreakers>
 </document>
