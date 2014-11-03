@@ -11,7 +11,6 @@ import UIKit
 class EventHeaderTableViewCell: UITableViewCell {
 
 
-    @IBOutlet weak var rsvpButton: UIButton!
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var eventLogoImage: UIImageView!
     @IBOutlet weak var eventTitleLabel: UILabel!
@@ -26,23 +25,8 @@ class EventHeaderTableViewCell: UITableViewCell {
         self.frame.size.height = 180
         self.eventLogoImage.layer.cornerRadius = 5.0
         self.eventLogoImage.clipsToBounds = true
-        self.rsvpButton.backgroundColor = UIColor.clearColor()
+    }
 
-        rsvpButton.addTarget(self, action: "changeRSVP", forControlEvents: UIControlEvents.TouchUpInside)
-    }
-    
-    //TODO: RSVP to parse
-    //RSVPstate is current state that will be changed
-    func changeRSVP(){
-        //println("Changing RSVP from \(RSVPstate) to \(!RSVPstate)")
-        if(RSVPstate){
-            rsvpButton.setImage(UIImage(named:"rsvpHover.png"), forState: UIControlState.Normal)
-            RSVPstate = false
-        }else{
-            rsvpButton.setImage(UIImage(named:"rsvpCancel.png"), forState: UIControlState.Normal)
-            RSVPstate = true
-        }
-    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

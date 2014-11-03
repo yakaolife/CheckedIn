@@ -14,7 +14,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var eventNameAndRsvped:NSDictionary?
     var eventObjectId:String?
-    var isRsvped:Bool?
     var thisEvent: ParseEvent!
     
     
@@ -54,6 +53,20 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
+    
+    /*
+    //TODO: RSVP to parse
+    //RSVPstate is current state that will be changed
+    func changeRSVP(){
+        //println("Changing RSVP from \(RSVPstate) to \(!RSVPstate)")
+        if(RSVPstate){
+            rsvpButton.setImage(UIImage(named:"rsvpHover.png"), forState: UIControlState.Normal)
+            RSVPstate = false
+        }else{
+            rsvpButton.setImage(UIImage(named:"rsvpCancel.png"), forState: UIControlState.Normal)
+            RSVPstate = true
+        }
+    }*/
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
@@ -91,8 +104,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             //Pass in cell info
 
             cell.eventTitleLabel.text = thisEvent.EventName
-            cell.RSVPstate = self.eventNameAndRsvped?.objectForKey("isRsvped") as Bool
-            println("RSVPstate:\(cell.RSVPstate)")
+
             thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
                 if imageData != nil {
                     cell.eventLogoImage.image = UIImage(data: imageData)

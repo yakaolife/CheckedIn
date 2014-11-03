@@ -12,12 +12,25 @@ class LoginViewController: UIViewController {
 
     var isSignedin = false
     
+    @IBOutlet weak var animateLogo: UIImageView!
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    
+    //var imageNames = ["iconAnime01.png", "iconAnime02.png", "iconAnime03.png","iconAnime04.png","iconAnime03.png","iconAnime02.png","iconAnime01.png"]
+    var imageNames = ["logo01.png", "logo02.png", "logo03.png", "logo04.png", "logo05.png", "logo06.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var images = NSMutableArray()
+        for var index = 0; index < imageNames.count; index++ {
+            images.addObject(UIImage(named: imageNames[index])!)
+        }
+
+        animateLogo.animationImages = images
+        animateLogo.animationDuration = 1.5
+        animateLogo.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {

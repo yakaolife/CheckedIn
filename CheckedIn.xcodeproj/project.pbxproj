@@ -48,6 +48,13 @@
 		D0661DEB1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */; };
 		D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */; };
 		D074DB5219FDF8160038A3F2 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D074DB5119FDF8160038A3F2 /* header.png */; };
+		D0763F361A073EB800FF15F6 /* logo01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F2F1A073EB800FF15F6 /* logo01.png */; };
+		D0763F371A073EB800FF15F6 /* logo02.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F301A073EB800FF15F6 /* logo02.png */; };
+		D0763F381A073EB800FF15F6 /* logo03.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F311A073EB800FF15F6 /* logo03.png */; };
+		D0763F391A073EB800FF15F6 /* logo04.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F321A073EB800FF15F6 /* logo04.png */; };
+		D0763F3A1A073EB800FF15F6 /* logo05.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F331A073EB800FF15F6 /* logo05.png */; };
+		D0763F3B1A073EB800FF15F6 /* logo06.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F341A073EB800FF15F6 /* logo06.png */; };
+		D0763F3C1A073EB800FF15F6 /* logo07.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F351A073EB800FF15F6 /* logo07.png */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
 		D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237E19FDA91200771856 /* CreateEventViewController.swift */; };
@@ -113,6 +120,13 @@
 		D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventWelcomeHeaderTableViewCell.swift; path = "View Controllers/EventWelcomeHeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeader.xib; path = "View Controllers/TableHeader.xib"; sourceTree = "<group>"; };
 		D074DB5119FDF8160038A3F2 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Images.xcassets/header.png; sourceTree = "<group>"; };
+		D0763F2F1A073EB800FF15F6 /* logo01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo01.png; path = Images.xcassets/logo01.png; sourceTree = "<group>"; };
+		D0763F301A073EB800FF15F6 /* logo02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo02.png; path = Images.xcassets/logo02.png; sourceTree = "<group>"; };
+		D0763F311A073EB800FF15F6 /* logo03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo03.png; path = Images.xcassets/logo03.png; sourceTree = "<group>"; };
+		D0763F321A073EB800FF15F6 /* logo04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo04.png; path = Images.xcassets/logo04.png; sourceTree = "<group>"; };
+		D0763F331A073EB800FF15F6 /* logo05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo05.png; path = Images.xcassets/logo05.png; sourceTree = "<group>"; };
+		D0763F341A073EB800FF15F6 /* logo06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo06.png; path = Images.xcassets/logo06.png; sourceTree = "<group>"; };
+		D0763F351A073EB800FF15F6 /* logo07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo07.png; path = Images.xcassets/logo07.png; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckedIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0F5237B19FD936100771856 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewCell.xib; path = "View Controllers/EventTableViewCell.xib"; sourceTree = "<group>"; };
@@ -244,6 +258,13 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D0763F2F1A073EB800FF15F6 /* logo01.png */,
+				D0763F301A073EB800FF15F6 /* logo02.png */,
+				D0763F311A073EB800FF15F6 /* logo03.png */,
+				D0763F321A073EB800FF15F6 /* logo04.png */,
+				D0763F331A073EB800FF15F6 /* logo05.png */,
+				D0763F341A073EB800FF15F6 /* logo06.png */,
+				D0763F351A073EB800FF15F6 /* logo07.png */,
 				D03DDB541A05EA0900252CEF /* RSVP.png */,
 				D03DDB551A05EA0900252CEF /* rsvpCancel.png */,
 				D03DDB561A05EA0900252CEF /* rsvpHover.png */,
@@ -379,17 +400,24 @@
 				D03DDB581A05EA0900252CEF /* rsvpCancel.png in Resources */,
 				D03DDB571A05EA0900252CEF /* RSVP.png in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
+				D0763F3C1A073EB800FF15F6 /* logo07.png in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
+				D0763F361A073EB800FF15F6 /* logo01.png in Resources */,
 				D038079919FE0CD80066575E /* Icon-120.png in Resources */,
 				D0661DE91A00A7450060B8D0 /* roundedDialog.png in Resources */,
 				D037FA3A19FCC37E002788EE /* Default@2x.png in Resources */,
 				D074DB5219FDF8160038A3F2 /* header.png in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
+				D0763F391A073EB800FF15F6 /* logo04.png in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
+				D0763F3A1A073EB800FF15F6 /* logo05.png in Resources */,
 				D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */,
 				D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */,
 				D037FA3919FCC37E002788EE /* Default.png in Resources */,
+				D0763F371A073EB800FF15F6 /* logo02.png in Resources */,
+				D0763F381A073EB800FF15F6 /* logo03.png in Resources */,
+				D0763F3B1A073EB800FF15F6 /* logo06.png in Resources */,
 				D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */,
 				D03DDB531A05D8B900252CEF /* arrow.png in Resources */,
 				D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */,
