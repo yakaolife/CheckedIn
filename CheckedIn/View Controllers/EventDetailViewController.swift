@@ -15,7 +15,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var eventNameAndRsvped:NSDictionary?
     var eventObjectId:String?
     var thisEvent: ParseEvent!
+    var RSVPstate = true
     
+    let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
+    let cancelColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
+    
+    @IBOutlet weak var rsvpButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +39,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         //if segue from profile view controller , otherwise, objectId should be set
          if self.eventNameAndRsvped != nil {
             self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
+            self.RSVPstate = eventNameAndRsvped?.objectForKey("isRsvped") as Bool
+            changeRSVPButtonState(self.RSVPstate)
         }
          fetchTheEvent()
     }
@@ -54,19 +61,81 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    /*
-    //TODO: RSVP to parse
-    //RSVPstate is current state that will be changed
-    func changeRSVP(){
-        //println("Changing RSVP from \(RSVPstate) to \(!RSVPstate)")
-        if(RSVPstate){
-            rsvpButton.setImage(UIImage(named:"rsvpHover.png"), forState: UIControlState.Normal)
-            RSVPstate = false
+    
+    //This function only change the look of the RSVPButton, it does not immediately update RSVP info on Parse
+    // We do that when user dismiss this controller, just to save some bandwith
+    func changeRSVPButtonState(updateState:Bool){
+        //println("Changing RSVP from \(RSVPstate) to \(updateState)")
+        if(updateState){
+            rsvpButton.backgroundColor = cancelColor
+            rsvpButton.tintColor = UIColor.blackColor()
+            rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
         }else{
-            rsvpButton.setImage(UIImage(named:"rsvpCancel.png"), forState: UIControlState.Normal)
-            RSVPstate = true
+            rsvpButton.backgroundColor = RSVPColor
+            rsvpButton.tintColor = UIColor.whiteColor()
+            rsvpButton.setTitle("RSVP", forState: .Normal)
         }
-    }*/
+        RSVPstate  = updateState
+        
+    }
+    
+    @IBAction func updateRSVP(sender: AnyObject) {
+        changeRSVPButtonState(!RSVPstate)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        println("in ViewWillDisappear")
+        if(self.RSVPstate){
+            rsvpEvent(self.eventObjectId!)
+        }else{
+            unRsvpEvent(self.eventObjectId!)
+        }
+        super.viewWillDisappear(true)
+    }
+    
+    func unRsvpEvent(selectedEventObjectId:String) {
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("rsvped")
+        var events = ParseEvent.query() as PFQuery
+        events.getObjectInBackgroundWithId(selectedEventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
+            if object != nil {
+                relation.removeObject(object)
+                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
+                    if succeed {
+                        print("Succeed in cancel RSVP")
+                    } else  {
+                        println("rsvped error \(error)")
+                    }
+                })
+            } else {
+                println("rsvp event error \(error)")
+            }
+        }
+    }
+    
+    
+    func rsvpEvent(selectedEventObjectId:String){
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("rsvped")
+        var events = ParseEvent.query() as PFQuery
+        events.getObjectInBackgroundWithId(selectedEventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
+            if object != nil {
+                relation.addObject(object)
+                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
+                    if succeed {
+                        println("Succeed RSVP")
+                        //self.fetchRsvpedEvents(true )
+                    } else  {
+                        println("rsvped error \(error)")
+                    }
+                })
+            } else {
+                println("rsvp event error \(error)")
+            }
+        }
+    }
+
+    
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:

@@ -668,6 +668,9 @@
                                         <state key="normal" title="RVSP">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="updateRSVP:" destination="IRR-gE-UQj" eventType="touchUpInside" id="xef-7V-1mo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -691,6 +694,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="rsvpButton" destination="k3E-AO-CmJ" id="vyJ-7N-X3c"/>
                         <outlet property="tableView" destination="dan-TT-3Yg" id="mzz-Vm-kNx"/>
                     </connections>
                 </viewController>
