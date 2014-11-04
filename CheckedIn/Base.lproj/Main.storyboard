@@ -161,15 +161,39 @@
                                     <action selector="onSignUp:" destination="L16-7g-Drv" eventType="touchUpInside" id="HIt-V7-VGg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y8N-Sc-FCs">
+                                <rect key="frame" x="243" y="28" width="114" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="byq-Wg-zkU"/>
+                                    <constraint firstAttribute="width" constant="114" id="rFR-5V-ylW"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jue-Xs-UXJ">
+                                <rect key="frame" x="16" y="42" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8ai-kY-aUe"/>
+                                    <constraint firstAttribute="height" constant="50" id="wbe-Ex-aDP"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="backButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="L16-7g-Drv" eventType="touchUpInside" id="7xu-p7-7xl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iOO-bG-n7z" firstAttribute="top" secondItem="0rG-sS-BR6" secondAttribute="bottom" constant="27" id="1d1-5d-imS"/>
+                            <constraint firstItem="jue-Xs-UXJ" firstAttribute="top" secondItem="biB-se-MHg" secondAttribute="bottom" constant="22" id="1lZ-pD-nhj"/>
                             <constraint firstItem="ABI-cN-j6Q" firstAttribute="top" secondItem="2zz-tP-T54" secondAttribute="bottom" constant="24" id="2GQ-ln-2Cr"/>
                             <constraint firstItem="0rG-sS-BR6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7pf-ok-8uf" secondAttribute="leadingMargin" constant="8" id="4lg-ak-9JP"/>
+                            <constraint firstItem="jue-Xs-UXJ" firstAttribute="leading" secondItem="7pf-ok-8uf" secondAttribute="leadingMargin" id="AIl-2N-umG"/>
                             <constraint firstItem="0rG-sS-BR6" firstAttribute="top" secondItem="biB-se-MHg" secondAttribute="bottom" constant="100" id="Cxw-Rt-nA8"/>
                             <constraint firstItem="iOO-bG-n7z" firstAttribute="centerX" secondItem="0rG-sS-BR6" secondAttribute="centerX" id="DUO-QA-UxF"/>
                             <constraint firstItem="gsc-yb-45A" firstAttribute="top" secondItem="iOO-bG-n7z" secondAttribute="bottom" constant="25" id="K2X-L8-uBt"/>
+                            <constraint firstItem="Y8N-Sc-FCs" firstAttribute="top" secondItem="biB-se-MHg" secondAttribute="bottom" constant="8" id="Mcz-Ky-eJb"/>
+                            <constraint firstAttribute="centerX" secondItem="Y8N-Sc-FCs" secondAttribute="centerX" id="NOk-SB-Pol"/>
                             <constraint firstItem="7X5-nF-9Hh" firstAttribute="top" secondItem="ABI-cN-j6Q" secondAttribute="bottom" constant="25" id="QDf-Rm-R5u"/>
                             <constraint firstItem="iOO-bG-n7z" firstAttribute="centerX" secondItem="gsc-yb-45A" secondAttribute="centerX" id="T8E-p1-c0n"/>
                             <constraint firstItem="gsc-yb-45A" firstAttribute="centerX" secondItem="2zz-tP-T54" secondAttribute="centerX" id="eBb-L3-nG7"/>
@@ -181,6 +205,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="jue-Xs-UXJ" id="SAP-OM-7u4"/>
                         <outlet property="displaynameText" destination="iOO-bG-n7z" id="ifa-SH-zaB"/>
                         <outlet property="emailText" destination="gsc-yb-45A" id="tef-MY-JdC"/>
                         <outlet property="passwordText" destination="2zz-tP-T54" id="TnZ-rm-imx"/>
@@ -729,12 +754,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton.png" width="50" height="50"/>
         <image name="cancelButton.png" width="40" height="40"/>
         <image name="logoutButton.png" width="40" height="40"/>
         <image name="mapButton.png" width="40" height="40"/>
         <image name="roundedDialog.png" width="494" height="208"/>
         <image name="testProfileIcon.png" width="100" height="100"/>
         <image name="timeIcon.png" width="40" height="40"/>
+        <image name="welcome.png" width="114" height="78"/>
         <image name="welcomeMessage.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -58,6 +58,8 @@
 		D0763F3E1A075CA700FF15F6 /* mapButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F3D1A075CA700FF15F6 /* mapButton.png */; };
 		D0763F401A075DDC00FF15F6 /* logoutButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F3F1A075DDC00FF15F6 /* logoutButton.png */; };
 		D0763F421A0760F400FF15F6 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0763F411A0760F400FF15F6 /* cancelButton.png */; };
+		D078FFB01A08804E002FECE5 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = D078FFAF1A08804E002FECE5 /* welcome.png */; };
+		D078FFB21A088155002FECE5 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D078FFB11A088155002FECE5 /* backButton.png */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
 		D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237E19FDA91200771856 /* CreateEventViewController.swift */; };
@@ -133,6 +135,8 @@
 		D0763F3D1A075CA700FF15F6 /* mapButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapButton.png; path = Images.xcassets/mapButton.png; sourceTree = "<group>"; };
 		D0763F3F1A075DDC00FF15F6 /* logoutButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoutButton.png; path = Images.xcassets/logoutButton.png; sourceTree = "<group>"; };
 		D0763F411A0760F400FF15F6 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelButton.png; path = Images.xcassets/cancelButton.png; sourceTree = "<group>"; };
+		D078FFAF1A08804E002FECE5 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome.png; path = Images.xcassets/welcome.png; sourceTree = "<group>"; };
+		D078FFB11A088155002FECE5 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = Images.xcassets/backButton.png; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckedIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0F5237B19FD936100771856 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewCell.xib; path = "View Controllers/EventTableViewCell.xib"; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D078FFB11A088155002FECE5 /* backButton.png */,
+				D078FFAF1A08804E002FECE5 /* welcome.png */,
 				D0763F411A0760F400FF15F6 /* cancelButton.png */,
 				D0763F3F1A075DDC00FF15F6 /* logoutButton.png */,
 				D0763F3D1A075CA700FF15F6 /* mapButton.png */,
@@ -420,6 +426,7 @@
 				D074DB5219FDF8160038A3F2 /* header.png in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
 				D0763F391A073EB800FF15F6 /* logo04.png in Resources */,
+				D078FFB21A088155002FECE5 /* backButton.png in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
 				D0763F3A1A073EB800FF15F6 /* logo05.png in Resources */,
 				D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */,
@@ -433,6 +440,7 @@
 				D03DDB531A05D8B900252CEF /* arrow.png in Resources */,
 				D030FB321A00B02C003F0384 /* rsvpedMark.png in Resources */,
 				D038079719FE0CD80066575E /* Icon-58.png in Resources */,
+				D078FFB01A08804E002FECE5 /* welcome.png in Resources */,
 				D0661DE71A00A6060060B8D0 /* welcomeMessage.png in Resources */,
 				D0763F3E1A075CA700FF15F6 /* mapButton.png in Resources */,
 				D038079819FE0CD80066575E /* Icon-80.png in Resources */,
