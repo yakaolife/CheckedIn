@@ -19,8 +19,6 @@ class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       
-     
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -44,7 +42,7 @@ class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate {
                     let long = placemark.location.coordinate.longitude
                     let pointAnnotation:myAnnotation = myAnnotation()
                     pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    pointAnnotation.title = event.EventName
+                    pointAnnotation.title = event.fullAddress!
                     pointAnnotation.objectID = event.objectId
                     
                     annotation.setCoordinate(placemark.location.coordinate)

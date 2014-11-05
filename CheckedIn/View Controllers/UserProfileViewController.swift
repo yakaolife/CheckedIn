@@ -34,7 +34,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         selectedIndex = 0
-        fetchRsvpedEvents(nil)
+         fetchRsvpedEvents(nil)
 
  
     }

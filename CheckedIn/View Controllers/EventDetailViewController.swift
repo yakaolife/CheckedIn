@@ -62,8 +62,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
-    
-    
+
     //This function only change the look of the RSVPButton, it does not immediately update RSVP info on Parse
     // We do that when user dismiss this controller, just to save some bandwith
     func changeRSVPButtonState(updateState:Bool){
@@ -72,10 +71,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             rsvpButton.backgroundColor = cancelColor
             rsvpButton.tintColor = UIColor.blackColor()
             rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
+            rsvpEvent()
         }else{
             rsvpButton.backgroundColor = RSVPColor
             rsvpButton.tintColor = UIColor.whiteColor()
             rsvpButton.setTitle("RSVP", forState: .Normal)
+            unRsvpEvent()
         }
         RSVPstate  = updateState
         
@@ -85,30 +86,32 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         changeRSVPButtonState(!RSVPstate)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        println("in ViewWillDisappear")
-        if(self.RSVPstate){
-            rsvpEvent(self.eventObjectId!)
-        }else{
-            unRsvpEvent(self.eventObjectId!)
-        }
-        super.viewWillDisappear(true)
-    }
+//    override func viewWillDisappear(animated: Bool) {
+//        println("in ViewWillDisappear")
+//        if(self.RSVPstate){
+//            rsvpEvent(self.eventObjectId!)
+//        }else{
+//            unRsvpEvent(self.eventObjectId!)
+//        }
+//        super.viewWillDisappear(true)
+//    }
     
-    func unRsvpEvent(selectedEventObjectId:String) {
+    func unRsvpEvent() {
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
         var events = ParseEvent.query() as PFQuery
-        events.getObjectInBackgroundWithId(selectedEventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
+        events.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 relation.removeObject(object)
-                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
-                    if succeed {
-                        print("Succeed in cancel RSVP")
-                    } else  {
-                        println("rsvped error \(error)")
-                    }
-                })
+                user.saveEventually()
+ 
+//                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
+//                    if succeed {
+//                        print("Succeed in cancel RSVP")
+//                    } else  {
+//                        println("rsvped error \(error)")
+//                    }
+//                })
             } else {
                 println("rsvp event error \(error)")
             }
@@ -116,21 +119,25 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    func rsvpEvent(selectedEventObjectId:String){
+//    func rsvpEvent(selectedEventObjectId:String){
+    func rsvpEvent(){
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
         var events = ParseEvent.query() as PFQuery
-        events.getObjectInBackgroundWithId(selectedEventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
+        events.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 relation.addObject(object)
-                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
-                    if succeed {
-                        println("Succeed RSVP")
-                        //self.fetchRsvpedEvents(true )
-                    } else  {
-                        println("rsvped error \(error)")
-                    }
-                })
+                user.saveEventually()
+ 
+                
+//                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
+//                if succeed {
+//                        println("Succeed RSVP")
+//                        //self.fetchRsvpedEvents(true )
+//                } else  {
+//                        println("rsvped error \(error)")
+//                    }
+//                })
             } else {
                 println("rsvp event error \(error)")
             }
