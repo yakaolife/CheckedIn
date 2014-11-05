@@ -694,7 +694,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="BwT-oO-o5s">
-                        <barButtonItem key="rightBarButtonItem" image="addEvent.png" id="MJS-Ef-1Ws"/>
+                        <barButtonItem key="rightBarButtonItem" image="addEvent.png" id="MJS-Ef-1Ws">
+                            <connections>
+                                <action selector="onAddEvent:" destination="IRR-gE-UQj" id="iBO-9F-wDM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="rsvpButton" destination="k3E-AO-CmJ" id="vyJ-7N-X3c"/>

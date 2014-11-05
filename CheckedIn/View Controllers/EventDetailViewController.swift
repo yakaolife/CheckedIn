@@ -9,6 +9,7 @@
 //Note: hiding first section header
 //  Using the rest as seperator
 import UIKit
+import EventKit
 
 class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -16,6 +17,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var eventObjectId:String?
     var thisEvent: ParseEvent!
     var RSVPstate = true
+    let eventStore = EKEventStore()
     
     let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
     let cancelColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
@@ -210,6 +212,34 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
  
     }
+    @IBAction func onAddEvent(sender: AnyObject) {
+        //show user alert first about the access premission
+        let alert = UIAlertController(title: "Add this event to calendar?", message: "In order to add this event to your calendar, we may need your permission", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
+            println("Cancel the add event action, do nothing")
+        }))
+        
+        alert.addAction(UIAlertAction(title:"Add", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
+            self.requestEventAccess()
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func requestEventAccess(){
+        self.eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {
+            granted, error in
+            if(granted) && (error == nil){
+                println("Access to Calendar/Reminder granted")
+                //Add code to save event
+                
+            }else{
+                println("ACCESS NOT GRANTED")
+            }
+        })
+        
+    }
+
 }
 
  
