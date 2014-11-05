@@ -14,13 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var locationManager: CLLocationManager?
-
+    var storyboard = UIStoryboard (name: "Main", bundle: nil)
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
          Parse.setApplicationId("flC9eMzZehG2eu0TBYUn6JqiIvw0maaJn7FEWOsH", clientKey: "ioAQpL7FN7aNagtmxhWCc0xdqJOuofhMdHF0Ftvb")
         
         //Set up UI
         customizeUI()
+        if PFUser.currentUser() != nil   {
+            //go to logged in view
+            println ("current is logged in as \(PFUser.currentUser().username!)")
+            var nvc = storyboard.instantiateViewControllerWithIdentifier("UserProfileNavigation") as UINavigationController
+            window?.rootViewController = nvc
+        } else {
+            println("no current user")
+        }
         
         return true
     }

@@ -87,7 +87,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         if(section == 0){
             return 1 //Header
         }else{
-            println("tableview count is \(events?.count ?? 0)")
+           // println("tableview count is \(events?.count ?? 0)")
             return events?.count ?? 0
         }
     }
