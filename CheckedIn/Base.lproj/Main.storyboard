@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -499,7 +499,7 @@
             </objects>
             <point key="canvasLocation" x="4125" y="2098"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Title-->
         <scene sceneID="2B6-kj-kJG">
             <objects>
                 <viewController id="IRR-gE-UQj" customClass="EventDetailViewController" customModule="CheckedIn" customModuleProvider="target" sceneMemberID="viewController">
@@ -693,6 +693,9 @@
                             <constraint firstAttribute="bottom" secondItem="Czp-Pj-FVF" secondAttribute="bottom" id="pTP-ZC-7s9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="BwT-oO-o5s">
+                        <barButtonItem key="rightBarButtonItem" image="addEvent.png" id="MJS-Ef-1Ws"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="rsvpButton" destination="k3E-AO-CmJ" id="vyJ-7N-X3c"/>
                         <outlet property="tableView" destination="dan-TT-3Yg" id="mzz-Vm-kNx"/>
@@ -758,6 +761,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addEvent.png" width="50" height="50"/>
         <image name="backButton.png" width="50" height="50"/>
         <image name="cancelButton.png" width="40" height="40"/>
         <image name="logoutButton.png" width="40" height="40"/>
