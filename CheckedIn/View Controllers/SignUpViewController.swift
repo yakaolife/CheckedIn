@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var displaynameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
@@ -21,6 +22,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        backButton.backgroundColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,10 @@ class SignUpViewController: UIViewController {
         
 
         
+    }
+
+    @IBAction func goBack(sender: AnyObject) {
+            self.dismissViewControllerAnimated(true, nil)
     }
 
 }
