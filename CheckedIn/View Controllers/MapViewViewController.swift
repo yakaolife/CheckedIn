@@ -112,7 +112,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue , sender: AnyObject!) {
         if segue.identifier == "fromMapToDetail" {
             let vc = segue.destinationViewController as EventDetailViewController
-            vc.eventNameAndRsvped = sender as NSDictionary?
+            vc.eventIdAndRsvped = sender as NSDictionary?
             
         }
     }

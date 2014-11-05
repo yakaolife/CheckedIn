@@ -13,7 +13,7 @@ import EventKit
 
 class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var eventNameAndRsvped:NSDictionary?
+    var eventIdAndRsvped:NSDictionary?
     var eventObjectId:String?
     var thisEvent: ParseEvent!
     var RSVPstate = true
@@ -39,9 +39,9 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
         
         //if segue from profile view controller , otherwise, objectId should be set
-         if self.eventNameAndRsvped != nil {
-            self.eventObjectId = eventNameAndRsvped?.objectForKey("objectId") as String?
-            self.RSVPstate = eventNameAndRsvped?.objectForKey("isRsvped") as Bool
+         if self.eventIdAndRsvped != nil {
+            self.eventObjectId = eventIdAndRsvped?.objectForKey("objectId") as String?
+            self.RSVPstate = eventIdAndRsvped?.objectForKey("isRsvped") as Bool
             changeRSVPButtonState(self.RSVPstate)
         }
          fetchTheEvent()

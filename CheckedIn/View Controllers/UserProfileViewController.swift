@@ -168,8 +168,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let event = events?[indexPath.row] as ParseEvent
-        var eventNameAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
-        self.performSegueWithIdentifier("ShowDetailSegue", sender: eventNameAndRsvped)
+        var eventIdAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
+        self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -178,7 +178,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             
             if segue.destinationViewController.isKindOfClass(EventDetailViewController){
                 let vc = segue.destinationViewController as EventDetailViewController
-                vc.eventNameAndRsvped = sender as NSDictionary?
+                vc.eventIdAndRsvped = sender as NSDictionary?
                 
             }
         } else if segue.identifier == "toMapView" {
