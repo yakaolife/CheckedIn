@@ -117,9 +117,15 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             return 44
         }
     }
-    
+        
+
+
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
+        if(indexPath.section == 0){
+            return false
+        }else{
+            return true
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
