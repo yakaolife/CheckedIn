@@ -51,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UISegmentedControl.appearance().tintColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
         //Which background with some transparency
         UISegmentedControl.appearance().backgroundColor = UIColor(red: 255/255, green:255/255, blue:255/255, alpha: 0.85)
-
         
     }
 

@@ -117,6 +117,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             return 44
         }
     }
+    
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // var cell = UITableViewCell()
         if(indexPath.row == 0 && indexPath.section == 0){
@@ -168,6 +173,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.section == 0 {
+            return
+        }
         
         let event = events?[indexPath.row] as ParseEvent
         var eventIdAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]

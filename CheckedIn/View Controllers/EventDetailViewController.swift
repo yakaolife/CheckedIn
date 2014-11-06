@@ -242,11 +242,11 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 var event = EKEvent(eventStore: self.eventStore)
                 event.title = self.thisEvent.EventName
                 event.startDate = self.thisEvent.eventDate
-                event.startDate = self.thisEvent.eventDate
+                event.endDate = self.thisEvent.eventDate
                 event.notes = self.thisEvent.tagLine
                 event.calendar = self.eventStore.defaultCalendarForNewEvents
-                self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
-                println("Saved Event")
+                var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+                println("Saved Event: \(result)")
                 
             }else{
                 println("ACCESS NOT GRANTED")
