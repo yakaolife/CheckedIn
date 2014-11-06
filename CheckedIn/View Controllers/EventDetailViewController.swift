@@ -239,6 +239,14 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if(granted) && (error == nil){
                 println("Access to Calendar/Reminder granted")
                 //Add code to save event
+                var event = EKEvent(eventStore: self.eventStore)
+                event.title = self.thisEvent.EventName
+                event.startDate = self.thisEvent.eventDate
+                event.startDate = self.thisEvent.eventDate
+                event.notes = self.thisEvent.tagLine
+                event.calendar = self.eventStore.defaultCalendarForNewEvents
+                self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+                println("Saved Event")
                 
             }else{
                 println("ACCESS NOT GRANTED")
