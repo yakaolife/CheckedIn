@@ -73,10 +73,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Called when the applicatzion is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
 
+      func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        if PFUser.currentUser() != nil   {
+            //go to logged in view
+            println ("current is logged in as \(PFUser.currentUser().username!)")
+            var nvc = storyboard.instantiateViewControllerWithIdentifier("UserProfileNavigation") as UINavigationController
+            window?.rootViewController = nvc
+        } else {
+            println("no current user")
+        }
+        return true
+    }
 }
 
 extension AppDelegate: CLLocationManagerDelegate{

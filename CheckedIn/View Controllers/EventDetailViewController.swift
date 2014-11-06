@@ -11,7 +11,9 @@
 import UIKit
 import EventKit
 
-class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
+    
+    @IBOutlet weak var addToCalendarButton: UIBarButtonItem!
     
     var eventIdAndRsvped:NSDictionary?
     var eventObjectId:String?
@@ -32,6 +34,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Detail"
+    
          tableView.delegate = self
          tableView.dataSource = self
          tableView.rowHeight = UITableViewAutomaticDimension
@@ -71,11 +74,13 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             rsvpButton.backgroundColor = cancelColor
             rsvpButton.tintColor = UIColor.blackColor()
             rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
+            addToCalendarButton.enabled = true
             rsvpEvent()
         }else{
             rsvpButton.backgroundColor = RSVPColor
             rsvpButton.tintColor = UIColor.whiteColor()
             rsvpButton.setTitle("RSVP", forState: .Normal)
+            addToCalendarButton.enabled = false
             unRsvpEvent()
         }
         RSVPstate  = updateState
@@ -163,7 +168,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
-            println("First header section height is set to 0")
+          //  println("First header section height is set to 0")
             return 0 //Header
         }else{
             return 20
@@ -198,7 +203,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             
         }else {
             //Time
-             switch indexPath.row {
+             switch indexPath.row {	
                 
             case 0:
                  var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
@@ -220,65 +225,100 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
  
     }
     @IBAction func onAddEvent(sender: AnyObject) {
+        
         //show user alert first about the access premission
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)  {
+            
+            case EKAuthorizationStatus.Authorized:
+                println("authorized")
+                addEventToCalendar()
+            
+            case EKAuthorizationStatus.Denied :
+                println("denied")
+                UIAlertView(title: "Change Setting Needed", message: "You have denied our calendar access, please update the configuration on your IOS device.", delegate: self, cancelButtonTitle: "OK").show()
+                
+//                if UIApplicationOpenSettingsURLString != nil {
+//                    var appSettings = NSURL(string: UIApplicationOpenSettingsURLString)
+//                   UIApplication.sharedApplication().openURL(appSettings!)
+//                   // UIApplication.sharedApplication().openURL(NSURL(string: "checkInCodePath:\\")!)
+//
+//                }
+            
+           
+            case EKAuthorizationStatus.NotDetermined:
+                println("request access")
+                requestEventAccess()
+            
+            default:
+                return
+        }
+    }
+   
+    func addEventToCalendar(){
+        //Add code to save event
+        var startDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(-60*60*24)
+        var endDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(60*60*24*3)
+        var predicate = self.eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
+        var eV = self.eventStore.eventsMatchingPredicate(predicate) as [EKEvent]!
+        if eV != nil{
+            for i in eV{
+               // println("Event Title:\(i.title)")
+                if i.title == self.thisEvent.EventName{
+                   // println("Already have the event!")
+                    UIAlertView(title: "Duplicate events found", message: "You already have a same event on your calendar. ", delegate: self, cancelButtonTitle: "Ok").show()
+                    return
+                }
+            }
+            
+        }else{
+            var event = EKEvent(eventStore: self.eventStore)
+             event.title = self.thisEvent.EventName
+            event.startDate = self.thisEvent.eventDate
+            event.endDate = self.thisEvent.eventDate
+            event.notes = "\(self.thisEvent.eventDetail!) \n\nLOCATION:\n\(self.thisEvent.fullAddress!)."
+            event.calendar = self.eventStore.defaultCalendarForNewEvents
+            var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+            //println("add into calendar : \(result)")
+            UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
+        }
+
+    }
+
+    func requestEventAccess()  {
+        
         let alert = UIAlertController(title: "Add this event to calendar?", message: "In order to add this event to your calendar, we may need your permission", preferredStyle: UIAlertControllerStyle.Alert)
+        
         alert.addAction(UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
             println("Cancel the add event action, do nothing")
+       
         }))
         
         alert.addAction(UIAlertAction(title:"Add", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
-            self.requestEventAccess()
-        }))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func requestEventAccess(){
-        self.eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {
-            granted, error in
-            if(granted) && (error == nil){
-                println("Access to Calendar/Reminder granted")
-                
-                var predicate = self.eventStore.predicateForEventsWithStartDate(self.thisEvent.eventDate, endDate: self.thisEvent.eventDate, calendars: nil)
-                
-                var eV = self.eventStore.eventsMatchingPredicate(predicate) as [EKEvent]!
-                
-                if eV != nil{
-                    for i in eV{
-                        println("Event Title:\(i.title)")
-                        if i.title == self.thisEvent.EventName{
-                            println("Already have the event!")
-                            return
-                        }
-                    }
+            
+            self.eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {
+                granted, error in
+                if(granted) && (error == nil){
                     
-                }else{
-                    println("No event returned with predicate")
+                    println("Access to Calendar/Reminder granted")
+                 
+                    self.addEventToCalendar()
                     
+                } else {
+                    println("access request denied!")
                 }
-                
-                
-                //Add code to save event
-                var event = EKEvent(eventStore: self.eventStore)
-                //event.objectId = self.thisEvent.objectId
-                event.title = self.thisEvent.EventName
-                event.startDate = self.thisEvent.eventDate
-                event.endDate = self.thisEvent.eventDate
-                event.notes = self.thisEvent.tagLine
-                event.calendar = self.eventStore.defaultCalendarForNewEvents
-                var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
-                println("Saved Event: \(result)")
-
-
-                
-                
-                
-            }else{
-                println("ACCESS NOT GRANTED")
-            }
-        })
-        
+            })
+        }))
+         self.presentViewController(alert, animated: true, completion: nil)
     }
+
+    
+    
+        
+                
+                
+                
+    
 
 
 }
