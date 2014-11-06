@@ -238,8 +238,23 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             granted, error in
             if(granted) && (error == nil){
                 println("Access to Calendar/Reminder granted")
+                
+                var predicate = self.eventStore.predicateForEventsWithStartDate(self.thisEvent.eventDate, endDate: self.thisEvent.eventDate, calendars: nil)
+                
+                var eV = self.eventStore.eventsMatchingPredicate(predicate) as [MyEvent]!
+                if eV != nil{
+                    for i in eV{
+                        var e = i as MyEvent
+                        //if e.o
+                    }
+                    
+                }
+                
+                
                 //Add code to save event
-                var event = EKEvent(eventStore: self.eventStore)
+                var event = MyEvent(eventStore: self.eventStore)
+                //var event = EKEvent(
+                event.objectId = self.thisEvent.objectId
                 event.title = self.thisEvent.EventName
                 event.startDate = self.thisEvent.eventDate
                 event.endDate = self.thisEvent.eventDate
@@ -247,6 +262,10 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 event.calendar = self.eventStore.defaultCalendarForNewEvents
                 var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
                 println("Saved Event: \(result)")
+
+
+                
+                
                 
             }else{
                 println("ACCESS NOT GRANTED")
@@ -255,6 +274,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
 
+
 }
+
 
  

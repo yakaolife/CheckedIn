@@ -41,6 +41,7 @@
 		D03DDB571A05EA0900252CEF /* RSVP.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB541A05EA0900252CEF /* RSVP.png */; };
 		D03DDB581A05EA0900252CEF /* rsvpCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB551A05EA0900252CEF /* rsvpCancel.png */; };
 		D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB561A05EA0900252CEF /* rsvpHover.png */; };
+		D05C23131A0B376900E6BD2F /* MyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C23121A0B376900E6BD2F /* MyEvent.swift */; };
 		D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */; };
 		D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE21A009B450060B8D0 /* testProfileIcon.png */; };
 		D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE31A009B450060B8D0 /* timeIcon.png */; };
@@ -119,6 +120,7 @@
 		D03DDB541A05EA0900252CEF /* RSVP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RSVP.png; path = Images.xcassets/RSVP.png; sourceTree = "<group>"; };
 		D03DDB551A05EA0900252CEF /* rsvpCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpCancel.png; path = Images.xcassets/rsvpCancel.png; sourceTree = "<group>"; };
 		D03DDB561A05EA0900252CEF /* rsvpHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpHover.png; path = Images.xcassets/rsvpHover.png; sourceTree = "<group>"; };
+		D05C23121A0B376900E6BD2F /* MyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEvent.swift; sourceTree = "<group>"; };
 		D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeaderTableViewCell.swift; path = "View Controllers/EventHeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		D0661DE21A009B450060B8D0 /* testProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testProfileIcon.png; path = Images.xcassets/testProfileIcon.png; sourceTree = "<group>"; };
 		D0661DE31A009B450060B8D0 /* timeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeIcon.png; path = Images.xcassets/timeIcon.png; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */,
 				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
 				8FA427D21A030E32007EE14C /* myAnnotation.swift */,
+				D05C23121A0B376900E6BD2F /* MyEvent.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				D038079319FE0CA20066575E /* iBeacon.swift in Sources */,
 				8F79767219FF6AC900AB4CB8 /* ParseEvent.swift in Sources */,
 				D025AAE51A06E4B2009F08A8 /* EventRSVPButtonView.swift in Sources */,
+				D05C23131A0B376900E6BD2F /* MyEvent.swift in Sources */,
 				8F00CE971A0713AD0095B4B9 /* EventMapTableViewCell.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
