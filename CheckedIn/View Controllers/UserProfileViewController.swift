@@ -193,13 +193,16 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     
     //Swipe cell functions
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if self.selectedIndex == 2 {
+            return false
+        }
         return true
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        if self.selectedIndex == 2 {
-            return nil
-        }
+//        if self.selectedIndex == 2 {
+//            return nil
+//        }
         let event =  events?[indexPath.row] as ParseEvent
         if isAlreadyRSVPed(event.objectId) {
 
