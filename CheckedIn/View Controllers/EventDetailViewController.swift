@@ -241,20 +241,26 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 var predicate = self.eventStore.predicateForEventsWithStartDate(self.thisEvent.eventDate, endDate: self.thisEvent.eventDate, calendars: nil)
                 
-                var eV = self.eventStore.eventsMatchingPredicate(predicate) as [MyEvent]!
+                var eV = self.eventStore.eventsMatchingPredicate(predicate) as [EKEvent]!
+                
                 if eV != nil{
                     for i in eV{
-                        var e = i as MyEvent
-                        //if e.o
+                        println("Event Title:\(i.title)")
+                        if i.title == self.thisEvent.EventName{
+                            println("Already have the event!")
+                            return
+                        }
                     }
+                    
+                }else{
+                    println("No event returned with predicate")
                     
                 }
                 
                 
                 //Add code to save event
-                var event = MyEvent(eventStore: self.eventStore)
-                //var event = EKEvent(
-                event.objectId = self.thisEvent.objectId
+                var event = EKEvent(eventStore: self.eventStore)
+                //event.objectId = self.thisEvent.objectId
                 event.title = self.thisEvent.EventName
                 event.startDate = self.thisEvent.eventDate
                 event.endDate = self.thisEvent.eventDate
