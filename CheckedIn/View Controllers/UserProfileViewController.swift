@@ -26,6 +26,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         
         self.title = "Home"
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 96
         
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
