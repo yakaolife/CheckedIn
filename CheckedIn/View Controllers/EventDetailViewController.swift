@@ -11,30 +11,32 @@
 import UIKit
 import EventKit
 
+enum StateOfCheckedIn  {
+    case Done
+    case Now
+    case NA
+}
+
 class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
     
-    @IBOutlet weak var addToCalendarButton: UIBarButtonItem!
     
+    @IBOutlet weak var addToCalendarButton: UIBarButtonItem!
     var eventIdAndRsvped:NSDictionary?
     var eventObjectId:String?
     var thisEvent: ParseEvent!
     var RSVPstate:Bool?
     let eventStore = EKEventStore()
-    
+    var state = StateOfCheckedIn.NA
     let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
     let cancelColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
     
     @IBOutlet weak var rsvpButton: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     var sectionKey = ["Header", "TimeInfo" ] //We can add more here
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Detail"
-     
-        
          tableView.delegate = self
          tableView.dataSource = self
          tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,26 +46,50 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         //if segue from profile view controller , otherwise, objectId should be set
          if self.eventIdAndRsvped != nil {
             self.eventObjectId = eventIdAndRsvped?.objectForKey("objectId") as String?
-            
+            //for past event, no rsvp state
             if let rsvpState = eventIdAndRsvped?.objectForKey("isRsvped") as Bool? {
                 self.RSVPstate = eventIdAndRsvped?.objectForKey("isRsvped") as Bool?
             }
-            showRSVPButton()
-            
  
         }
          fetchTheEvent()
     }
     
+    //MARK: parse methods
+    func CheckedInState()  {
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("checkedIn")
+        var query = relation.query()
+        query.whereKey("objectId", equalTo: eventObjectId)
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            //already checked in
+             if objects.count > 0 {
+                 self.state = StateOfCheckedIn.Done
+                self.showRSVPButton()
+                
+            } else {
+                var eventTime = self.thisEvent!.eventDate!
+                var startTime = eventTime.dateByAddingTimeInterval(-60*60*12)
+                var endTime = eventTime.dateByAddingTimeInterval(60*60*12)
+                var now = NSDate()
+                if now.compare(startTime) == NSComparisonResult.OrderedDescending && now.compare(endTime) == NSComparisonResult.OrderedAscending {
+                    //ok to checked in
+                    self.state = StateOfCheckedIn.Now
+                    self.showRSVPButton()
+                 }
+            }
+            self.showRSVPButton()
+         }
+    }
+    
     func fetchTheEvent (){
-        
         var query = ParseEvent.query()        
         query.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 let event = object as ParseEvent 
-                self.thisEvent = event 
+                self.thisEvent = event
+                 self.CheckedInState()
                 self.tableView.reloadData()
-                
             } else {
                 println("getting detail event error \(error) ")
             }
@@ -73,48 +99,43 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     //This function only change the look of the RSVPButton, it does not immediately update RSVP info on Parse
     // We do that when user dismiss this controller, just to save some bandwith
     func showRSVPButton(){
-        //println("Changing RSVP from \(RSVPstate) to \(updateState)")
-        
-        //for past event, no button to show here
-        if self.RSVPstate == nil {
+         //for past event, no button to show here
+          if self.RSVPstate == nil {
             addToCalendarButton.enabled = false
             rsvpButton.enabled = false
             rsvpButton.alpha = 0
             rsvpButton.backgroundColor = cancelColor
             return
         }
-        
-        if((self.RSVPstate) == true  ){
-            println("\n[ rsvp here]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
+        if((self.RSVPstate) == true ){
             rsvpButton.backgroundColor = cancelColor
             rsvpButton.tintColor = UIColor.blackColor()
-            rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
-            addToCalendarButton.enabled = true
-//            rsvpEvent()
-        }else{
+            if self.state != StateOfCheckedIn.Now {
+                rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
+                addToCalendarButton.enabled = true
+            } else {
+                addToCalendarButton.enabled = false
+                rsvpButton.setTitle("Check In Now", forState: .Normal)
+            }
+         }else{
             rsvpButton.backgroundColor = RSVPColor
             rsvpButton.tintColor = UIColor.whiteColor()
             rsvpButton.setTitle("RSVP", forState: .Normal)
             addToCalendarButton.enabled = false
-//            unRsvpEvent()
-        }
+         }
         
     }
     
     @IBAction func updateRSVP(sender: AnyObject) {
         //first update UI
         self.RSVPstate = !self.RSVPstate!
-        showRSVPButton()
-        
+        showRSVPButton()        
         //since state changed for UI, here is oposite
         if self.RSVPstate == false {
             unRsvpEvent()            
          } else {
             rsvpEvent()
         }
-        
-
-
     }
 
     func unRsvpEvent() {
@@ -131,7 +152,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
     func rsvpEvent(){
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
@@ -147,7 +167,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //MARK: tableview related data source or delegate
-    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
@@ -157,7 +176,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }else{
             
             if(sectionKey[section] == "TimeInfo"){
-                return 3
+                return 4
             }else{
                 return 1
             }
@@ -210,7 +229,9 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                  var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
                  cell.descriptionLabel.text = self.thisEvent.eventDetail
                 return cell
-                
+             case 2:
+                var cell = tableView.dequeueReusableCellWithIdentifier("checkedIn") as EventCheckedInButtonCell
+                 return cell
               default:
                 tableView.rowHeight = 380
                 var cell = tableView.dequeueReusableCellWithIdentifier("Map") as EventMapTableViewCell
@@ -218,7 +239,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 return cell
             }
         }
- 
     }
     
     @IBAction func onAddEvent(sender: AnyObject) {
@@ -241,8 +261,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    //MARK : calendar related
-   
+    //MARK : calendar related   
     func addEventToCalendar(){
         //Add code to save event
         //currently we use such time windows for event past and current guideline

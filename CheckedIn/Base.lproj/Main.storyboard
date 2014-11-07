@@ -597,6 +597,31 @@
                                                     <outlet property="timeLabel" destination="eo2-14-WVc" id="18J-ln-Fqc"/>
                                                 </connections>
                                             </tableViewCell>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkedIn" id="5qN-dG-jfm" customClass="EventCheckedInButtonCell" customModule="CheckedIn" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5qN-dG-jfm" id="lKg-qA-1AU">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVp-Zc-lf5">
+                                                            <rect key="frame" x="200" y="4" width="200" height="36"/>
+                                                            <state key="normal" image="checkedInButton.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="onCheckedIn:" destination="5qN-dG-jfm" eventType="touchUpInside" id="5Pj-e7-EUe"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="centerX" secondItem="uVp-Zc-lf5" secondAttribute="centerX" id="ShL-HW-Rws"/>
+                                                        <constraint firstAttribute="centerY" secondItem="uVp-Zc-lf5" secondAttribute="centerY" id="e2D-4g-AQI"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="checkedInButton" destination="uVp-Zc-lf5" id="7ao-AG-FXN"/>
+                                                </connections>
+                                            </tableViewCell>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Description" rowHeight="125" id="Y1h-12-ldp" customClass="EventDescriptionTableViewCell" customModule="CheckedIn" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -708,7 +733,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820" y="1247"/>
+            <point key="canvasLocation" x="3820" y="1241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4a-Di-LIO">
@@ -769,6 +794,7 @@
         <image name="addEvent.png" width="50" height="50"/>
         <image name="backButton.png" width="50" height="50"/>
         <image name="cancelButton.png" width="40" height="40"/>
+        <image name="checkedInButton.png" width="200" height="36"/>
         <image name="logoutButton.png" width="40" height="40"/>
         <image name="mapButton.png" width="40" height="40"/>
         <image name="roundedDialog.png" width="494" height="208"/>

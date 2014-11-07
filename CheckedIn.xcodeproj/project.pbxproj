@@ -22,6 +22,8 @@
 		8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */; };
 		8FCBCA441A01EAF700F4D640 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */; };
 		8FCBCA461A01F26600F4D640 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCBCA451A01F26600F4D640 /* MapKit.framework */; };
+		8FCF5B511A0D5A9800AA96F7 /* checkedInButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */; };
+		8FCF5B551A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF5B541A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift */; };
 		9356A202CB027A3953679D15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB3FB137615D915D37781E3 /* libPods.a */; };
 		D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006CCC819FB264400C067BB /* UserProfileViewController.swift */; };
 		D01C8E691A0ABD440029367F /* addEvent.png in Resources */ = {isa = PBXBuildFile; fileRef = D01C8E681A0ABD440029367F /* addEvent.png */; };
@@ -101,6 +103,8 @@
 		8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionCell.swift; path = "View Controllers/SectionCell.swift"; sourceTree = "<group>"; };
 		8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		8FCBCA451A01F26600F4D640 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkedInButton.png; path = ../../CK/CheckedIn/Images.xcassets/checkedInButton.png; sourceTree = "<group>"; };
+		8FCF5B541A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCheckedInButtonCell.swift; sourceTree = "<group>"; };
 		9DCEE7B702F45ED20D3EDB25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D006CCC819FB264400C067BB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		D01C8E681A0ABD440029367F /* addEvent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addEvent.png; path = Images.xcassets/addEvent.png; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */,
 				D01C8E681A0ABD440029367F /* addEvent.png */,
 				D078FFB11A088155002FECE5 /* backButton.png */,
 				D078FFAF1A08804E002FECE5 /* welcome.png */,
@@ -313,6 +318,7 @@
 				8F79767519FF6D1200AB4CB8 /* EventTableViewCell.swift */,
 				D074DB4D19FDF3B20038A3F2 /* TableHeader.xib */,
 				8F252EC119FF7577007EB416 /* HeaderTableViewCell.swift */,
+				8FCF5B541A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift */,
 				8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */,
 				D0661DEA1A00A9520060B8D0 /* EventWelcomeHeaderTableViewCell.swift */,
 				8F00CE961A0713AD0095B4B9 /* EventMapTableViewCell.swift */,
@@ -436,6 +442,7 @@
 				D078FFB21A088155002FECE5 /* backButton.png in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
 				D0763F3A1A073EB800FF15F6 /* logo05.png in Resources */,
+				8FCF5B511A0D5A9800AA96F7 /* checkedInButton.png in Resources */,
 				D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */,
 				D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */,
 				D037FA3919FCC37E002788EE /* Default.png in Resources */,
@@ -522,6 +529,7 @@
 				8F00CE971A0713AD0095B4B9 /* EventMapTableViewCell.swift in Sources */,
 				828C6F4D19EA8076002FE979 /* AppDelegate.swift in Sources */,
 				D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */,
+				8FCF5B551A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift in Sources */,
 				D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */,
 				D03DDB4D1A05A06900252CEF /* EventDescriptionTableViewCell.swift in Sources */,
 			);

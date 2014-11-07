@@ -93,11 +93,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //temp
         if(section == 0){
-            println("tableview count is \(events?.count ?? 0)")
-
             return 1 //Header
         }else{
-             println("tableview count is \(events?.count ?? 0)")
             return events?.count ?? 0
         }
     }
@@ -194,7 +191,6 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         let event = events?[indexPath.row] as ParseEvent
         if selectedIndex == 2 {
             var  eventIdAndRsvped = [  "objectId": event.objectId  ]
- 
             self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
         } else {
             var  eventIdAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
@@ -323,8 +319,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             if objects != nil {
                  self.events = objects
                 
-                println("\n[ ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
-                self.tableView.reloadData()
+                 self.tableView.reloadData()
             } else {
                 println("fetch all events error \(error)")
             }
