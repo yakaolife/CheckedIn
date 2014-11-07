@@ -18,7 +18,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var eventIdAndRsvped:NSDictionary?
     var eventObjectId:String?
     var thisEvent: ParseEvent!
-    var RSVPstate = true
+    var RSVPstate:Bool?
     let eventStore = EKEventStore()
     
     let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
@@ -38,14 +38,19 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
          tableView.delegate = self
          tableView.dataSource = self
          tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 96
+         tableView.estimatedRowHeight = 96
         // Do any additional setup after loading the view.
         
         //if segue from profile view controller , otherwise, objectId should be set
          if self.eventIdAndRsvped != nil {
             self.eventObjectId = eventIdAndRsvped?.objectForKey("objectId") as String?
-            self.RSVPstate = eventIdAndRsvped?.objectForKey("isRsvped") as Bool
-            changeRSVPButtonState(self.RSVPstate)
+            
+            if let rsvpState = eventIdAndRsvped?.objectForKey("isRsvped") as Bool? {
+                self.RSVPstate = eventIdAndRsvped?.objectForKey("isRsvped") as Bool?
+            }
+            showRSVPButton()
+            
+ 
         }
          fetchTheEvent()
     }
@@ -67,27 +72,49 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
 
     //This function only change the look of the RSVPButton, it does not immediately update RSVP info on Parse
     // We do that when user dismiss this controller, just to save some bandwith
-    func changeRSVPButtonState(updateState:Bool){
+    func showRSVPButton(){
         //println("Changing RSVP from \(RSVPstate) to \(updateState)")
-        if(updateState){
+        
+        //for past event, no button to show here
+        if self.RSVPstate == nil {
+            addToCalendarButton.enabled = false
+            rsvpButton.enabled = false
+            rsvpButton.alpha = 0
+            rsvpButton.backgroundColor = cancelColor
+            return
+        }
+        
+        if((self.RSVPstate) == true  ){
+            println("\n[ rsvp here]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
             rsvpButton.backgroundColor = cancelColor
             rsvpButton.tintColor = UIColor.blackColor()
             rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
             addToCalendarButton.enabled = true
-            rsvpEvent()
+//            rsvpEvent()
         }else{
             rsvpButton.backgroundColor = RSVPColor
             rsvpButton.tintColor = UIColor.whiteColor()
             rsvpButton.setTitle("RSVP", forState: .Normal)
             addToCalendarButton.enabled = false
-            unRsvpEvent()
+//            unRsvpEvent()
         }
-        RSVPstate  = updateState
         
     }
     
     @IBAction func updateRSVP(sender: AnyObject) {
-        changeRSVPButtonState(!RSVPstate)
+        //first update UI
+        self.RSVPstate = !self.RSVPstate!
+        showRSVPButton()
+        
+        //since state changed for UI, here is oposite
+        if self.RSVPstate == false {
+            unRsvpEvent()            
+         } else {
+            rsvpEvent()
+        }
+        
+
+
     }
 
     func unRsvpEvent() {
@@ -118,6 +145,9 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
+    
+    //MARK: tableview related data source or delegate
+    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
@@ -190,6 +220,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
  
     }
+    
     @IBAction func onAddEvent(sender: AnyObject) {
         
         //show user alert first about the access premission
@@ -209,11 +240,14 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 return
         }
     }
+    
+    //MARK : calendar related
    
     func addEventToCalendar(){
         //Add code to save event
-        var startDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(-60*60*24)
-        var endDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(60*60*24*3)
+        //currently we use such time windows for event past and current guideline
+        var startDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(-60*60*12)
+        var endDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(60*60*24*12)
         var predicate = self.eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
         var eV = self.eventStore.eventsMatchingPredicate(predicate) as [EKEvent]!
         if eV != nil{
@@ -226,17 +260,17 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 }
             }
             
-        }else{
-            var event = EKEvent(eventStore: self.eventStore)
-             event.title = self.thisEvent.EventName
-            event.startDate = self.thisEvent.eventDate
-            event.endDate = self.thisEvent.eventDate
-            event.notes = "\(self.thisEvent.eventDetail!)"
-            event.calendar = self.eventStore.defaultCalendarForNewEvents
-            var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
-            //println("add into calendar : \(result)")
-            UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
         }
+        var event = EKEvent(eventStore: self.eventStore)
+         event.title = self.thisEvent.EventName
+        event.startDate = self.thisEvent.eventDate
+        event.endDate = self.thisEvent.eventDate
+        event.notes = "\(self.thisEvent.eventDetail!)"
+        event.calendar = self.eventStore.defaultCalendarForNewEvents
+        var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
+        //println("add into calendar : \(result)")
+        UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
+    
 
     }
 

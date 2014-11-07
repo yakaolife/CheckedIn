@@ -42,17 +42,23 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     func refresh( refreshControl : UIRefreshControl)
     {
+        //TODO: somehow, now it hault after refresh pull.. comment it out for now
         refreshControl.beginRefreshing()
-        switch self.selectedIndex {
-        case 0:
-            showMyEvents()
-        case 1:
-            showAllEvents()
-        case 2:
-            showCheckedInEvents()
-        default:
-            println("default")
-        }
+//        self.events = nil
+//        switch self.selectedIndex {
+//        case 0 :
+//            self.selectedIndex = 0
+//            showMyEvents()
+//        case 1:
+//            self.selectedIndex = 1
+//            showAllEvents()
+//        case 2 :
+//            self.selectedIndex = 2
+//            showPastEvents()
+//        default:
+//            println ("default")
+//        }
+        
         refreshControl.endRefreshing()
     }
     
@@ -77,7 +83,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             showAllEvents()
         case 2 :
             self.selectedIndex = 2
-            showCheckedInEvents()
+            showPastEvents()
         default:
             println ("default")
         }
@@ -87,9 +93,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //temp
         if(section == 0){
+            println("tableview count is \(events?.count ?? 0)")
+
             return 1 //Header
         }else{
-           // println("tableview count is \(events?.count ?? 0)")
+             println("tableview count is \(events?.count ?? 0)")
             return events?.count ?? 0
         }
     }
@@ -99,7 +107,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     
     //MARK: tableview delegate
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var itemArray = ["RSVP events", "All events" , "CheckedIn events"]
+        var itemArray = ["RSVP events", "All events" , "Past RSVPs"]
         var headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 35))
         var control = UISegmentedControl(items: itemArray)
         control.frame = headerView.frame
@@ -117,9 +125,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             return 44
         }
     }
-        
-
-
+    
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if(indexPath.section == 0){
             return false
@@ -130,7 +136,8 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // var cell = UITableViewCell()
-        if(indexPath.row == 0 && indexPath.section == 0){
+        
+         if(indexPath.row == 0 && indexPath.section == 0){
             //load the profile view instead
             //println("Loading header ..  ")
             var cell = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
@@ -185,8 +192,14 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         
         let event = events?[indexPath.row] as ParseEvent
-        var eventIdAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
-        self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
+        if selectedIndex == 2 {
+            var  eventIdAndRsvped = [  "objectId": event.objectId  ]
+ 
+            self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
+        } else {
+            var  eventIdAndRsvped = [ "objectId": event.objectId, "isRsvped" : isAlreadyRSVPed(event.objectId) ]
+            self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -259,8 +272,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         self.events = nil
         fetchAllEvents()
     }
-    func showCheckedInEvents() {
-        fetchCheckedInEvents()
+    func showPastEvents() {
+        fetchPastEvents()
+        //fetchCheckedInEvents()
     }
     
     func fetchCheckedInEvents(){
@@ -302,18 +316,51 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     
     func fetchAllEvents(){
         var query = ParseEvent.query() as PFQuery
-//        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate())
         
         query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*5))
         query.orderByAscending("EventDate")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if objects != nil {
                  self.events = objects
+                
+                println("\n[ ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
                 self.tableView.reloadData()
             } else {
                 println("fetch all events error \(error)")
             }
         }
+    }
+    func fetchPastEvents(){
+//        var query = ParseEvent.query() as PFQuery
+//         query.whereKey("EventDate", lessThan: NSDate().dateByAddingTimeInterval  (-60*60*5))
+//        query.orderByDescending("EventDate")
+//            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+//                if objects != nil {
+//                    self.events = objects
+//                    self.tableView.reloadData()
+//                } else {
+//                    println("fetch all events error \(error)")
+//                }
+//        }
+    
+    
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("rsvped")
+        var query = relation.query()
+        query.whereKey("EventDate", lessThan: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.orderByAscending("EventDate")
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+
+            if objects != nil {
+                self.events = objects
+                self.tableView.reloadData()
+            } else {
+                println("fetch all events error \(error)")
+            }
+           
+        }
+    
+    
     }
     
     func unRsvpEvent(selectedEventObjectId:String) {
@@ -336,6 +383,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 })
             } else {
             println("rsvp event error \(error)")
+        
             }
             
         }
