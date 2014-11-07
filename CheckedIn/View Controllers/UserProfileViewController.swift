@@ -159,7 +159,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             var event = events?[indexPath.row] as ParseEvent
             cell.eventTitleLabel.text = event.EventName!
             cell.locationLabel.text = "\(event.cityName!), \(event.state!)"
-            cell.timeLabel.text = "\(event.eventDate!)"
+            cell.timeLabel.text = "\(event.dateToShow!)"
             if isAlreadyRSVPed(event.objectId!) {
                 cell.rsvpMarkImage.hidden = false
                 //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
@@ -217,9 +217,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-//        if self.selectedIndex == 2 {
-//            return nil
-//        }
+
         let event =  events?[indexPath.row] as ParseEvent
         if isAlreadyRSVPed(event.objectId) {
 
@@ -281,7 +279,10 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func fetchRsvpedEvents(isRsvped:Bool?){
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
-        relation.query().findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        var query = relation.query()
+        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.orderByAscending("EventDate")
+            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
                 println("error retrieving rsvped events")
             } else {
@@ -294,15 +295,20 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                     self.allMyEvents = objects
                     self.fetchAllEvents()
                 }
+                    
             }
         }
     }
     
     func fetchAllEvents(){
         var query = ParseEvent.query() as PFQuery
+//        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate())
+        
+        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.orderByAscending("EventDate")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if objects != nil {
-                self.events = objects
+                 self.events = objects
                 self.tableView.reloadData()
             } else {
                 println("fetch all events error \(error)")
@@ -329,8 +335,9 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                     }
                 })
             } else {
-                println("rsvp event error \(error)")
+            println("rsvp event error \(error)")
             }
+            
         }
     }
     func rsvpEvent(selectedEventObjectId:String){
@@ -343,6 +350,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
                 user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
                     if succeed {
                         self.fetchRsvpedEvents(true )
+                        
                     } else  {
                         println("rsvped error \(error)")
                     }

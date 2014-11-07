@@ -6,3 +6,4 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "PFObject+Subclass.h"
+#import "NSDate+MinimalTimeAgo.h"

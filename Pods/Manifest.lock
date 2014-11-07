@@ -21,16 +21,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bolts (1.1.3)
+  - NSDateMinimalTimeAgo (0.1.0)
   - Parse (1.4.2):
     - Bolts (~> 1.1.3)
 
 DEPENDENCIES:
   - AFNetworking
+  - NSDateMinimalTimeAgo (~> 0.1.0)
   - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  NSDateMinimalTimeAgo: 11f443d88edcfc2af23309b2641fd063c3d3a125
   Parse: fc9ceb6edbc6bb6a1a1f3c33f0db3293a6894f94
 
 COCOAPODS: 0.34.4

@@ -10,14 +10,14 @@ import UIKit
 import MapKit
 
 
-class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate {
+class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate , UIAlertViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
-    var event:ParseEvent?
-
+    var urlString :String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.mapView.delegate = self
         // Initialization code
     }
 
@@ -31,7 +31,9 @@ class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate {
         let annotation = myAnnotation()
         var geoLocation:CLLocation?
         var geocoder:CLGeocoder = CLGeocoder()
-        geocoder.geocodeAddressString(event.fullAddress, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+        let addressString = "http://maps.apple.com/?q=\(event.fullAddressWithoutZipCode!)"
+        urlString = addressString.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        geocoder.geocodeAddressString(event.fullAddress!, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
                 println("geolocation Error", error)
             }
@@ -64,9 +66,29 @@ class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate {
         var view = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView
         if view == nil {
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            view!.canShowCallout = false
+            view!.canShowCallout = true
+            view!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
+
         }
         return view
     }
 
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        
+        if control == view.rightCalloutAccessoryView {
+            if let eventAnnotation = view.annotation  as? myAnnotation {
+                let alertView = UIAlertView(title: "show in map", message: "will open map application", delegate: self, cancelButtonTitle: "cancel", otherButtonTitles: "Ok")
+                alertView.show()
+    
+             }
+        }
+    }
+
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        if buttonIndex == 1 {
+            let url = NSURL(string: self.urlString!)
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
 }

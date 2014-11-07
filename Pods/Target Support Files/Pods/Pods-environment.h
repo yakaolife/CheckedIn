@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 3
 
+// NSDateMinimalTimeAgo
+#define COCOAPODS_POD_AVAILABLE_NSDateMinimalTimeAgo
+#define COCOAPODS_VERSION_MAJOR_NSDateMinimalTimeAgo 0
+#define COCOAPODS_VERSION_MINOR_NSDateMinimalTimeAgo 1
+#define COCOAPODS_VERSION_PATCH_NSDateMinimalTimeAgo 0
+
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1

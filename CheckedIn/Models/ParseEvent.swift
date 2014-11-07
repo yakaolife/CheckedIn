@@ -66,11 +66,25 @@ class ParseEvent: PFObject,PFSubclassing {
         get {return objectForKey("eventProfileImg") as? PFFile}
         set {setObject(newValue, forKey: "eventProfileImage")}
     }
-    
+    var fullAddressWithoutZipCode: String? {
+        get {
+            return self.streetAddress! + "," + self.cityName! + "," + self.state!
+        }
+    }
     var fullAddress: String? {
         get {
             return self.streetAddress! + "," + self.cityName! + "," + self.state! + " " + self.zipCode!
         }
     }
-    
+    var dateToShow:String? {
+        
+        get {
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "EEE, MMM dd, yyyy  'at' h a"
+            return formatter.stringFromDate(self.eventDate!)
+            
+        }
+        
+    }
+   
 }

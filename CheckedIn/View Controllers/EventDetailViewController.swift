@@ -30,11 +30,11 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var sectionKey = ["Header", "TimeInfo" ] //We can add more here
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Detail"
-    
+     
+        
          tableView.delegate = self
          tableView.dataSource = self
          tableView.rowHeight = UITableViewAutomaticDimension
@@ -52,12 +52,11 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func fetchTheEvent (){
         
-        var query = ParseEvent.query()
-        
+        var query = ParseEvent.query()        
         query.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
             if object != nil {
                 let event = object as ParseEvent 
-                self.thisEvent = event
+                self.thisEvent = event 
                 self.tableView.reloadData()
                 
             } else {
@@ -90,17 +89,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func updateRSVP(sender: AnyObject) {
         changeRSVPButtonState(!RSVPstate)
     }
-    
-//    override func viewWillDisappear(animated: Bool) {
-//        println("in ViewWillDisappear")
-//        if(self.RSVPstate){
-//            rsvpEvent(self.eventObjectId!)
-//        }else{
-//            unRsvpEvent(self.eventObjectId!)
-//        }
-//        super.viewWillDisappear(true)
-//    }
-    
+
     func unRsvpEvent() {
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
@@ -109,14 +98,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if object != nil {
                 relation.removeObject(object)
                 user.saveEventually()
- 
-//                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
-//                    if succeed {
-//                        print("Succeed in cancel RSVP")
-//                    } else  {
-//                        println("rsvped error \(error)")
-//                    }
-//                })
             } else {
                 println("rsvp event error \(error)")
             }
@@ -124,7 +105,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-//    func rsvpEvent(selectedEventObjectId:String){
     func rsvpEvent(){
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
@@ -133,24 +113,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if object != nil {
                 relation.addObject(object)
                 user.saveEventually()
- 
-                
-//                user.saveInBackgroundWithBlock({ (succeed: Bool, error:NSError!) -> Void in
-//                if succeed {
-//                        println("Succeed RSVP")
-//                        //self.fetchRsvpedEvents(true )
-//                } else  {
-//                        println("rsvped error \(error)")
-//                    }
-//                })
             } else {
                 println("rsvp event error \(error)")
             }
         }
     }
 
-    
- 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
         //only "TimeInfo" section contains 2 rows, 1 is Time, 1 is Event info
@@ -178,7 +146,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sectionKey.count
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //Had to return cell in every conditional block, can't use lazy initialization :(
         //Header
@@ -187,7 +154,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             //Pass in cell info
 
             cell.eventTitleLabel.text = thisEvent.EventName
-
             thisEvent.eventProfileImage?.getDataInBackgroundWithBlock({ (imageData: NSData!, error:NSError!) -> Void in
                 if imageData != nil {
                     cell.eventLogoImage.image = UIImage(data: imageData)
@@ -207,7 +173,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 
             case 0:
                  var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
-                cell.timeLabel.text = "\(self.thisEvent.eventDate!)"
+                cell.timeLabel.text = "\(self.thisEvent.dateToShow!)"
                 return cell
                 
             case 1:
@@ -229,23 +195,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         //show user alert first about the access premission
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)  {
-            
             case EKAuthorizationStatus.Authorized:
                 println("authorized")
                 addEventToCalendar()
-            
             case EKAuthorizationStatus.Denied :
                 println("denied")
                 UIAlertView(title: "Change Setting Needed", message: "You have denied our calendar access, please update the configuration on your IOS device.", delegate: self, cancelButtonTitle: "OK").show()
-                
-//                if UIApplicationOpenSettingsURLString != nil {
-//                    var appSettings = NSURL(string: UIApplicationOpenSettingsURLString)
-//                   UIApplication.sharedApplication().openURL(appSettings!)
-//                   // UIApplication.sharedApplication().openURL(NSURL(string: "checkInCodePath:\\")!)
-//
-//                }
-            
-           
             case EKAuthorizationStatus.NotDetermined:
                 println("request access")
                 requestEventAccess()
@@ -276,7 +231,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
              event.title = self.thisEvent.EventName
             event.startDate = self.thisEvent.eventDate
             event.endDate = self.thisEvent.eventDate
-            event.notes = "\(self.thisEvent.eventDetail!) \n\nLOCATION:\n\(self.thisEvent.fullAddress!)."
+            event.notes = "\(self.thisEvent.eventDetail!)"
             event.calendar = self.eventStore.defaultCalendarForNewEvents
             var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
             //println("add into calendar : \(result)")
@@ -311,15 +266,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }))
          self.presentViewController(alert, animated: true, completion: nil)
     }
-
-    
-    
-        
-                
-                
-                
-    
-
 
 }
 
