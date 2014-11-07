@@ -22,7 +22,6 @@
 		8FC0FBDC19FECFEC00BC99F6 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */; };
 		8FCBCA441A01EAF700F4D640 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */; };
 		8FCBCA461A01F26600F4D640 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCBCA451A01F26600F4D640 /* MapKit.framework */; };
-		8FCF5B511A0D5A9800AA96F7 /* checkedInButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */; };
 		8FCF5B551A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF5B541A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift */; };
 		9356A202CB027A3953679D15 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB3FB137615D915D37781E3 /* libPods.a */; };
 		D006CCC919FB264400C067BB /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D006CCC819FB264400C067BB /* UserProfileViewController.swift */; };
@@ -44,6 +43,8 @@
 		D03DDB581A05EA0900252CEF /* rsvpCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB551A05EA0900252CEF /* rsvpCancel.png */; };
 		D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D03DDB561A05EA0900252CEF /* rsvpHover.png */; };
 		D05C23131A0B376900E6BD2F /* MyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05C23121A0B376900E6BD2F /* MyEvent.swift */; };
+		D05D6ED41A0D89DC00053874 /* checkedInButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D05D6ED21A0D89DC00053874 /* checkedInButton.png */; };
+		D05D6ED51A0D89DC00053874 /* checkInButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D05D6ED31A0D89DC00053874 /* checkInButton.png */; };
 		D0661DE11A009A650060B8D0 /* EventHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */; };
 		D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE21A009B450060B8D0 /* testProfileIcon.png */; };
 		D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D0661DE31A009B450060B8D0 /* timeIcon.png */; };
@@ -103,7 +104,6 @@
 		8FC0FBDB19FECFEC00BC99F6 /* SectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionCell.swift; path = "View Controllers/SectionCell.swift"; sourceTree = "<group>"; };
 		8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		8FCBCA451A01F26600F4D640 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkedInButton.png; path = ../../CK/CheckedIn/Images.xcassets/checkedInButton.png; sourceTree = "<group>"; };
 		8FCF5B541A0D5C8C00AA96F7 /* EventCheckedInButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCheckedInButtonCell.swift; sourceTree = "<group>"; };
 		9DCEE7B702F45ED20D3EDB25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D006CCC819FB264400C067BB /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 		D03DDB551A05EA0900252CEF /* rsvpCancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpCancel.png; path = Images.xcassets/rsvpCancel.png; sourceTree = "<group>"; };
 		D03DDB561A05EA0900252CEF /* rsvpHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsvpHover.png; path = Images.xcassets/rsvpHover.png; sourceTree = "<group>"; };
 		D05C23121A0B376900E6BD2F /* MyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEvent.swift; sourceTree = "<group>"; };
+		D05D6ED21A0D89DC00053874 /* checkedInButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkedInButton.png; path = Images.xcassets/checkedInButton.png; sourceTree = "<group>"; };
+		D05D6ED31A0D89DC00053874 /* checkInButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkInButton.png; path = Images.xcassets/checkInButton.png; sourceTree = "<group>"; };
 		D0661DE01A009A650060B8D0 /* EventHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeaderTableViewCell.swift; path = "View Controllers/EventHeaderTableViewCell.swift"; sourceTree = "<group>"; };
 		D0661DE21A009B450060B8D0 /* testProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testProfileIcon.png; path = Images.xcassets/testProfileIcon.png; sourceTree = "<group>"; };
 		D0661DE31A009B450060B8D0 /* timeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timeIcon.png; path = Images.xcassets/timeIcon.png; sourceTree = "<group>"; };
@@ -277,7 +279,8 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				8FCF5B501A0D5A9800AA96F7 /* checkedInButton.png */,
+				D05D6ED21A0D89DC00053874 /* checkedInButton.png */,
+				D05D6ED31A0D89DC00053874 /* checkInButton.png */,
 				D01C8E681A0ABD440029367F /* addEvent.png */,
 				D078FFB11A088155002FECE5 /* backButton.png */,
 				D078FFAF1A08804E002FECE5 /* welcome.png */,
@@ -429,6 +432,7 @@
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				D0763F3C1A073EB800FF15F6 /* logo07.png in Resources */,
 				D01C8E691A0ABD440029367F /* addEvent.png in Resources */,
+				D05D6ED51A0D89DC00053874 /* checkInButton.png in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
 				828C6F5719EA8076002FE979 /* LaunchScreen.xib in Resources */,
 				D0763F361A073EB800FF15F6 /* logo01.png in Resources */,
@@ -442,11 +446,11 @@
 				D078FFB21A088155002FECE5 /* backButton.png in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
 				D0763F3A1A073EB800FF15F6 /* logo05.png in Resources */,
-				8FCF5B511A0D5A9800AA96F7 /* checkedInButton.png in Resources */,
 				D03DDB591A05EA0900252CEF /* rsvpHover.png in Resources */,
 				D0661DE51A009B450060B8D0 /* timeIcon.png in Resources */,
 				D037FA3919FCC37E002788EE /* Default.png in Resources */,
 				D0763F371A073EB800FF15F6 /* logo02.png in Resources */,
+				D05D6ED41A0D89DC00053874 /* checkedInButton.png in Resources */,
 				D0763F381A073EB800FF15F6 /* logo03.png in Resources */,
 				D0763F3B1A073EB800FF15F6 /* logo06.png in Resources */,
 				D0661DE41A009B450060B8D0 /* testProfileIcon.png in Resources */,
