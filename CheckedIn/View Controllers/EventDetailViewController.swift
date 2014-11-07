@@ -261,15 +261,16 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
         }
+         UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
         var event = EKEvent(eventStore: self.eventStore)
-         event.title = self.thisEvent.EventName
+        event.title = self.thisEvent.EventName
         event.startDate = self.thisEvent.eventDate
         event.endDate = self.thisEvent.eventDate
         event.notes = "\(self.thisEvent.eventDetail!)"
         event.calendar = self.eventStore.defaultCalendarForNewEvents
         var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
         //println("add into calendar : \(result)")
-        UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
+       
     
 
     }

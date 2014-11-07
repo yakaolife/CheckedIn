@@ -294,7 +294,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
         var query = relation.query()
-        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*12))
         query.orderByAscending("EventDate")
             query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
@@ -317,7 +317,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     func fetchAllEvents(){
         var query = ParseEvent.query() as PFQuery
         
-        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*12))
         query.orderByAscending("EventDate")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if objects != nil {
@@ -347,7 +347,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
         var query = relation.query()
-        query.whereKey("EventDate", lessThan: NSDate().dateByAddingTimeInterval  (-60*60*5))
+        query.whereKey("EventDate", lessThan: NSDate().dateByAddingTimeInterval  (-60*60*12))
         query.orderByAscending("EventDate")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
 
