@@ -129,6 +129,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 rsvpButton.setTitle("Checked in!", forState: .Normal)
                 rsvpButton.backgroundColor = RSVPColor
                 rsvpButton.tintColor = UIColor.whiteColor()
+                /*rsvpButton.backgroundColor = UIColor.clearColor()
+                rsvpButton.setImage(UIImage(named: "checkedInButton.png"), forState: .Normal)*/
             }
             
          }else{
