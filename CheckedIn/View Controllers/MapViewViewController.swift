@@ -17,7 +17,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     var annotations: Array<myAnnotation>!
     var center: CLLocationCoordinate2D!
     var allMyEvents:NSArray?
-
     
     @IBAction func onCancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true , completion: nil	)
@@ -37,19 +36,16 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Map"
-
         self.mapView.delegate = self
          //TODO: will filter events by segment control
         
     }
     override func viewWillAppear(animated: Bool) {
-        
         mapView.removeAnnotations(mapView.annotations)
         self.annotations = nil
         fetechAllMyEvents()
         //TODO: will open location request , now using codepath class location
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
-        
         let center = myLocation.coordinate
         let span = MKCoordinateSpanMake(0.5, 0.5)
         let region = MKCoordinateRegion(center: center, span: self.mapView.region.span)
@@ -57,7 +53,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         self.mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: false)
     }
 
-    
     func fetechAllMyEvents(){
          var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
@@ -67,7 +62,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             self.events = objects as? Array
             for obj in objects {
-                println("\n[add anotaiotn ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
                 var event = obj as ParseEvent
                 self.addAnotation(event)
             }
@@ -79,8 +73,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         var geocoder:CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(event.fullAddress, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
-                println("geolocation Error", error)
-            }
+                println("geolocation Error", error)            }
             else {
                 if let placemark = placemarks?[0] as? CLPlacemark {
                     var placemark:CLPlacemark = placemarks[0] as CLPlacemark
@@ -95,7 +88,6 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             }
         })
     }
-
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is myAnnotation) {
             return nil
@@ -107,8 +99,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             view!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
         }
         return view
-    }
-    
+    }    
      func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         
         if control == view.rightCalloutAccessoryView {
