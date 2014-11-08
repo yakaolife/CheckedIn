@@ -100,7 +100,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     // We do that when user dismiss this controller, just to save some bandwith
     func showRSVPButton(){
          //for past event, no button to show here
-          if self.RSVPstate == nil {
+        if self.RSVPstate == nil {
             addToCalendarButton.enabled = false
             rsvpButton.enabled = false
             rsvpButton.alpha = 0
@@ -110,13 +110,19 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if((self.RSVPstate) == true ){
             rsvpButton.backgroundColor = cancelColor
             rsvpButton.tintColor = UIColor.blackColor()
-            if self.state != StateOfCheckedIn.Now {
+            
+            switch self.state {
+                
+            case StateOfCheckedIn.NA:
                 rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
                 addToCalendarButton.enabled = true
-            } else {
+            case StateOfCheckedIn.Now:
                 addToCalendarButton.enabled = false
                 rsvpButton.setTitle("Check In Now", forState: .Normal)
+            case StateOfCheckedIn.Done:
+                println("needs to handle this after checkedIn works")
             }
+            
          }else{
             rsvpButton.backgroundColor = RSVPColor
             rsvpButton.tintColor = UIColor.whiteColor()
@@ -176,7 +182,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }else{
             
             if(sectionKey[section] == "TimeInfo"){
-                return 4
+                return 3
             }else{
                 return 1
             }
