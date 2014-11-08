@@ -40,8 +40,14 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
 
         self.mapView.delegate = self
          //TODO: will filter events by segment control
+        
+    }
+    override func viewWillAppear(animated: Bool) {
+        
+        mapView.removeAnnotations(mapView.annotations)
+        self.annotations = nil
         fetechAllMyEvents()
-        //TODO: will open location request , now using apple headquarter
+        //TODO: will open location request , now using codepath class location
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
         
         let center = myLocation.coordinate
@@ -52,8 +58,8 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
     }
 
     
-    func fetechAllMyEvents(){        
-        var user = PFUser.currentUser()
+    func fetechAllMyEvents(){
+         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
         var query = relation.query()
         query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*12))
@@ -61,6 +67,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             self.events = objects as? Array
             for obj in objects {
+                println("\n[add anotaiotn ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
                 var event = obj as ParseEvent
                 self.addAnotation(event)
             }
