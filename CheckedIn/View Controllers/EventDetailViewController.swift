@@ -229,9 +229,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                  var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
                  cell.descriptionLabel.text = self.thisEvent.eventDetail
                 return cell
-             case 2:
-                var cell = tableView.dequeueReusableCellWithIdentifier("checkedIn") as EventCheckedInButtonCell
-                 return cell
+                
               default:
                 tableView.rowHeight = 380
                 var cell = tableView.dequeueReusableCellWithIdentifier("Map") as EventMapTableViewCell
