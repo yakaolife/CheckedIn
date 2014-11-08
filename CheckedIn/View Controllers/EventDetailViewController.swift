@@ -108,19 +108,27 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             return
         }
         if((self.RSVPstate) == true ){
-            rsvpButton.backgroundColor = cancelColor
-            rsvpButton.tintColor = UIColor.blackColor()
             
             switch self.state {
                 
             case StateOfCheckedIn.NA:
                 rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
                 addToCalendarButton.enabled = true
+                rsvpButton.backgroundColor = cancelColor
+                rsvpButton.tintColor = UIColor.blackColor()
             case StateOfCheckedIn.Now:
+                //TODO/betsy: Make an animated button for this
                 addToCalendarButton.enabled = false
                 rsvpButton.setTitle("Check In Now", forState: .Normal)
+                rsvpButton.backgroundColor = RSVPColor
+                rsvpButton.tintColor = UIColor.whiteColor()
             case StateOfCheckedIn.Done:
+                //TODO/betsy: Use special button for this
                 println("needs to handle this after checkedIn works")
+                addToCalendarButton.enabled = false
+                rsvpButton.setTitle("Checked in!", forState: .Normal)
+                rsvpButton.backgroundColor = RSVPColor
+                rsvpButton.tintColor = UIColor.whiteColor()
             }
             
          }else{
@@ -131,16 +139,28 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
          }
         
     }
-    
+
+    //TODO/betsy: Need to do the check in!
     @IBAction func updateRSVP(sender: AnyObject) {
         //first update UI
-        self.RSVPstate = !self.RSVPstate!
-        showRSVPButton()        
-        //since state changed for UI, here is oposite
-        if self.RSVPstate == false {
-            unRsvpEvent()            
-         } else {
-            rsvpEvent()
+        
+        //If we are checking in
+        if self.state == StateOfCheckedIn.Now {
+            checkInEvent()
+            
+        }else if self.state == StateOfCheckedIn.Done{
+            //already checked in, should disabled the button
+            //Do nothing
+        }else{
+        
+            self.RSVPstate = !self.RSVPstate!
+            showRSVPButton()
+            //since state changed for UI, here is oposite
+            if self.RSVPstate == false {
+                unRsvpEvent()
+            } else {
+                rsvpEvent()
+            }
         }
     }
 
@@ -154,6 +174,23 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 user.saveEventually()
             } else {
                 println("rsvp event error \(error)")
+            }
+        }
+    }
+    
+    func checkInEvent(){
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("checkedIn")
+        var events = ParseEvent.query() as PFQuery
+        events.getObjectInBackgroundWithId(self.eventObjectId ) { (object: PFObject!, error: NSError!) -> Void in
+            if object != nil {
+                relation.addObject(object)
+                println("checked in!")
+                self.state = StateOfCheckedIn.Done
+                self.showRSVPButton()
+                user.saveEventually()
+            } else {
+                println("check in event error \(error)")
             }
         }
     }
