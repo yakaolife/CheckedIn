@@ -40,7 +40,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
 
         self.mapView.delegate = self
          //TODO: will filter events by segment control
-        fetechAllEvents()
+        fetechAllMyEvents()
         //TODO: will open location request , now using apple headquarter
         let myLocation = CLLocation(latitude: 37.4201828357191,longitude: -122.2141283997882)
         
@@ -50,10 +50,15 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
         self.mapView.setRegion(region, animated: true )
         self.mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: false)
     }
+
     
-    func fetechAllEvents(){
-        var events = ParseEvent.query() as PFQuery
-        events.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+    func fetechAllMyEvents(){        
+        var user = PFUser.currentUser()
+        var relation = user.relationForKey("rsvped")
+        var query = relation.query()
+        query.whereKey("EventDate", greaterThanOrEqualTo: NSDate().dateByAddingTimeInterval  (-60*60*12))
+        query.orderByAscending("EventDate")
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             self.events = objects as? Array
             for obj in objects {
                 var event = obj as ParseEvent
@@ -61,6 +66,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             }
         }
     }
+   
     func addAnotation(event:ParseEvent) {
         var geoLocation:CLLocation?
         var geocoder:CLGeocoder = CLGeocoder()

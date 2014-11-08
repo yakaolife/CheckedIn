@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Group6. All rights reserved.
 //
 
-//Note: hiding first section header
-//  Using the rest as seperator
 import UIKit
 import EventKit
 
@@ -18,8 +16,6 @@ enum StateOfCheckedIn  {
 }
 
 class EventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
-    
-    
     @IBOutlet weak var addToCalendarButton: UIBarButtonItem!
     var eventIdAndRsvped:NSDictionary?
     var eventObjectId:String?
@@ -30,7 +26,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
     let cancelColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
     var imageNames = ["checkInButton01.png", "checkInButton02.png","checkInButton03.png", ]
-    
     @IBOutlet weak var rsvpButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var sectionKey = ["Header", "TimeInfo" ] //We can add more here
@@ -51,7 +46,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if let rsvpState = eventIdAndRsvped?.objectForKey("isRsvped") as Bool? {
                 self.RSVPstate = eventIdAndRsvped?.objectForKey("isRsvped") as Bool?
             }
- 
         }
          fetchTheEvent()
     }
@@ -65,7 +59,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             //already checked in
              if objects.count > 0 {
-                 self.state = StateOfCheckedIn.Done
+                self.state = StateOfCheckedIn.Done
                 self.showRSVPButton()
                 
             } else {
@@ -109,20 +103,17 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             return
         }
         if((self.RSVPstate) == true ){
-            
             switch self.state {
-                
             case StateOfCheckedIn.NA:
-                rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
+                 rsvpButton.setTitle("Cancel RSVP", forState: .Normal)
                 addToCalendarButton.enabled = true
                 rsvpButton.backgroundColor = cancelColor
                 rsvpButton.tintColor = UIColor.blackColor()
+
             case StateOfCheckedIn.Now:
-                //TODO/betsy: Make an animated button for this
+                 //TODO/betsy: Make an animated button for this
                 addToCalendarButton.enabled = false
-
                 println("Can check in now!")
-
                 var images = NSMutableArray()
                 for var index = 0; index < imageNames.count; index++ {
                     images.addObject(UIImage(named: imageNames[index])!)
@@ -138,8 +129,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
 
 
             case StateOfCheckedIn.Done:
-                addToCalendarButton.enabled = false
-
+                 addToCalendarButton.enabled = false
                 var animateButtonView = rsvpButton.viewWithTag(1)
                 if(animateButtonView != nil){
                     animateButtonView?.removeFromSuperview()
@@ -154,22 +144,11 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             rsvpButton.setTitle("RSVP", forState: .Normal)
             addToCalendarButton.enabled = false
          }
-        
     }
 
     //TODO/betsy: Need to do the check in!
     @IBAction func updateRSVP(sender: AnyObject) {
-        //first update UI
-        
-        //If we are checking in
-        if self.state == StateOfCheckedIn.Now {
-            checkInEvent()
-            
-        }else if self.state == StateOfCheckedIn.Done{
-            //already checked in, should disabled the button
-            //Do nothing
-        }else{
-        
+         if self.RSVPstate != true {
             self.RSVPstate = !self.RSVPstate!
             showRSVPButton()
             //since state changed for UI, here is oposite
@@ -177,6 +156,23 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 unRsvpEvent()
             } else {
                 rsvpEvent()
+            }
+     
+        } else {
+            switch self.state {
+            case StateOfCheckedIn.Now :
+                checkInEvent()
+            case StateOfCheckedIn.Done:
+                 UIAlertView(title: "checked In already", message: "You are already checked In", delegate: self, cancelButtonTitle: "OK").show()
+            case StateOfCheckedIn.NA:
+                self.RSVPstate = !self.RSVPstate!
+                showRSVPButton()
+                //since state changed for UI, here is oposite
+                if self.RSVPstate == false {
+                    unRsvpEvent()
+                } else {
+                    rsvpEvent()
+                }
             }
         }
     }
@@ -227,14 +223,12 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //MARK: tableview related data source or delegate
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Current behavior:
         //only "TimeInfo" section contains 2 rows, 1 is Time, 1 is Event info
         if thisEvent == nil {
                 return 0
         }else{
-            
             if(sectionKey[section] == "TimeInfo"){
                 return 3
             }else{
@@ -271,14 +265,13 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     blur.frame = cell.bgImage.frame
                     cell.bgImage.addSubview(blur)
                     cell.backgroundView = cell.bgImage
-//                    println("Getting new image!")
                 }
             })
             return cell
             
         }else {
             //Time
-             switch indexPath.row {	
+            switch indexPath.row {	
                 
             case 0:
                  var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
@@ -299,8 +292,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    @IBAction func onAddEvent(sender: AnyObject) {
-        
+    @IBAction func onAddEvent(sender: AnyObject) {        
         //show user alert first about the access premission
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)  {
@@ -347,8 +339,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         event.calendar = self.eventStore.defaultCalendarForNewEvents
         var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
         //println("add into calendar : \(result)")
-       
-    
 
     }
 
@@ -380,6 +370,3 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
 }
-
-
- 
