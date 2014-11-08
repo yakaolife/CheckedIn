@@ -65,6 +65,9 @@
 		D078FFB01A08804E002FECE5 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = D078FFAF1A08804E002FECE5 /* welcome.png */; };
 		D078FFB21A088155002FECE5 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D078FFB11A088155002FECE5 /* backButton.png */; };
 		D0C8E6CE1A0DF55D00A4542F /* profileBG.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C8E6CD1A0DF55D00A4542F /* profileBG.png */; };
+		D0C8E6D21A0DF8F100A4542F /* checkInButton01.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C8E6CF1A0DF8F100A4542F /* checkInButton01.png */; };
+		D0C8E6D31A0DF8F100A4542F /* checkInButton02.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C8E6D01A0DF8F100A4542F /* checkInButton02.png */; };
+		D0C8E6D41A0DF8F100A4542F /* checkInButton03.png in Resources */ = {isa = PBXBuildFile; fileRef = D0C8E6D11A0DF8F100A4542F /* checkInButton03.png */; };
 		D0F5236E19FD7E5700771856 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5236D19FD7E5700771856 /* LoginViewController.swift */; };
 		D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F5237B19FD936100771856 /* EventTableViewCell.xib */; };
 		D0F5237F19FDA91200771856 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5237E19FDA91200771856 /* CreateEventViewController.swift */; };
@@ -147,6 +150,9 @@
 		D078FFAF1A08804E002FECE5 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome.png; path = Images.xcassets/welcome.png; sourceTree = "<group>"; };
 		D078FFB11A088155002FECE5 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = Images.xcassets/backButton.png; sourceTree = "<group>"; };
 		D0C8E6CD1A0DF55D00A4542F /* profileBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profileBG.png; path = Images.xcassets/profileBG.png; sourceTree = "<group>"; };
+		D0C8E6CF1A0DF8F100A4542F /* checkInButton01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkInButton01.png; path = Images.xcassets/checkInButton01.png; sourceTree = "<group>"; };
+		D0C8E6D01A0DF8F100A4542F /* checkInButton02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkInButton02.png; path = Images.xcassets/checkInButton02.png; sourceTree = "<group>"; };
+		D0C8E6D11A0DF8F100A4542F /* checkInButton03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkInButton03.png; path = Images.xcassets/checkInButton03.png; sourceTree = "<group>"; };
 		D0F5236D19FD7E5700771856 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckedIn-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0F5237B19FD936100771856 /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventTableViewCell.xib; path = "View Controllers/EventTableViewCell.xib"; sourceTree = "<group>"; };
@@ -279,6 +285,9 @@
 		D041EDF319F82323005AF45C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				D0C8E6CF1A0DF8F100A4542F /* checkInButton01.png */,
+				D0C8E6D01A0DF8F100A4542F /* checkInButton02.png */,
+				D0C8E6D11A0DF8F100A4542F /* checkInButton03.png */,
 				D0C8E6CD1A0DF55D00A4542F /* profileBG.png */,
 				D05D6ED21A0D89DC00053874 /* checkedInButton.png */,
 				D05D6ED31A0D89DC00053874 /* checkInButton.png */,
@@ -431,6 +440,7 @@
 				D03DDB571A05EA0900252CEF /* RSVP.png in Resources */,
 				828C6F5219EA8076002FE979 /* Main.storyboard in Resources */,
 				D0763F3C1A073EB800FF15F6 /* logo07.png in Resources */,
+				D0C8E6D41A0DF8F100A4542F /* checkInButton03.png in Resources */,
 				D01C8E691A0ABD440029367F /* addEvent.png in Resources */,
 				D05D6ED51A0D89DC00053874 /* checkInButton.png in Resources */,
 				D074DB4E19FDF3B20038A3F2 /* TableHeader.xib in Resources */,
@@ -440,9 +450,11 @@
 				D038079919FE0CD80066575E /* Icon-120.png in Resources */,
 				D0661DE91A00A7450060B8D0 /* roundedDialog.png in Resources */,
 				D037FA3A19FCC37E002788EE /* Default@2x.png in Resources */,
+				D0C8E6D21A0DF8F100A4542F /* checkInButton01.png in Resources */,
 				D074DB5219FDF8160038A3F2 /* header.png in Resources */,
 				828C6F5419EA8076002FE979 /* Images.xcassets in Resources */,
 				D0763F391A073EB800FF15F6 /* logo04.png in Resources */,
+				D0C8E6D31A0DF8F100A4542F /* checkInButton02.png in Resources */,
 				D078FFB21A088155002FECE5 /* backButton.png in Resources */,
 				D0F5237D19FD936100771856 /* EventTableViewCell.xib in Resources */,
 				D0C8E6CE1A0DF55D00A4542F /* profileBG.png in Resources */,

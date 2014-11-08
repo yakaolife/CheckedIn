@@ -29,6 +29,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var state = StateOfCheckedIn.NA
     let RSVPColor = UIColor(red: 63/255, green: 195/255, blue: 168/255, alpha: 1)
     let cancelColor = UIColor(red: 255/255, green: 193/255, blue: 126/255, alpha: 1)
+    var imageNames = ["checkInButton01.png", "checkInButton02.png","checkInButton03.png", ]
     
     @IBOutlet weak var rsvpButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -119,18 +120,32 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case StateOfCheckedIn.Now:
                 //TODO/betsy: Make an animated button for this
                 addToCalendarButton.enabled = false
-                rsvpButton.setTitle("Check In Now", forState: .Normal)
-                rsvpButton.backgroundColor = RSVPColor
-                rsvpButton.tintColor = UIColor.whiteColor()
+
+                println("Can check in now!")
+
+                var images = NSMutableArray()
+                for var index = 0; index < imageNames.count; index++ {
+                    images.addObject(UIImage(named: imageNames[index])!)
+                }
+                
+                var animateButtonView = UIImageView(frame: rsvpButton.bounds)
+                animateButtonView.tag = 1
+                animateButtonView.animationImages = images
+                animateButtonView.animationDuration = 0.8
+                animateButtonView.animationRepeatCount = 0
+                animateButtonView.startAnimating()
+                rsvpButton.addSubview(animateButtonView)
+
+
             case StateOfCheckedIn.Done:
-                //TODO/betsy: Use special button for this
-                println("needs to handle this after checkedIn works")
                 addToCalendarButton.enabled = false
-                rsvpButton.setTitle("Checked in!", forState: .Normal)
-                rsvpButton.backgroundColor = RSVPColor
-                rsvpButton.tintColor = UIColor.whiteColor()
-                /*rsvpButton.backgroundColor = UIColor.clearColor()
-                rsvpButton.setImage(UIImage(named: "checkedInButton.png"), forState: .Normal)*/
+
+                var animateButtonView = rsvpButton.viewWithTag(1)
+                if(animateButtonView != nil){
+                    animateButtonView?.removeFromSuperview()
+                }
+                var newButtonView = UIImageView(image: UIImage(named: "checkedInButton.png"))
+                rsvpButton.addSubview(newButtonView)
             }
             
          }else{

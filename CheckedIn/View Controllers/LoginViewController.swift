@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
-    //var imageNames = ["iconAnime01.png", "iconAnime02.png", "iconAnime03.png","iconAnime04.png","iconAnime03.png","iconAnime02.png","iconAnime01.png"]
     var imageNames = ["logo01.png", "logo02.png", "logo03.png", "logo04.png", "logo05.png", "logo06.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png", "logo07.png"]
     
     override func viewDidLoad() {
