@@ -343,34 +343,58 @@
                                             <outlet property="welcomeTextLabel" destination="z96-P3-SZw" id="Lut-Vb-QAa"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Schedule" id="9LX-cV-imK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Description2" id="9LX-cV-imK" userLabel="description2" customClass="EventCheckedInDescriptionCell" customModule="CheckedIn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9LX-cV-imK" id="MXF-m1-NrS">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Schedule??" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnB-Br-mIe">
-                                                    <rect key="frame" x="23" y="8" width="139" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kp-nI-tHT">
+                                                    <rect key="frame" x="18" y="55" width="564" height="61"/>
+                                                    <string key="text">Beginner friendly iOS-Swift learning group! We will be meeting once a week and have labs and pair programming together. There will also be TAs!</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="5kp-nI-tHT" secondAttribute="centerX" id="eL1-iT-CuI"/>
+                                                <constraint firstAttribute="centerY" secondItem="5kp-nI-tHT" secondAttribute="centerY" id="gu0-eD-Wwd"/>
+                                                <constraint firstItem="5kp-nI-tHT" firstAttribute="leading" secondItem="MXF-m1-NrS" secondAttribute="leadingMargin" constant="10" id="pXQ-gi-Sec"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5kp-nI-tHT" secondAttribute="trailing" constant="10" id="pfO-20-D4w"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="5kp-nI-tHT" id="Yx3-FX-uY6"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Map" id="egH-N9-nKD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Schedule" id="egH-N9-nKD" userLabel="schedule" customClass="EventScheduleCell" customModule="CheckedIn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="egH-N9-nKD" id="g7M-4D-Dfe">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map Again? Can reuse TableViewCell xib" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0H-wi-a6e">
-                                                    <rect key="frame" x="36" y="8" width="313" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-og-X06">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="600" id="xcc-PI-81M"/>
+                                                    </constraints>
+                                                </webView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oxb-og-X06" firstAttribute="leading" secondItem="g7M-4D-Dfe" secondAttribute="leadingMargin" constant="20" id="JmE-1e-vov"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oxb-og-X06" secondAttribute="trailing" constant="20" id="S6r-mm-ZtI"/>
+                                                <constraint firstAttribute="centerX" secondItem="oxb-og-X06" secondAttribute="centerX" id="vWD-EA-25X"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="oxb-og-X06" id="Uzk-qK-Ks6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bottom" id="FdQ-3y-h8e" userLabel="bottom" customClass="myTableViewCell" customModule="CheckedIn" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FdQ-3y-h8e" id="Ht2-w1-9x8">
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -390,7 +414,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kmr-EM-HWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="2092"/>
+            <point key="canvasLocation" x="4592" y="1891"/>
+        </scene>
+        <!--Event Checked In Schedule View Controller-->
+        <scene sceneID="cpc-IJ-lCL">
+            <objects>
+                <viewController id="rXc-H3-eHa" customClass="EventCheckedInScheduleViewController" customModule="CheckedIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FlI-6q-CPT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aeM-JE-L5n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gBs-jh-zcf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Schedule" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-6M-2F8">
+                                <rect key="frame" x="245" y="74" width="110" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvc-mO-Mma">
+                                <rect key="frame" x="26" y="102" width="548" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="leading" secondItem="gBs-jh-zcf" secondAttribute="leadingMargin" constant="10" id="58u-Kg-aJ3"/>
+                            <constraint firstAttribute="centerX" secondItem="Xvc-mO-Mma" secondAttribute="centerX" id="5be-SB-0fY"/>
+                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="top" secondItem="nCn-6M-2F8" secondAttribute="bottom" constant="10" id="6et-Ov-W6y"/>
+                            <constraint firstAttribute="centerX" secondItem="nCn-6M-2F8" secondAttribute="centerX" id="G5D-pf-ePv"/>
+                            <constraint firstItem="aeM-JE-L5n" firstAttribute="top" secondItem="Xvc-mO-Mma" secondAttribute="bottom" constant="10" id="lLK-L5-Az5"/>
+                            <constraint firstItem="nCn-6M-2F8" firstAttribute="top" secondItem="FlI-6q-CPT" secondAttribute="bottom" constant="10" id="tKy-XC-SJH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="greetingLabel" destination="nCn-6M-2F8" id="aoK-Cp-8S4"/>
+                        <outlet property="webView" destination="Xvc-mO-Mma" id="gvj-TM-HGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUd-8V-Tmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4964" y="1215"/>
         </scene>
         <!--Map View View Controller-->
         <scene sceneID="D5O-Wu-9pa">
@@ -628,8 +694,11 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wyk-zJ-9Jc" id="Xmq-k1-bje">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-ZU-Yhp">
-                                                            <rect key="frame" x="8" y="8" width="584" height="2"/>
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-ZU-Yhp">
+                                                            <rect key="frame" x="8" y="8" width="584" height="380"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="380" id="ceW-YQ-2iq"/>
+                                                            </constraints>
                                                         </mapView>
                                                     </subviews>
                                                     <constraints>
@@ -704,6 +773,8 @@
                         <outlet property="addToCalendarButton" destination="MJS-Ef-1Ws" id="FqY-ye-8lT"/>
                         <outlet property="rsvpButton" destination="k3E-AO-CmJ" id="vyJ-7N-X3c"/>
                         <outlet property="tableView" destination="dan-TT-3Yg" id="mzz-Vm-kNx"/>
+                        <segue destination="FKD-SS-vzl" kind="show" identifier="toEventSchedule2" id="C17-rW-C8h"/>
+                        <segue destination="rXc-H3-eHa" kind="show" identifier="toEventSchedule" id="3fd-tU-UN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a8-XF-y5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
