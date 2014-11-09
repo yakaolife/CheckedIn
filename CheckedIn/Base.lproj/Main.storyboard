@@ -429,24 +429,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Schedule" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-6M-2F8">
-                                <rect key="frame" x="245" y="74" width="110" height="18"/>
+                                <rect key="frame" x="245.5" y="74" width="109.5" height="25"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvc-mO-Mma">
-                                <rect key="frame" x="26" y="102" width="548" height="488"/>
+                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="496" id="ACl-dw-4co"/>
+                                    <constraint firstAttribute="width" constant="600" id="Ww3-8j-7ZA"/>
+                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="leading" secondItem="gBs-jh-zcf" secondAttribute="leadingMargin" constant="10" id="58u-Kg-aJ3"/>
-                            <constraint firstAttribute="centerX" secondItem="Xvc-mO-Mma" secondAttribute="centerX" id="5be-SB-0fY"/>
-                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="top" secondItem="nCn-6M-2F8" secondAttribute="bottom" constant="10" id="6et-Ov-W6y"/>
+                            <constraint firstItem="aeM-JE-L5n" firstAttribute="top" secondItem="Xvc-mO-Mma" secondAttribute="bottom" id="05Q-dh-n0k"/>
+                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="top" secondItem="nCn-6M-2F8" secondAttribute="bottom" constant="5" id="64x-xu-XBw"/>
                             <constraint firstAttribute="centerX" secondItem="nCn-6M-2F8" secondAttribute="centerX" id="G5D-pf-ePv"/>
-                            <constraint firstItem="aeM-JE-L5n" firstAttribute="top" secondItem="Xvc-mO-Mma" secondAttribute="bottom" constant="10" id="lLK-L5-Az5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xvc-mO-Mma" secondAttribute="trailing" constant="-16" id="Q04-gB-MWq"/>
+                            <constraint firstItem="Xvc-mO-Mma" firstAttribute="leading" secondItem="gBs-jh-zcf" secondAttribute="leadingMargin" constant="-16" id="VoR-jm-xmK"/>
                             <constraint firstItem="nCn-6M-2F8" firstAttribute="top" secondItem="FlI-6q-CPT" secondAttribute="bottom" constant="10" id="tKy-XC-SJH"/>
+                            <constraint firstAttribute="centerX" secondItem="Xvc-mO-Mma" secondAttribute="centerX" id="tvB-y3-1PZ"/>
                         </constraints>
                     </view>
                     <connections>
