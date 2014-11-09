@@ -37,8 +37,9 @@ class EventCheckedInScheduleViewController: UIViewController {
                 self.thisEvent = event
                 self.greetingLabel.text = "Welcome to event: \(self.thisEvent.EventName!)"
                 
-                let urlString = "http://www.aaomp.org/annual-meeting/2014%20Schedule%20at%20a%20Glance.pdf"
-                let url = NSURL(string: urlString)
+                //let urlString = "http://www.aaomp.org/annual-meeting/2014%20Schedule%20at%20a%20Glance.pdf"
+                let urlString = event.eventURL
+                let url = NSURL(string: urlString!)
                 self.webView.loadRequest(NSURLRequest(URL: url!))
                 self.webView.scalesPageToFit = true
  

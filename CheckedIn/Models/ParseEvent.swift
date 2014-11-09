@@ -76,6 +76,10 @@ class ParseEvent: PFObject,PFSubclassing {
             return self.streetAddress! + "," + self.cityName! + "," + self.state! + " " + self.zipCode!
         }
     }
+    var eventURL:String? {
+        get {return objectForKey("eventURL") as String?}
+        set {setObject(newValue, forKey: "eventURL")}
+    }
     var dateToShow:String? {
         
         get {
