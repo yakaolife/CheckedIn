@@ -250,10 +250,10 @@
 			isa = PBXGroup;
 			children = (
 				8FCBCA431A01EAF700F4D640 /* MapViewViewController.swift */,
-				D006CCC819FB264400C067BB /* UserProfileViewController.swift */,
 				D037FA3119FCB918002788EE /* SignUpViewController.swift */,
 				D0F5236D19FD7E5700771856 /* LoginViewController.swift */,
 				D0F5237519FD846D00771856 /* CheckedIn-Bridging-Header.h */,
+				D006CCC819FB264400C067BB /* UserProfileViewController.swift */,
 				D0F5237E19FDA91200771856 /* CreateEventViewController.swift */,
 				D0F5238019FDA9FB00771856 /* EventDetailViewController.swift */,
 				D0F5238219FDAA0600771856 /* EventCheckedInViewController.swift */,
