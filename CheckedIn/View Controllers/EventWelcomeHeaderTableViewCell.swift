@@ -19,7 +19,7 @@ class EventWelcomeHeaderTableViewCell: UITableViewCell {
         self.frame.size.height = 180
         self.eventLogoImage.layer.cornerRadius = 5.0
         self.eventLogoImage.clipsToBounds = true
-
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

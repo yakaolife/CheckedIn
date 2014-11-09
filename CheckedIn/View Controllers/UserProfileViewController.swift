@@ -138,9 +138,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
             //load the profile view instead
             //println("Loading header ..  ")
             var cell = tableView.dequeueReusableCellWithIdentifier("Header") as HeaderTableViewCell
-            cell.usernameLabel.text = ParseUser.currentUser().username
+//            cell.usernameLabel.text = ParseUser.currentUser().memberDateToShow!
+            cell.usernameLabel.text = ParseUser.currentUser().screenName!
+
             cell.displaynameLabel.text = ParseUser.currentUser().screenName
-            cell.locationLabel.text = ParseUser.currentUser().zipcode
+            cell.locationLabel.text = "ZIP: " + ParseUser.currentUser().zipcode!
             
             cell.profileImage.image = nil
             let user  = PFUser.currentUser() as ParseUser

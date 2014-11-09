@@ -5,7 +5,6 @@
 //  Created by Ya Kao on 10/26/14.
 //  Copyright (c) 2014 Group6. All rights reserved.
 //
-
 import UIKit
 import EventKit
 
@@ -30,13 +29,32 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     var sectionKey = ["Header", "TimeInfo" ] //We can add more here
     
+    //MARK: view controll and outlet events
+    @IBAction func onAddEvent(sender: UIButton) {
+        //show user alert first about the access premission
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)  {
+        case EKAuthorizationStatus.Authorized:
+            println("authorized")
+            addEventToCalendar()
+        case EKAuthorizationStatus.Denied :
+            println("denied")
+            UIAlertView(title: "Change Setting Needed", message: "You have denied our calendar access, please update the configuration on your IOS device.", delegate: self, cancelButtonTitle: "OK").show()
+        case EKAuthorizationStatus.NotDetermined:
+            println("request access")
+            requestEventAccess()
+            
+        default:
+            return
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Detail"
          tableView.delegate = self
          tableView.dataSource = self
          tableView.rowHeight = UITableViewAutomaticDimension
-         tableView.estimatedRowHeight = 96
+         tableView.estimatedRowHeight = 50
         // Do any additional setup after loading the view.
         
         //if segue from profile view controller , otherwise, objectId should be set
@@ -50,6 +68,51 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
          fetchTheEvent()
     }
     
+     @IBAction func updateRSVP(sender: UIButton) {
+        if self.RSVPstate != true {
+            self.RSVPstate = !self.RSVPstate!
+            showRSVPButton()
+            //since state changed for UI, here is oposite
+            if self.RSVPstate == false {
+                unRsvpEvent()
+            } else {
+                rsvpEvent()
+            }
+            
+        } else {
+            switch self.state {
+            case StateOfCheckedIn.Now :
+                checkInEvent()
+                performSegueWithIdentifier("toEventSchedule", sender: self.eventObjectId)
+                
+             case StateOfCheckedIn.Done:
+                println("\n[ ]>>>>>> \(__FILE__.pathComponents.last!) >> \(__FUNCTION__) < \(__LINE__) >")
+                performSegueWithIdentifier("toEventSchedule", sender: self.eventObjectId)
+
+//                UIAlertView(title: "checked In already", message: "You are already checked In", delegate: self, cancelButtonTitle: "OK").show()
+            case StateOfCheckedIn.NA:
+                self.RSVPstate = !self.RSVPstate!
+                showRSVPButton()
+                //since state changed for UI, here is oposite
+                if self.RSVPstate == false {
+                    unRsvpEvent()
+                } else {
+                    rsvpEvent()
+                }
+            }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toEventSchedule" {
+            
+            let vc = segue.destinationViewController as EventCheckedInScheduleViewController
+            vc.eventObjectId = self.eventObjectId
+            
+        } else {
+            
+        }
+    }
     //MARK: parse methods
     func CheckedInState()  {
         var user = PFUser.currentUser()
@@ -146,37 +209,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
          }
     }
 
-    //TODO/betsy: Need to do the check in!
-    @IBAction func updateRSVP(sender: AnyObject) {
-         if self.RSVPstate != true {
-            self.RSVPstate = !self.RSVPstate!
-            showRSVPButton()
-            //since state changed for UI, here is oposite
-            if self.RSVPstate == false {
-                unRsvpEvent()
-            } else {
-                rsvpEvent()
-            }
-     
-        } else {
-            switch self.state {
-            case StateOfCheckedIn.Now :
-                checkInEvent()
-            case StateOfCheckedIn.Done:
-                 UIAlertView(title: "checked In already", message: "You are already checked In", delegate: self, cancelButtonTitle: "OK").show()
-            case StateOfCheckedIn.NA:
-                self.RSVPstate = !self.RSVPstate!
-                showRSVPButton()
-                //since state changed for UI, here is oposite
-                if self.RSVPstate == false {
-                    unRsvpEvent()
-                } else {
-                    rsvpEvent()
-                }
-            }
-        }
-    }
-
+    
     func unRsvpEvent() {
         var user = PFUser.currentUser()
         var relation = user.relationForKey("rsvped")
@@ -237,6 +270,10 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
           //  println("First header section height is set to 0")
@@ -267,7 +304,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                     cell.backgroundView = cell.bgImage
                 }
             })
-            return cell
+             return cell
             
         }else {
             //Time
@@ -276,7 +313,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case 0:
                  var cell = tableView.dequeueReusableCellWithIdentifier("Time") as EventTimeTableViewCell
                 cell.timeLabel.text = "\(self.thisEvent.dateToShow!)"
-                return cell
+                 return cell
                 
             case 1:
                  var cell = tableView.dequeueReusableCellWithIdentifier("Description") as EventDescriptionTableViewCell
@@ -284,7 +321,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 return cell
                 
               default:
-                tableView.rowHeight = 380
+               // tableView.rowHeight = 380
                 var cell = tableView.dequeueReusableCellWithIdentifier("Map") as EventMapTableViewCell
                 cell.addAnotation(self.thisEvent!)
                 return cell
@@ -292,46 +329,28 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    @IBAction func onAddEvent(sender: AnyObject) {        
-        //show user alert first about the access premission
-        
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent)  {
-            case EKAuthorizationStatus.Authorized:
-                println("authorized")
-                addEventToCalendar()
-            case EKAuthorizationStatus.Denied :
-                println("denied")
-                UIAlertView(title: "Change Setting Needed", message: "You have denied our calendar access, please update the configuration on your IOS device.", delegate: self, cancelButtonTitle: "OK").show()
-            case EKAuthorizationStatus.NotDetermined:
-                println("request access")
-                requestEventAccess()
-            
-            default:
-                return
-        }
-    }
+
     
-    //MARK : calendar related   
+    //MARK: calendar related
     func addEventToCalendar(){
-        //Add code to save event
+         //Add code to save event
         //currently we use such time windows for event past and current guideline
-        var startDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(-60*60*12)
-        var endDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(60*60*24*12)
+        var startDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(-60*60*3)
+        var endDate = self.thisEvent.eventDate?.dateByAddingTimeInterval(60*60*24*3)
         var predicate = self.eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
         var eV = self.eventStore.eventsMatchingPredicate(predicate) as [EKEvent]!
+       
         if eV != nil{
             for i in eV{
-               // println("Event Title:\(i.title)")
                 if i.title == self.thisEvent.EventName{
-                   // println("Already have the event!")
-                    UIAlertView(title: "Duplicate events found", message: "You already have a same event on your calendar. ", delegate: self, cancelButtonTitle: "Ok").show()
+                     UIAlertView(title: "Duplicate events found", message: "You already have a same event on your calendar. ", delegate: self, cancelButtonTitle: "Ok").show()
                     return
                 }
             }
             
         }
-         UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.eventDate!). ", delegate: self, cancelButtonTitle: "OK").show()
-        var event = EKEvent(eventStore: self.eventStore)
+         UIAlertView(title: "Calendar Item added", message: "Your event is added into your calendar on \(self.thisEvent.dateToShow!). ", delegate: self, cancelButtonTitle: "OK").show()
+         var event = EKEvent(eventStore: self.eventStore)
         event.title = self.thisEvent.EventName
         event.startDate = self.thisEvent.eventDate
         event.endDate = self.thisEvent.eventDate
@@ -339,16 +358,13 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         event.calendar = self.eventStore.defaultCalendarForNewEvents
         var result = self.eventStore.saveEvent(event, span: EKSpanThisEvent, error: nil)
         //println("add into calendar : \(result)")
-
     }
-
     func requestEventAccess()  {
         
         let alert = UIAlertController(title: "Add this event to calendar?", message: "In order to add this event to your calendar, we may need your permission", preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addAction(UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
+            alert.addAction(UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
             println("Cancel the add event action, do nothing")
-       
         }))
         
         alert.addAction(UIAlertAction(title:"Add", style: UIAlertActionStyle.Default, handler:{(alert: UIAlertAction!)-> Void in
@@ -356,9 +372,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             self.eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {
                 granted, error in
                 if(granted) && (error == nil){
-                    
                     println("Access to Calendar/Reminder granted")
-                 
                     self.addEventToCalendar()
                     
                 } else {

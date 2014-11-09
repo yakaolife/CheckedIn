@@ -99,7 +99,7 @@ class MapViewViewController: UIViewController , MKMapViewDelegate {
             view!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as UIView
         }
         return view
-    }    
+    }
      func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         
         if control == view.rightCalloutAccessoryView {

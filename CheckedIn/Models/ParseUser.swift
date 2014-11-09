@@ -32,5 +32,15 @@ class ParseUser:  PFUser,PFSubclassing {
         get {return objectForKey("userImage") as? PFFile}
         set {setObject(newValue, forKey: "userImage")}
     }
+    var memberDateToShow:String? {
+        
+        get {
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "'Joined:' MMM dd, yyyy"
+            return formatter.stringFromDate(self.createdAt!)
+            
+        }
+        
+    }
 }
 

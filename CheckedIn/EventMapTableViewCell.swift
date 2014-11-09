@@ -18,6 +18,7 @@ class EventMapTableViewCell: UITableViewCell,MKMapViewDelegate , UIAlertViewDele
     override func awakeFromNib() {
         super.awakeFromNib()
         self.mapView.delegate = self
+        self.mapView.frame.size.height = 380
         // Initialization code
     }
 
