@@ -28,6 +28,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var rsvpButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var sectionKey = ["Header", "TimeInfo" ] //We can add more here
+    @IBOutlet weak var buttonUIVIew: UIView!
     
     //MARK: view controll and outlet events
     @IBAction func onAddEvent(sender: UIButton) {
@@ -162,6 +163,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             addToCalendarButton.enabled = false
             rsvpButton.enabled = false
             rsvpButton.alpha = 0
+            buttonUIVIew.alpha = 0
             rsvpButton.backgroundColor = cancelColor
             return
         }

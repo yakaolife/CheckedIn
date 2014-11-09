@@ -772,6 +772,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addToCalendarButton" destination="MJS-Ef-1Ws" id="FqY-ye-8lT"/>
+                        <outlet property="buttonUIVIew" destination="RLJ-eG-Zgb" id="g0w-vN-FxD"/>
                         <outlet property="rsvpButton" destination="k3E-AO-CmJ" id="vyJ-7N-X3c"/>
                         <outlet property="tableView" destination="dan-TT-3Yg" id="mzz-Vm-kNx"/>
                         <segue destination="FKD-SS-vzl" kind="show" identifier="toEventSchedule2" id="C17-rW-C8h"/>

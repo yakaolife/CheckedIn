@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CheckedIn/View Controllers/EventDetailViewController.swift"
-            timestampString = "437125894.169202"
+            timestampString = "437256740.928801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "checkInEvent()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
