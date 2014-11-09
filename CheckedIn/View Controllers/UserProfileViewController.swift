@@ -14,6 +14,7 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
     var selectedEventObjectId:String!
     weak var segmentControl:UISegmentedControl?
     @IBOutlet weak var tableView: UITableView!
+    var iBeaconNotification = false
     
     //MARK: UI related
     override func viewDidLoad() {
@@ -23,6 +24,11 @@ class UserProfileViewController: UIViewController,UITableViewDelegate, UITableVi
         tableView.dataSource = self
         tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: "EventCell")
         tableView.registerNib(UINib(nibName: "TableHeader", bundle: nil), forCellReuseIdentifier: "Header")
+        
+        if iBeaconNotification == true {
+            var  eventIdAndRsvped = [ "objectId": "9qEZKFgIlM", "isRsvped" : true ]
+            self.performSegueWithIdentifier("ShowDetailSegue", sender: eventIdAndRsvped)
+        }
         
         self.title = "Home"
         

@@ -130,7 +130,19 @@ extension AppDelegate: CLLocationManagerDelegate {
             manager.startUpdatingLocation()
             
             NSLog("You entered the region")
-            sendLocalNotificationWithMessage("Welcome to the event!")
+            sendLocalNotificationWithMessage("Welcome to CodePath Demo Day!")
+            
+            if PFUser.currentUser() != nil  {
+                println ("iBeaconNotification current user logged in as \(PFUser.currentUser().username!)")
+                
+                var nvc = storyboard.instantiateViewControllerWithIdentifier("UserProfileNavigation") as UINavigationController
+                
+                window?.rootViewController = nvc
+                
+                var vc = nvc.childViewControllers[0] as UserProfileViewController
+                vc.iBeaconNotification = true
+                
+            }
     }
     
     func locationManager(manager: CLLocationManager!,
