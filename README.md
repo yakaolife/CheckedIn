@@ -13,3 +13,4 @@ This event app let user browses, RSVP and on-location checks in using iBeacon te
  * [x] User can view each event's time, description and maps. User can link from map to apple map for direction
  * [x] User can also add an RSVPed event into iPhone's native calendar. 
  * [x] User can get notification when user's phone approach a registered iBeacon at the event. Once clicks on the notification, the app will be open with the event for user to check in.
+![Video Walkthrough](http://i.imgur.com/NN4NRgx.gif)
